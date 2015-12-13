@@ -1,0 +1,3 @@
+#ifndef	_PLATFORM_FAT_CONFIG_H__
+#define _PLATFORM_FAT_CONFIG_H__
+
