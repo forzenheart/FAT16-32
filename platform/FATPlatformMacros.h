@@ -1,0 +1,6 @@
+#ifndef _FAT_PLARFROM_MARCO_H_
+#define	_FAT_PLARFROM_MARCO_H_ 
+
+
+
+#endif //_FAT_PLARFROM_MARCO_H_
