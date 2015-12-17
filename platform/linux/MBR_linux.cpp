@@ -1,9 +1,9 @@
 #include <cstdio>
+#include <cstdlib>
 #include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <fcntl.h>
 
+//the probably path of physical driver;
 //  /dev/mapper/vg_forzenheart-lv_root
 //  /dev/sda1
 // /dev/mapper/vg_forzenheart-lv_home
@@ -11,7 +11,7 @@
 // scsi-SATA_ST1000DM003-1ER_W4Y5TGGF-part1
 // /dev/disk/by-id
 
-void print_now_off_set(int files)
+static void print_now_off_set(int files)
 {
 	off_t	currpos;
 	currpos = lseek(files, 0, SEEK_CUR);
