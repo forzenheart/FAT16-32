@@ -78,7 +78,19 @@ void __cdecl _tmain(int argc,  TCHAR *argv[])
 		ReadBuffer[dwBytesRead]='\0'; // NULL character
 
 		_tprintf(TEXT("Data read from %s (%d bytes): \n"),  wszDrive,  dwBytesRead);
-		printf("%s\n",  ReadBuffer);
+		//printf("%s\n",  ReadBuffer);
+		for (int i = 0; i < 32; i++)
+		{
+			//Change the print format of decimal or hex
+			//printf("%.11d : ",i * 16);
+			printf("%011X : ",i * 16);
+			for (int j = 0; j < 16; j++)
+			{
+				printf("%02X ", ReadBuffer[i * 16 + j]);
+			}
+			printf("\n");
+		}
+
 	}
 	else if (dwBytesRead == 0)
 	{
