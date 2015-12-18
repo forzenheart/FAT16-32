@@ -34,13 +34,10 @@ VOID CALLBACK FileIOCompletionRoutine(
 
 void __cdecl _tmain(int argc,  TCHAR *argv[])
 {
-
-	HANDLE hFile; 
+	HANDLE hFile = INVALID_HANDLE_VALUE; 
 	DWORD  dwBytesRead = 0;
-	char   ReadBuffer[BUFFERSIZE] = {
-		0};
-	OVERLAPPED ol = {
-		0};
+	char   ReadBuffer[BUFFERSIZE] = {0};
+	OVERLAPPED ol = {0};
 	hFile = CreateFileW(wszDrive,            // file to open
 			GENERIC_READ,           // open for reading
 			FILE_SHARE_READ |
@@ -52,7 +49,6 @@ void __cdecl _tmain(int argc,  TCHAR *argv[])
 
 	if (hFile == INVALID_HANDLE_VALUE) 
 	{
-
 		DisplayError(TEXT("CreateFile"));
 		_tprintf(TEXT("Terminal failure: unable to open file \"%s\" for read.\n"),  wszDrive);
 		return; 
@@ -61,7 +57,7 @@ void __cdecl _tmain(int argc,  TCHAR *argv[])
 	// Read one character less than the buffer size to save room for
 	// the terminating NULL character. 
 
-	if( FALSE == ReadFileEx(hFile,  ReadBuffer,  BUFFERSIZE-1,  &ol,  FileIOCompletionRoutine) )
+	if(FALSE == ReadFile(hFile,  ReadBuffer,  BUFFERSIZE,  &dwBytesRead,  NULL))
 	{
 
 		DisplayError(TEXT("ReadFile"));
@@ -69,16 +65,13 @@ void __cdecl _tmain(int argc,  TCHAR *argv[])
 		CloseHandle(hFile);
 		return;
 	}
-	SleepEx(5000,  TRUE);
+	SleepEx(1000,  TRUE);
 	dwBytesRead = g_BytesTransferred;
 	// This is the section of code that assumes the file is ANSI text. 
 	// Modify this block for other data types if needed.
 
 	if (dwBytesRead > 0 && dwBytesRead <= BUFFERSIZE-1)
 	{
-		ReadBuffer[dwBytesRead]='\0'; // NULL character
-
-		_tprintf(TEXT("Data read from %s (%d bytes): \n"),  wszDrive,  dwBytesRead);
 		//printf("%s\n",  ReadBuffer);
 		for (int i = 0; i < 32; i++)
 		{
@@ -91,7 +84,6 @@ void __cdecl _tmain(int argc,  TCHAR *argv[])
 			}
 			printf("\n");
 		}
-
 	}
 	else if (dwBytesRead == 0)
 	{
@@ -104,7 +96,6 @@ void __cdecl _tmain(int argc,  TCHAR *argv[])
 
 	// It is always good practice to close the open file handles even though
 	// the app will exit here and clean up open handles anyway.
-
 	CloseHandle(hFile);
 }
 
