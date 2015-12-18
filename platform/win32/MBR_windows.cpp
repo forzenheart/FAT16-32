@@ -41,12 +41,13 @@ void __cdecl _tmain(int argc,  TCHAR *argv[])
 		0};
 	OVERLAPPED ol = {
 		0};
-	hFile = CreateFile(wszDrive,            // file to open
+	hFile = CreateFileW(wszDrive,            // file to open
 			GENERIC_READ,           // open for reading
-			FILE_SHARE_READ,        // share for reading
+			FILE_SHARE_READ |
+			FILE_SHARE_WRITE,	// share for reading
 			NULL,                   // default security
 			OPEN_EXISTING,          // existing file only
-			FILE_ATTRIBUTE_NORMAL | FILE_FLAG_OVERLAPPED,  // normal file
+			0,  // normal file
 			NULL);                 // no attr. template
 
 	if (hFile == INVALID_HANDLE_VALUE) 
