@@ -37,7 +37,7 @@ void __cdecl _tmain(int argc,  TCHAR *argv[])
 	HANDLE hFile = INVALID_HANDLE_VALUE; 
 	DWORD  dwBytesRead = 0;
 	char   ReadBuffer[BUFFERSIZE] = {0};
-	OVERLAPPED ol = {0};
+	LONG	lDistance = 0;
 	hFile = CreateFileW(wszDrive,            // file to open
 			GENERIC_READ,           // open for reading
 			FILE_SHARE_READ |
@@ -56,6 +56,10 @@ void __cdecl _tmain(int argc,  TCHAR *argv[])
 
 	// Read one character less than the buffer size to save room for
 	// the terminating NULL character. 
+	DWORD dwPtr = SetFilePointer( hFile,  
+			lDistance,  
+			NULL,  //当需要大幅度跨越的时候，这里需要参数
+			FILE_BEGIN );
 
 	if(FALSE == ReadFile(hFile,  ReadBuffer,  BUFFERSIZE,  &dwBytesRead,  NULL))
 	{
@@ -66,7 +70,6 @@ void __cdecl _tmain(int argc,  TCHAR *argv[])
 		return;
 	}
 	SleepEx(1000,  TRUE);
-	dwBytesRead = g_BytesTransferred;
 	// This is the section of code that assumes the file is ANSI text. 
 	// Modify this block for other data types if needed.
 

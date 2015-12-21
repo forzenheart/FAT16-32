@@ -22,6 +22,8 @@ main(void)
 {
 	int	n;
 	int	DiskFd;
+	int	sectorNo = 0;
+	int	sectorSize = 512;
 
 	//In Linux, number 4096 keep file system read or write run at peak efficicency
 	unsigned char	DiskBuf[4096];
@@ -30,6 +32,11 @@ main(void)
 		fprintf(stderr, "open error.This programma"
 				"needs to be run from root! Make sure about that.\n");
 	else {
+		print_now_off_set(DiskFd);
+		if (lseek(DiskFd, sectorNo * sectorSize, SEEK_SET) == -1)
+		{
+			fprintf(stderr, "lseek error");
+		}
 		print_now_off_set(DiskFd);
 		if ((n = read(DiskFd, DiskBuf, sizeof(DiskBuf))) < 0) 
 			fprintf(stderr, "read error\n");

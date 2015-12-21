@@ -1,5 +1,5 @@
-#ifndef	_PLATFORM_FAT_CONFIG_H__
-#define _PLATFORM_FAT_CONFIG_H__
+#ifndef	__PLATFORM_FAT_CONFIG_H__
+#define __PLATFORM_FAT_CONFIG_H__
 
 /*
  *FAT支持的系统
@@ -12,8 +12,8 @@
 #define	FAT_PLARFROM_WIN32	2
 #define	FAT_PLARFROM_WEB	3
 
-//通过环境宏定义目标平台
-#define	FAT_TARGET_PLATFROM	FAT_PLARFROM_UNKNOWN
+//通过环境宏定义目标平台 先定义为linux
+#define	FAT_TARGET_PLATFROM	FAT_PLARFROM_LINUX
 
 //linux
 #if defined(LINUX) && !defined(__APPLE__)
@@ -39,10 +39,10 @@
 #endif
 
 //若用户是win32平台看是否包含mingw
-#if (FAT_TARGET_PLATFROM == FAT_PLARFROM_WIN32)
-#ifndef	__MINGW32__
-#pragma	waring	(disable:4127)
-#endif
-#endif//检查是否包含minGW32
+//#if (FAT_TARGET_PLATFROM == FAT_PLARFROM_WIN32)
+//#ifndef	__MINGW32__
+//#pragma	waring	(disable:4127)
+//#endif
+//#endif//检查是否包含minGW32
 
-#endif	//_PLATFORM_FAT_CONFIG_H__
+#endif	//__PLATFORM_FAT_CONFIG_H__

@@ -1,0 +1,11 @@
+Objects = fat.o error.o
+CPP = g++ 
+fat : $(Objects)
+	$(CPP) -o fat $(Objects)
+
+fat.o : error.h FATPlatformConfig.h FATStdC.h \
+	FATPlatformDefine.h FATPlatformMacros.h \
+	FATBasicDataDefine.h
+.PHONY : clean
+clean :
+	-rm fat $(Objects)

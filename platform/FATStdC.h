@@ -11,6 +11,6 @@
 #include "../platform/win32/FATStdCWin32.h"
 #elif	FAT_TARGET_PLATFROM == FAT_PLARFROM_WEB
 #include "../platform/web/FATStdCWeb.h"
-#endif
+#endif //平台标准c语言库相关头文件
 
 #endif	//_PLATFORM_FATSTDC_H__

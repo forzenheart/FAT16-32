@@ -1,0 +1,76 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BPB_BkBootSec	base/FATBasicDataDefine.h	107;"	d
+BPB_BytsPerClus	base/FATBasicDataDefine.h	33;"	d
+BPB_BytsPerSec	base/FATBasicDataDefine.h	31;"	d
+BPB_ExtFlags	base/FATBasicDataDefine.h	95;"	d
+BPB_FATSz16	base/FATBasicDataDefine.h	51;"	d
+BPB_FATSz32	base/FATBasicDataDefine.h	93;"	d
+BPB_FSInfo	base/FATBasicDataDefine.h	106;"	d
+BPB_FSVer	base/FATBasicDataDefine.h	104;"	d
+BPB_HiddSec	base/FATBasicDataDefine.h	57;"	d
+BPB_Media	base/FATBasicDataDefine.h	49;"	d
+BPB_NumFATs	base/FATBasicDataDefine.h	40;"	d
+BPB_NumHeads	base/FATBasicDataDefine.h	55;"	d
+BPB_Reserved	base/FATBasicDataDefine.h	109;"	d
+BPB_RootClus	base/FATBasicDataDefine.h	105;"	d
+BPB_RootEntCnt	base/FATBasicDataDefine.h	42;"	d
+BPB_RootEntCnt	calculation.h	/^因为FAT32的BPB_RootEntCnt为0, 所以对于FAT32卷RootDirSectors的值也一定是0;32是$/;"	v
+BPB_RsvdSecCnt	base/FATBasicDataDefine.h	37;"	d
+BPB_SecPerTrk	base/FATBasicDataDefine.h	53;"	d
+BPB_TotSec16	base/FATBasicDataDefine.h	47;"	d
+BPB_TotSec32	base/FATBasicDataDefine.h	59;"	d
+BS_BootSig	base/FATBasicDataDefine.h	114;"	d
+BS_BootSig	base/FATBasicDataDefine.h	78;"	d
+BS_DrvNum	base/FATBasicDataDefine.h	110;"	d
+BS_FilSysType	base/FATBasicDataDefine.h	118;"	d
+BS_FilSysType	base/FATBasicDataDefine.h	120;"	d
+BS_FileSysType	base/FATBasicDataDefine.h	85;"	d
+BS_OEMName	base/FATBasicDataDefine.h	25;"	d
+BS_Reserved1	base/FATBasicDataDefine.h	112;"	d
+BS_Reserved1	base/FATBasicDataDefine.h	76;"	d
+BS_VolID	base/FATBasicDataDefine.h	116;"	d
+BS_VolID	base/FATBasicDataDefine.h	80;"	d
+BS_VolLab	base/FATBasicDataDefine.h	83;"	d
+BS_drvNum	base/FATBasicDataDefine.h	74;"	d
+BS_jmpBoot	base/FATBasicDataDefine.h	23;"	d
+BUFFERSIZE	platform/win32/MBR_windows.cpp	6;"	d	file:
+CPP	platform/linux/makefile	/^CPP = g++$/;"	m
+DisplayError	platform/win32/MBR_windows.cpp	/^void DisplayError(LPTSTR lpszFunction) $/;"	f
+FAT_PLARFROM_LINUX	platform/FATPlatformConfig.h	11;"	d
+FAT_PLARFROM_UNKNOWN	platform/FATPlatformConfig.h	10;"	d
+FAT_PLARFROM_WEB	platform/FATPlatformConfig.h	13;"	d
+FAT_PLARFROM_WIN32	platform/FATPlatformConfig.h	12;"	d
+FAT_TARGET_PLATFROM	platform/FATPlatformConfig.h	16;"	d
+FAT_TARGET_PLATFROM	platform/FATPlatformConfig.h	20;"	d
+FAT_TARGET_PLATFROM	platform/FATPlatformConfig.h	21;"	d
+FAT_TARGET_PLATFROM	platform/FATPlatformConfig.h	26;"	d
+FAT_TARGET_PLATFROM	platform/FATPlatformConfig.h	27;"	d
+FAT_TARGET_PLATFROM	platform/FATPlatformConfig.h	32;"	d
+FAT_TARGET_PLATFROM	platform/FATPlatformConfig.h	33;"	d
+FileIOCompletionRoutine	platform/win32/MBR_windows.cpp	/^VOID CALLBACK FileIOCompletionRoutine($/;"	f
+MAX	platform/linux/FATStdCLinux.h	24;"	d
+MIN	platform/linux/FATStdCLinux.h	20;"	d
+NULL	platform/linux/FATPlatformDefineLinux.h	14;"	d
+NULL	platform/linux/FATPlatformDefineLinux.h	16;"	d
+Objects	platform/linux/makefile	/^Objects = MBR_linux.o$/;"	m
+RootDirSectors	calculation.h	/^因为FAT32的BPB_RootEntCnt为0, 所以对于FAT32卷RootDirSectors的值也一定是0;32是$/;"	v
+_FATBASCIDATADEFINE_H	base/FATBasicDataDefine.h	2;"	d
+_FAT_H_	fat.h	2;"	d
+_FAT_PLARFROM_MARCO_H_	platform/FATPlatformMacros.h	2;"	d
+_FAT_STD_C_H__	platform/linux/FATStdCLinux.h	2;"	d
+_PLATFORM_FATPLATFORMDEFINE_H__	platform/FATPlatformDefine.h	2;"	d
+_PLATFORM_FATSTDC_H__	platform/FATStdC.h	2;"	d
+_PLATFORM_FAT_CONFIG_H__	platform/FATPlatformConfig.h	2;"	d
+__FATPLATFORMDEFINE_H__	platform/linux/FATPlatformDefineLinux.h	2;"	d
+_tmain	platform/win32/MBR_windows.cpp	/^void __cdecl _tmain(int argc,  TCHAR *argv[])$/;"	f
+g_BytesTransferred	platform/win32/MBR_windows.cpp	/^DWORD g_BytesTransferred = 0;$/;"	v
+main	fat.cpp	/^main(void)$/;"	f
+main	platform/linux/MBR_linux.cpp	/^main(void)$/;"	f
+print_now_off_set	platform/linux/MBR_linux.cpp	/^static void print_now_off_set(int files)$/;"	f	file:
+wszDrive	platform/win32/MBR_windows.cpp	7;"	d	file:
+wszDrive	platform/win32/path.cpp	1;"	d	file:
