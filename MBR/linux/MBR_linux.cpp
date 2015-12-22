@@ -52,14 +52,10 @@ void printSectorContent(const unsigned char *src, int size)
 		printf("\n");
 	}
 
-	for (int i = 0; i < 4; i++)
-		printf("%02x",src[446 + 8 + 4 - i]);
-	printf("\n");
-	for (int i = 0; i < 4; i++)
-		printf("%02x",src[446 + 8 + 4 + i]);
-	printf("\n");
 	int *ptr = (int*)&src[446 + 12];
-	int secsize = *ptr;
-	printf("%08x\n", secsize);
-	printf("%d\n", secsize);
+	int secTolsize = *ptr;
+	printf("total sectors : %d\n", secTolsize);
+	ptr = (int*)&src[446 + 8];
+	int secUsedsize = *ptr;
+	printf("Used sectors : %d\n", secUsedsize);
 }
