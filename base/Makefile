@@ -7,5 +7,5 @@ FATBasicData.o :
 
 .PHONY : clean
 clean:
-	-rm Objects FATBasicData.o
+	-rm $(Objects)
 
