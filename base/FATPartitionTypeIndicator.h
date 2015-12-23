@@ -3,7 +3,7 @@
 //Partition type indicator
 //常见分区格式
 
-const char **typeName = {
+const char *FATPartTypeName[] = {
 	"FAT12",		//01H
 	"XENIX root",		//02H
 	"XENIX usr",		//03H
