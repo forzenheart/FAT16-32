@@ -2,9 +2,10 @@
 #define	__FAT_BASCI_DATA_DEFINE_H__
 
 //#include "../platform/FATStdC.h"
-#include "FATMBRDataDefine.h"
-#include "FATDRBDataDefine.h"
-#include "FATFileDataDefine.h"
+//#include "FATPartitionTypeIndicator.h"	//分区格式标志
+#include "FATMBRDataDefine.h"		//MBR基本偏移量定义
+#include "FATDBRDataDefine.h"		//DBR基本偏移量定义
+#include "FATFileDataDefine.h"		//FAT基本偏移量定义
 
 /*
  *fat文件系统基本数据结构的定义
