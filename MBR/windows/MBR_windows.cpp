@@ -5,9 +5,11 @@
 
 #define BUFFERSIZE 512
 #define wszDrive L"\\\\.\\PhysicalDrive0"
-DWORD g_BytesTransferred = 0;
+DWORD	g_BytesTransferred = 0;
+DWORD	g_iPartitionNum = 0;
 
-void DisplayError(LPTSTR lpszFunction);
+void	DisplayError(LPTSTR lpszFunction);
+void	ReadEBR(HANDLE hfile, __int64 offset);
 
 VOID CALLBACK FileIOCompletionRoutine(
 		__in  DWORD dwErrorCode, 
@@ -38,6 +40,7 @@ void __cdecl _tmain(int argc,  TCHAR *argv[])
 	DWORD  dwBytesRead = 0;
 	char   ReadBuffer[BUFFERSIZE] = {0};
 	LONG	lDistance = 0;
+
 	hFile = CreateFileW(wszDrive,            // file to open
 			GENERIC_READ,           // open for reading
 			FILE_SHARE_READ |
@@ -56,10 +59,10 @@ void __cdecl _tmain(int argc,  TCHAR *argv[])
 
 	// Read one character less than the buffer size to save room for
 	// the terminating NULL character. 
-	DWORD dwPtr = SetFilePointer( hFile,  
-			lDistance,  
-			NULL,  //当需要大幅度跨越的时候，这里需要参数
-			FILE_BEGIN );
+	//DWORD dwPtr = SetFilePointer( hFile,  
+	//lDistance,  
+	//NULL,  //当需要大幅度跨越的时候，这里需要参数
+	//FILE_BEGIN );
 
 	if(FALSE == ReadFile(hFile,  ReadBuffer,  BUFFERSIZE,  &dwBytesRead,  NULL))
 	{
@@ -75,17 +78,41 @@ void __cdecl _tmain(int argc,  TCHAR *argv[])
 
 	if (dwBytesRead > 0 && dwBytesRead <= BUFFERSIZE-1)
 	{
-		//printf("%s\n",  ReadBuffer);
-		for (int i = 0; i < 32; i++)
+		/*
+		 *printf("%s\n",  ReadBuffer);
+		 *for (int i = 0; i < 32; i++)
+		 *{
+		 *        Change the print format of decimal or hex
+		 *        printf("%.11d : ",i * 16);
+		 *        printf("%011X : ",i * 16);
+		 *        for (int j = 0; j < 16; j++)
+		 *        {
+		 *                printf("%02X ", ReadBuffer[i * 16 + j]);
+		 *        }
+		 *        printf("\n");
+		 *}
+		 */
+		__int64 secUsedsize = 0;
+		__int64 secTolsize = 0;
+		for (int i = 0; i < 4; i++)
 		{
-			//Change the print format of decimal or hex
-			//printf("%.11d : ",i * 16);
-			printf("%011X : ",i * 16);
-			for (int j = 0; j < 16; j++)
+			if (*((int*)&ReadBuffer[446 + 8 +  i * 16]) == 0) /*Nothing in MBR just break*/ 
+				break;
+			secUsedsize = *((int*)&ReadBuffer[446 +  8 + i * 16]);
+			secTolsize = *((int*)&ReadBuffer[446 + 12 + i * 16]);
+			if (ReadBuffer[446 + 4 + i * 16] == 0x0f ||
+					ReadBuffer[446 + 4 + i * 16] == 0x05)
 			{
-				printf("%02X ", ReadBuffer[i * 16 + j]);
+				ReadEBR(hFile, secUsedsize);
 			}
-			printf("\n");
+			else {
+				printf("Primary Partition	Type	ActivePartition		Capacity\n"
+						"%2d	%02x	%s	%.2f (MB)\n", 
+						g_iPartitionNum++, 
+						ReadBuffer[446 + 4 + i * 16], 
+						(ReadBuffer[46 + 0 + i * 16] == 0x80 ? "Yes" : "No"), 
+						double(secTolsize * 512 / 1024 / 1024));
+			}
 		}
 	}
 	else if (dwBytesRead == 0)
@@ -144,4 +171,42 @@ void DisplayError(LPTSTR lpszFunction)
 
 	LocalFree(lpMsgBuf);
 	LocalFree(lpDisplayBuf);
+}
+
+void	ReadEBR(HANDLE hfile, __int64 offset)
+{
+	UCHAR	EBRBuf[4096];
+	DWORD	dwBytesReadEBR;
+	LARGE_INTERGER	li;
+	li.QuadPart = offset * 512;
+
+	if (invalid_set_file_pointer == SetFilePointerEx(hfile, li, NULL, FILE_BEGIN))
+	{
+		DisplayError(TEXT("ReadFile"));
+		printf("Terminal failure : Unable to read from file.\n GetLastError = %08x\n", 
+				GerLastError());
+		return;
+	}
+	__int64	secUsedsize = 0;
+	__int64 secTolsize = 0;
+	UCHAR	EBRFlag;
+
+	for (int i = 0;  i < 2; i++)
+	{
+		if (*((int*)EBRBuf[446 + 8 + i * 16]) == 0)
+			break;
+		secUsedsize = *((int*)&EBRBuf[446 + 8 + i * 16]);
+		secTolsize = *((int*)&EBRBuf[446 + 12 + i * 16]);
+		EBRFlag = EBRBuf[446 + 4 + i * 16];
+		if (EBRFlag == 0x0f || EBRFlag == 0x05)
+			ReadEBR(hfile, secUsedsize);
+		else {
+			printf("Primary Partition	Type	ActivePartition		Capacity\n"
+					"%2d	%02x	%s	%.2f (MB)\n", 
+					g_iPartitionNum++, 
+					EBRBuf[446 + 4 + i * 16], 
+					(EBRBuf[46 + 0 + i * 16] == 0x80 ? "Yes" : "No"), 
+					double(secTolsize * 512 / 1024 / 1024));
+		}
+	}
 }
