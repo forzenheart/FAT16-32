@@ -1,0 +1,3 @@
+#ifndef	__FAT_MBR_FACTORY_LINUX_H__
+#define __FAT_MBR_FACTORY_LINUX_H__
+#endif //__FAT_MBR_FACTORY_LINUX_H__

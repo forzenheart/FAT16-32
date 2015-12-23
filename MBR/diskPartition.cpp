@@ -4,8 +4,9 @@
 int
 main(void)
 {
-	//CMBR	mbr;
-	//mbr.Scan();
+
+	CMBR	mbr;
+	mbr.Scan();
 
 	printf("PartitionID	PartitionName	TotalSectors	Capacity	ActivePartition\n");
 	for (int i = 0; i < mbr.GetPartitionCount(); i++)
