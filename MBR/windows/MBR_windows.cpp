@@ -111,7 +111,7 @@ void __cdecl _tmain(int argc,  TCHAR *argv[])
 						g_iPartitionNum++, 
 						ReadBuffer[446 + 4 + i * 16], 
 						(ReadBuffer[46 + 0 + i * 16] == 0x80 ? "Yes" : "No"), 
-						double(secTolsize * 512 / 1024 / 1024));
+						(double)((secTolsize * 512) / (1024 * 1024)));
 			}
 		}
 	}
