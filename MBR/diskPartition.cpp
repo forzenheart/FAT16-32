@@ -1,5 +1,5 @@
 #include <cstdio>
-#include "../MBR/MBR.h"
+#include "MBR.h"
 
 int
 main(void)

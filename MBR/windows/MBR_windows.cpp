@@ -180,11 +180,19 @@ void	ReadEBR(HANDLE hfile, __int64 offset)
 	LARGE_INTERGER	li;
 	li.QuadPart = offset * 512;
 
-	if (invalid_set_file_pointer == SetFilePointerEx(hfile, li, NULL, FILE_BEGIN))
+	if (INVALID_SET_FILE_POINTER == SetFilePointerEx(hfile, li, NULL, FILE_BEGIN))
 	{
 		DisplayError(TEXT("ReadFile"));
 		printf("Terminal failure : Unable to read from file.\n GetLastError = %08x\n", 
 				GerLastError());
+		return;
+	}
+
+	if (FALSE == ReadFile(hfile, EBRBuf, BUFFERSIZE, &dwBytesRead, NULL))
+	{
+		DisplayError(TEXT("ReadFile"));
+		printf("Terminal failure: Unable to read from file, \n GetLastError = %08x\n", 
+				GetLastError());
 		return;
 	}
 	__int64	secUsedsize = 0;
