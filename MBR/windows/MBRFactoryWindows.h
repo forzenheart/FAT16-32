@@ -1,5 +1,6 @@
-#ifndef	__FAT_MBR_FACTORY_LINUX_H__
-#define __FAT_MBR_FACTORY_LINUX_H__
+#ifndef	__FAT_MBR_FACTORY_WINDOWS_H__
+#define __FAT_MBR_FACTORY_WINDOWS_H__
+
 #include "../MBRFactory.h"
 #include "../MBRImpl.h"
 
@@ -18,6 +19,5 @@ class CMBRFactoryWindows : public CMBRFactory {
 		virtual CMBR*	MakeMBR();
 	private:
 		CMBRFactoryWindows();
-
 };
-#endif //__FAT_MBR_FACTORY_LINUX_H__
+#endif // __FAT_MBR_FACTORY_WINDOWS_H__
