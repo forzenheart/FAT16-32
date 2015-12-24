@@ -1,6 +1,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include "../../base/FATBasicDataDefine.h"
+#include "../../base/FATPartitionTypeIndicator.h"
 #include <cstdio>
 #include <cstdlib>
 
@@ -20,28 +21,26 @@ int	n;
 int	DiskFd;
 int	sectorNo = 0;
 int	sectorSize = 512;
+//In Linux, number 4096 keep file system read or write run at peak efficicency
 unsigned char	DiskBuf[4096];
+int	g_iPartitionNum = 0;
 
 void PrintMBR(const unsigned char *src);
 
 int
 main(void)
 {
-	//In Linux, number 4096 keep file system read or write run at peak efficicency
 
 	if ((DiskFd = open("/dev/sda", O_RDONLY)) < 0)
 		fprintf(stderr, "open error.This programma"
 				"needs to be run from root! Make sure about that.\n");
 	else {
-		printNowOffset(DiskFd);
 		if (lseek(DiskFd, sectorNo * sectorSize, SEEK_SET) == -1)
 			fprintf(stderr, "lseek error\n");
-		printNowOffset(DiskFd);
 		if ((n = read(DiskFd, DiskBuf, sizeof(DiskBuf))) < 0) 
 			fprintf(stderr, "read error\n");
-		printf("read : %d bytes.\nThe Disk info:\n", n);
-		printNowOffset(DiskFd);
-		printSectorContent(DiskBuf, 512);
+		//printf("read : %d bytes.\nThe Disk info:\n", n);
+		//printSectorContent(DiskBuf, 512);
 		PrintMBR(DiskBuf);
 	}
 	close(DiskFd);
@@ -64,7 +63,7 @@ void ReadEBR(int fildes, long long offset)
 	if (read(fildes, EBRBuf, sizeof(DiskBuf)) < 0) 
 		fprintf(stderr, "read error\n");
 
-	printSectorContent(EBRBuf, 512);
+	//printSectorContent(EBRBuf, 512);
 
 	if (EBRBuf[446 + 4 + 16] == 0x0f || 
 		EBRBuf[446 + 4 + 16] == 0x05)
@@ -88,8 +87,8 @@ void printSectorContent(const unsigned char *src, int size)
 
 void PrintMBR(const unsigned char *src)
 {
-	int secUsedsize = 0;
-	int secTolsize = 0;
+	long secUsedsize = 0;
+	long secTolsize = 0;
 	for (int i = 0; i < 4; i++)
 	{
 		//notice the bytes of int;it~s very important;
@@ -98,19 +97,18 @@ void PrintMBR(const unsigned char *src)
 			break;
 		secUsedsize = *((int*)&src[446 + 8 + i * 16]);
 		secTolsize = *((int*)&src[446 + 12 + i * 16]);
-		printf("PartitionType : %02X\n", src[446 + 4 + i * 16]);
-
-		printf("Used sectors : %d\n", secUsedsize);
-		printf("total sectors : %d\n", secTolsize);
+		if (src[446+ 4 + i * 16] == 0x0f ||
+				src[446 + 4 + i * 16] == 0x05)
+		{
+			ReadEBR(DiskFd, secUsedsize);
+		}
+		else {
+			printf("PartitionNum	Type		ActivePartition		Capacity\n"
+				"%2d		%10s	%3s		%.2f (MB)\n", 
+					g_iPartitionNum++, 
+					FATPartTypeName[src[446 + 4 + i * 16]], 
+					(src[446 + 0 + i * 16] == 0x80 ? "Yes" : "No"), 
+					double ((secTolsize * 512) / (1024 * 1024)));
+		}
 	}
-
 }
-
-//the probably path of physical driver;
-//  /dev/mapper/vg_forzenheart-lv_root
-//  /dev/sda1
-// /dev/mapper/vg_forzenheart-lv_home
-// scsi-SATA_ST1000DM003-1ER_W4Y5TGGF
-// scsi-SATA_ST1000DM003-1ER_W4Y5TGGF-part1
-// /dev/disk/by-id
-
