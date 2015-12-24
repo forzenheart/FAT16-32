@@ -3,6 +3,7 @@
 
 //#include "../platform/FATStdC.h"
 //#include "FATPartitionTypeIndicator.h"	//分区格式标志
+#include "../platform/FATPlatformConfig.h"
 #include "FATMBRDataDefine.h"		//MBR基本偏移量定义
 #include "FATDBRDataDefine.h"		//DBR基本偏移量定义
 #include "FATFileDataDefine.h"		//FAT基本偏移量定义

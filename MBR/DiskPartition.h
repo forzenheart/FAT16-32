@@ -30,9 +30,9 @@ class CDiskPartition {
 			m_SecPrecedingPartition(spp), 
 			m_TotSec(t), 
 			m_PartitionName(name)
-			{ }
+			{ };
 
-		~CDiskPartition();
+		~CDiskPartition() {};
 
 		bool	GetActivePartition() const {
 			return m_ActivePartition;
@@ -64,8 +64,8 @@ class CDiskPartition {
 		INT32	GetTotalSec() const {
 			return m_TotSec;
 		}
-		const std::string GetName() const {
-			return m_PartitionName;
+		const std::string* GetName() const {
+			return &m_PartitionName;
 		}
 
 	private:

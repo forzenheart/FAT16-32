@@ -1,19 +1,17 @@
 #include <cstdio>
-#include "MBR.h"
+#include "../MBR/MBR.h"
 
 int
 main(void)
 {
-
-	CMBR	mbr;
+	CDiskPartitionList	mbr;
 	mbr.Scan();
 
 	printf("PartitionID	PartitionName	TotalSectors	Capacity	ActivePartition\n");
 	for (int i = 0; i < mbr.GetPartitionCount(); i++)
 	{
-		printf("%d	%s	%d	%-8d(bytes)	%s", 
-				mbr.GetPartitionID(j), 
-				mbr.GetPartitionName(j), 
+		printf("%s	%d	%-8d(bytes)	%s", 
+				mbr.GetPartitionName(i), 
 				mbr.GetPartitionTolSec(i), 
 				mbr.GetPartitionTolSec(i) * 512, 
 				mbr.GetPartitionActiveFlag(i));

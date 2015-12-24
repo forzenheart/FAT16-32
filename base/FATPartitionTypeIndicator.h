@@ -4,6 +4,7 @@
 //常见分区格式
 
 const char *FATPartTypeName[] = {
+	"Illegal in DOS and Windws", //00H
 	"FAT12",		//01H
 	"XENIX root",		//02H
 	"XENIX usr",		//03H
@@ -21,7 +22,7 @@ const char *FATPartTypeName[] = {
 	"Windows 95 Extended(>8GB)",	//0FH
 
 	"OPUS",			//10H
-	"Hidden	FAT12",		//11H
+	"Hidden FAT12",		//11H
 	"Compaq diagnost",	//12H
 	"Unknown",		//13H
 	"Hidden FAT16 (<32MB)", //14H
@@ -147,6 +148,8 @@ const char *FATPartTypeName[] = {
 	"Linux extended",	//85H
 	"NTFS volume set",	//86H
 	"NTFS volume set",	//87H
+	"Unknown",		//88H
+	"Unknown",		//89H
 	"Unknown",		//8AH
 	"Unknown",		//8BH
 	"Unknown",		//8CH

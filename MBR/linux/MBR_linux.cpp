@@ -11,14 +11,6 @@
 //磁道	Track
 //盘面	Platter
 //主轴	Spindle
-typedef struct CMBR {
-	INT16	m_MBRNo;//MBR编号，这里不区分是否为扩展分区
-
-	static const int size = 4096;
-	//这里使用4096的目的是因为在linux系统上，read的IO效率最高
-	unsigned char	Content[size];
-}CMBR;
-
 void printNowOffset(int);
 void printSectorContent(const unsigned char *, int);
 unsigned int getNextMBR(const unsigned char *);
@@ -30,7 +22,7 @@ int	sectorNo = 0;
 int	sectorSize = 512;
 unsigned char	DiskBuf[4096];
 
-void PrintMBR(const char *src);
+void PrintMBR(const unsigned char *src);
 
 int
 main(void)
@@ -50,7 +42,7 @@ main(void)
 		printf("read : %d bytes.\nThe Disk info:\n", n);
 		printNowOffset(DiskFd);
 		printSectorContent(DiskBuf, 512);
-		printMBR(DiskBuf);
+		PrintMBR(DiskBuf);
 	}
 	close(DiskFd);
 	return 0;
@@ -85,16 +77,16 @@ void printSectorContent(const unsigned char *src, int size)
 	{
 		//Change the print format of decimal or hex
 		//printf("%.11d : ",i * 16);
-		printf("%011X : ",i * 16);
-		for (int j = 0; j < 16; j++)
-		{
-			printf("%02X ", src[i * 16 + j]);
-		}
-		printf("\n");
+		//printf("%011X : ",i * 16);
+		//for (int j = 0; j < 16; j++)
+		//{
+			//printf("%02X ", src[i * 16 + j]);
+		//}
+		//printf("\n");
 	}
 }
 
-void PrintMBR(const char *src)
+void PrintMBR(const unsigned char *src)
 {
 	int secUsedsize = 0;
 	int secTolsize = 0;
@@ -108,16 +100,6 @@ void PrintMBR(const char *src)
 		secTolsize = *((int*)&src[446 + 12 + i * 16]);
 		printf("PartitionType : %02X\n", src[446 + 4 + i * 16]);
 
-		if (src[446 + 4 + i * 16] == 0x83)
-			printf("PartitionType : Linux\n");
-		if (src[446 + 4 + i * 16] == 0x8e)
-			printf("PartitionType : Linux LVM\n");
-		if (src[446 + 4 + i * 16] == 0x05 ||
-				src[446 + 4 + i * 16] == 0x0f)
-		{
-			printf("PartitionType : WindowsEBR\n");
-			ReadEBR(DiskFd, secUsedsize);
-		}
 		printf("Used sectors : %d\n", secUsedsize);
 		printf("total sectors : %d\n", secTolsize);
 	}

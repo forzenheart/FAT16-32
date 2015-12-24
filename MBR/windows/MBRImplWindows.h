@@ -2,10 +2,10 @@
 #define	__FAT_MBR_IMPL_WINDOWS_H__
 
 #include "../MBRImpl.h"
-#include <windows.h>
-#include <tchar.h>
-#include <stdio.h>
-#include <strsafe.h>
+//#include <windows.h>
+//#include <tchar.h>
+#include <cstdio>
+//#include <strsafe.h>
 
 class CMBRWindows : public CMBR {
 	public:

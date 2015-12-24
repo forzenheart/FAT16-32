@@ -13,8 +13,7 @@ class CMBRFactoryLinux : public CMBRFactory {
 			return factory;
 		}
 
-		virtual ~CMBRFactoryLinux()
-		{}
+		virtual ~CMBRFactoryLinux() {};
 		virtual CMBR*	MakeMBR();
 	private:
 		CMBRFactoryLinux() {};

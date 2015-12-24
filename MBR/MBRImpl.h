@@ -7,14 +7,14 @@
 
 class CMBR {
 	public:
-		CMBR(); 
-		virtual ~CMBR();
+		CMBR() { };
+		virtual ~CMBR() { };
 
 		virtual int Scan() = 0;
-		int GetPartitionCount() const;
-		const std::string GetPartitionName(const int id) const;
+		int	GetPartitionCount() const;
 		INT64	GetPartitionTolSec(const int id) const;
 		bool	GetPartitionActiveFlag(const int id) const;
+		const std::string* GetPartitionName(const int id) const;
 	protected:
 		std::vector<CDiskPartition>	m_partitionList;
 };

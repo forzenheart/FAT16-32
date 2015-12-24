@@ -8,11 +8,9 @@
 
 class CMBRLinux : public CMBR {
 	public:
-		CMBRLinux()
-		{}
+		CMBRLinux() {};
 
-		virtual ~CMBRLinux()
-		{}
+		virtual ~CMBRLinux() {};
 
 		virtual int Scan();
 };

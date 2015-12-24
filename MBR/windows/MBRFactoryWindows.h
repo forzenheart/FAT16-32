@@ -14,10 +14,9 @@ class CMBRFactoryWindows : public CMBRFactory {
 			return factory;
 		}
 
-		virtual ~CMBRFactoryWindows()
-		{}
+		virtual ~CMBRFactoryWindows() {};
 		virtual CMBR*	MakeMBR();
 	private:
-		CMBRFactoryWindows();
+		CMBRFactoryWindows() {};
 };
 #endif // __FAT_MBR_FACTORY_WINDOWS_H__
