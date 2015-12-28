@@ -13,6 +13,7 @@ class CMBRLinux : public CMBR {
 		virtual ~CMBRLinux() {};
 
 		virtual int Scan();
+	private:
 };
 
 

@@ -1,0 +1,97 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BUFFERSIZE	windows/MBR_windows.cpp	6;"	d	file:
+CDiskPartition	DiskPartition.h	?^		CDiskPartition($?;"	f	class:CDiskPartition
+CDiskPartition	DiskPartition.h	?^class CDiskPartition {$?;"	c
+CDiskPartitionList	MBR.cpp	?^CDiskPartitionList::CDiskPartitionList()$?;"	f	class:CDiskPartitionList
+CDiskPartitionList	MBR.h	?^class CDiskPartitionList {$?;"	c
+CMBR	MBRImpl.h	?^		CMBR() { };$?;"	f	class:CMBR
+CMBR	MBRImpl.h	?^class CMBR {$?;"	c
+CMBRFactory	MBRFactory.h	?^class CMBRFactory {$?;"	c
+CMBRFactoryLinux	linux/MBRFactoryLinux.h	?^		CMBRFactoryLinux() {};$?;"	f	class:CMBRFactoryLinux
+CMBRFactoryLinux	linux/MBRFactoryLinux.h	?^class CMBRFactoryLinux : public CMBRFactory {$?;"	c
+CMBRFactoryWindows	windows/MBRFactoryWindows.h	?^		CMBRFactoryWindows() {};$?;"	f	class:CMBRFactoryWindows
+CMBRFactoryWindows	windows/MBRFactoryWindows.h	?^class CMBRFactoryWindows : public CMBRFactory {$?;"	c
+CMBRLinux	linux/MBRImplLinux.h	?^		CMBRLinux() {};$?;"	f	class:CMBRLinux
+CMBRLinux	linux/MBRImplLinux.h	?^class CMBRLinux : public CMBR {$?;"	c
+CMBRWindows	windows/MBRImplWindows.h	?^		CMBRWindows()$?;"	f	class:CMBRWindows
+CMBRWindows	windows/MBRImplWindows.h	?^class CMBRWindows : public CMBR {$?;"	c
+DiskBuf	linux/MBR_linux.cpp	?^unsigned char	DiskBuf[4096];$?;"	v
+DiskFd	linux/MBR_linux.cpp	?^int	DiskFd;$?;"	v
+DisplayError	windows/MBR_windows.cpp	?^void DisplayError(LPTSTR lpszFunction) $?;"	f
+FileIOCompletionRoutine	windows/MBR_windows.cpp	?^VOID CALLBACK FileIOCompletionRoutine($?;"	f
+GetActivePartition	DiskPartition.h	?^		bool	GetActivePartition() const {$?;"	f	class:CDiskPartition
+GetEndCylinderNo	DiskPartition.h	?^		INT8	GetEndCylinderNo() const {$?;"	f	class:CDiskPartition
+GetEndHeadNo	DiskPartition.h	?^		INT8	GetEndHeadNo() const {$?;"	f	class:CDiskPartition
+GetEndSecNo	DiskPartition.h	?^		INT8	GetEndSecNo() const {$?;"	f	class:CDiskPartition
+GetFactoryInstance	linux/MBRFactoryLinux.h	?^		static CMBRFactoryLinux* GetFactoryInstance()$?;"	f	class:CMBRFactoryLinux
+GetFactoryInstance	windows/MBRFactoryWindows.h	?^		static CMBRFactoryWindows* GetFactoryInstance()$?;"	f	class:CMBRFactoryWindows
+GetMBRFactory	MBRFactory.cpp	?^CMBRFactory::GetMBRFactory()$?;"	f	class:CMBRFactory
+GetName	DiskPartition.h	?^		const std::string* GetName() const {$?;"	f	class:CDiskPartition
+GetPartitionActiveFlag	MBR.cpp	?^CDiskPartitionList::GetPartitionActiveFlag(const int which) const$?;"	f	class:CDiskPartitionList
+GetPartitionActiveFlag	MBRImpl.cpp	?^CMBR::GetPartitionActiveFlag(const int id) const$?;"	f	class:CMBR
+GetPartitionCount	MBR.cpp	?^CDiskPartitionList::GetPartitionCount() const$?;"	f	class:CDiskPartitionList
+GetPartitionCount	MBRImpl.cpp	?^CMBR::GetPartitionCount() const {$?;"	f	class:CMBR
+GetPartitionName	MBR.cpp	?^CDiskPartitionList::GetPartitionName(const int which) const$?;"	f	class:CDiskPartitionList
+GetPartitionName	MBRImpl.cpp	?^CMBR::GetPartitionName(const int id) const$?;"	f	class:CMBR
+GetPartitionTolSec	MBR.cpp	?^CDiskPartitionList::GetPartitionTolSec(const int which) const$?;"	f	class:CDiskPartitionList
+GetPartitionTolSec	MBRImpl.cpp	?^CMBR::GetPartitionTolSec(const int id) const$?;"	f	class:CMBR
+GetPartitionTypeIndicator	DiskPartition.h	?^		INT8	GetPartitionTypeIndicator() const  {$?;"	f	class:CDiskPartition
+GetSecPrecedingPartition	DiskPartition.h	?^		INT32	GetSecPrecedingPartition() const {$?;"	f	class:CDiskPartition
+GetStartCylinderNo	DiskPartition.h	?^		INT8	GetStartCylinderNo() const {$?;"	f	class:CDiskPartition
+GetStartHeadNo	DiskPartition.h	?^		INT8	GetStartHeadNo()  const {$?;"	f	class:CDiskPartition
+GetStartSecNO	DiskPartition.h	?^		INT8	GetStartSecNO() const { $?;"	f	class:CDiskPartition
+GetTotalSec	DiskPartition.h	?^		INT32	GetTotalSec() const {$?;"	f	class:CDiskPartition
+MakeMBR	linux/MBRFactoryLinux.cpp	?^CMBRFactoryLinux::MakeMBR()$?;"	f	class:CMBRFactoryLinux
+MakeMBR	windows/MBRFactoryWindows.cpp	?^CMBRFactoryWindows::MakeMBR()$?;"	f	class:CMBRFactoryWindows
+PrintMBR	linux/MBR_linux.cpp	?^void PrintMBR(const unsigned char *src)$?;"	f
+ReadEBR	linux/MBR_linux.cpp	?^void ReadEBR(int fildes, long long offset)$?;"	f
+ReadEBR	windows/MBR_windows.cpp	?^void	ReadEBR(HANDLE hfile, __int64 offset)$?;"	f
+Scan	MBR.cpp	?^CDiskPartitionList::Scan()$?;"	f	class:CDiskPartitionList
+Scan	linux/MBRImplLinux.cpp	?^CMBRLinux::Scan()$?;"	f	class:CMBRLinux
+Scan	windows/MBRImplWindows.cpp	?^CMBRWindows::Scan()$?;"	f	class:CMBRWindows
+__FAT_DISKPARTITION_H__	DiskPartition.h	2;"	d
+__FAT_DISK_PARTITION_LIST_H__	MBR.h	2;"	d
+__FAT_MBR_FACTORY_H__	MBRFactory.h	2;"	d
+__FAT_MBR_FACTORY_LINUX_H__	linux/MBRFactoryLinux.h	2;"	d
+__FAT_MBR_FACTORY_WINDOWS_H__	windows/MBRFactoryWindows.h	2;"	d
+__FAT_MBR_H__	MBRImpl.h	2;"	d
+__FAT_MBR_IMPL_LINUX_H__	linux/MBRImplLinux.h	2;"	d
+__FAT_MBR_IMPL_WINDOWS_H__	windows/MBRImplWindows.h	2;"	d
+_tmain	windows/MBR_windows.cpp	?^void __cdecl _tmain(int argc,  TCHAR *argv[])$?;"	f
+g_BytesTransferred	windows/MBR_windows.cpp	?^DWORD	g_BytesTransferred = 0;$?;"	v
+g_iPartitionNum	linux/MBR_linux.cpp	?^int	g_iPartitionNum = 0;$?;"	v
+g_iPartitionNum	windows/MBR_windows.cpp	?^DWORD	g_iPartitionNum = 0;$?;"	v
+m_ActivePartition	DiskPartition.h	?^		bool	m_ActivePartition;//活动分区标志$?;"	m	class:CDiskPartition
+m_EndCylinderNo	DiskPartition.h	?^		INT8	m_EndCylinderNo;//终止柱面号(柱面号的高2位存放在扇区字节的高2位)$?;"	m	class:CDiskPartition
+m_EndHeadNo	DiskPartition.h	?^		INT8	m_EndHeadNo;//结束磁头号$?;"	m	class:CDiskPartition
+m_EndSecNo	DiskPartition.h	?^		INT8	m_EndSecNo;//结束扇区号$?;"	m	class:CDiskPartition
+m_PartitionName	DiskPartition.h	?^		std::string	m_PartitionName;//注意这个成员变量并不属于磁盘分区的标准，是为了方便自己加的$?;"	m	class:CDiskPartition
+m_PartitionTypeIndicator	DiskPartition.h	?^		INT8	m_PartitionTypeIndicator;//分区格式标志$?;"	m	class:CDiskPartition
+m_SecPrecedingPartition	DiskPartition.h	?^		INT32	m_SecPrecedingPartition;//本分区之前已用扇区数目$?;"	m	class:CDiskPartition
+m_StartCylinderNo	DiskPartition.h	?^		INT8	m_StartCylinderNo;//起始柱面号$?;"	m	class:CDiskPartition
+m_StartHeadNo	DiskPartition.h	?^		INT8	m_StartHeadNo;//起始磁头号$?;"	m	class:CDiskPartition
+m_StartSecNo	DiskPartition.h	?^		INT8	m_StartSecNo;//起始扇区号$?;"	m	class:CDiskPartition
+m_TotSec	DiskPartition.h	?^		INT32	m_TotSec;//本分区扇区总数$?;"	m	class:CDiskPartition
+m_diskPartitionImpl	MBR.h	?^		CMBR	*m_diskPartitionImpl;$?;"	m	class:CDiskPartitionList
+m_partitionList	MBRImpl.h	?^		std::vector<CDiskPartition>	m_partitionList;$?;"	m	class:CMBR
+main	diskPartition.cpp	?^main(void)$?;"	f
+main	linux/MBR_linux.cpp	?^main(void)$?;"	f
+n	linux/MBR_linux.cpp	?^int	n;$?;"	v
+printNowOffset	linux/MBR_linux.cpp	?^void printNowOffset(int files)$?;"	f
+printSectorContent	linux/MBR_linux.cpp	?^void printSectorContent(const unsigned char *src, int size)$?;"	f
+sectorNo	linux/MBR_linux.cpp	?^int	sectorNo = 0;$?;"	v
+sectorSize	linux/MBR_linux.cpp	?^int	sectorSize = 512;$?;"	v
+wszDrive	windows/MBR_windows.cpp	7;"	d	file:
+~CDiskPartition	DiskPartition.h	?^		~CDiskPartition() {};$?;"	f	class:CDiskPartition
+~CDiskPartitionList	MBR.cpp	?^CDiskPartitionList::~CDiskPartitionList()$?;"	f	class:CDiskPartitionList
+~CMBR	MBRImpl.h	?^		virtual ~CMBR() { };$?;"	f	class:CMBR
+~CMBRFactory	MBRFactory.h	?^	virtual	~CMBRFactory()$?;"	f	class:CMBRFactory
+~CMBRFactoryLinux	linux/MBRFactoryLinux.h	?^		virtual ~CMBRFactoryLinux() {};$?;"	f	class:CMBRFactoryLinux
+~CMBRFactoryWindows	windows/MBRFactoryWindows.h	?^		virtual ~CMBRFactoryWindows() {};$?;"	f	class:CMBRFactoryWindows
+~CMBRLinux	linux/MBRImplLinux.h	?^		virtual ~CMBRLinux() {};$?;"	f	class:CMBRLinux
+~CMBRWindows	windows/MBRImplWindows.h	?^		virtual ~CMBRWindows()$?;"	f	class:CMBRWindows

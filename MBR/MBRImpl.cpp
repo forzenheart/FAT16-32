@@ -1,8 +1,8 @@
 #include "MBRImpl.h"
 
-
 int
-CMBR::GetPartitionCount() const {
+CMBR::GetPartitionCount() const
+{
 	return m_partitionList.size();
 }
 

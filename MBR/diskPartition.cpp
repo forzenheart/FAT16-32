@@ -10,8 +10,9 @@ main(void)
 	printf("PartitionID	PartitionName	TotalSectors	Capacity	ActivePartition\n");
 	for (int i = 0; i < mbr.GetPartitionCount(); i++)
 	{
-		printf("%s	%d	%-8d(bytes)	%s", 
-				mbr.GetPartitionName(i), 
+		printf("%d		%s :		%02X		%8lld(bytes)		%d\n", 
+				i, 
+				mbr.GetPartitionName(i)->c_str(), 
 				mbr.GetPartitionTolSec(i), 
 				mbr.GetPartitionTolSec(i) * 512, 
 				mbr.GetPartitionActiveFlag(i));
