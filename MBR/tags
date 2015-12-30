@@ -4,56 +4,197 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+$	linux/tags	/^CMBRFactoryLinux	MBRFactoryLinux.h	?^class CMBRFactoryLinux : public CMBRFactory {$?;"	c$/;"	m	class:__anon1	file:	access:private
+$	linux/tags	/^CMBRLinux	MBRImplLinux.h	?^class CMBRLinux : public CMBR {$?;"	c$/;"	m	class:__anon1::__anon2	file:	access:private
+$	linux/tags	/^DiskFd	MBR_linux.cpp	?^int	DiskFd;$?;"	v$/;"	m	class:__anon1::__anon2	file:	access:private
+$	linux/tags	/^~CMBRLinux	MBRImplLinux.h	?^		virtual ~CMBRLinux() {};$?;"	f	class:CMBRLinux$/;"	m	class:__anon1::__anon2	file:	access:private
+$	tags	/^$	linux\/tags	\/^CMBRFactoryLinux	MBRFactoryLinux.h	?^class CMBRFactoryLinux : public CMBRFactory {$?;"	c$\/;"	m	class:__anon1	file:	access:private$/;"	m	class:__anon4::__anon7	file:	access:private
+$	tags	/^$	linux\/tags	\/^CMBRLinux	MBRImplLinux.h	?^class CMBRLinux : public CMBR {$?;"	c$\/;"	m	class:__anon1::__anon2	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9	file:	access:private
+$	tags	/^$	linux\/tags	\/^~CMBRLinux	MBRImplLinux.h	?^		virtual ~CMBRLinux() {};$?;"	f	class:CMBRLinux$\/;"	m	class:__anon1::__anon2	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10	file:	access:private
+$	tags	/^CMBR	MBRImpl.h	\/^		CMBR() { };$\/;"	f	class:CMBR	access:public	signature:()$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26	file:	access:private
+$	tags	/^CMBRFactoryLinux	linux\/MBRFactoryLinux.h	\/^		CMBRFactoryLinux() {};$\/;"	f	class:CMBRFactoryLinux	access:private	signature:()$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10	file:	access:private
+$	tags	/^CMBRLinux	linux\/MBRImplLinux.h	\/^class CMBRLinux : public CMBR {$\/;"	c	inherits:CMBR$/;"	m	class:__anon4	file:	access:private
+$	tags	/^CMBRLinux::CMBRLinux	linux\/MBRImplLinux.h	\/^		CMBRLinux() {};$\/;"	f	class:CMBRLinux	access:public	signature:()$/;"	m	class:__anon4	file:	access:private
+$	tags	/^CMBRLinux::~CMBRLinux	linux\/MBRImplLinux.h	\/^		virtual ~CMBRLinux() {};$\/;"	f	class:CMBRLinux	access:public	signature:()$/;"	m	class:__anon4	file:	access:private
+$	tags	/^GetActivePartition	DiskPartition.h	\/^		bool	GetActivePartition() const {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16	file:	access:private
+$	tags	/^GetEndCylinderNo	DiskPartition.h	\/^		INT8	GetEndCylinderNo() const {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23	file:	access:private
+$	tags	/^GetEndHeadNo	DiskPartition.h	\/^		INT8	GetEndHeadNo() const {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21	file:	access:private
+$	tags	/^GetEndSecNo	DiskPartition.h	\/^		INT8	GetEndSecNo() const {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22	file:	access:private
+$	tags	/^GetName	DiskPartition.h	\/^		const std::string* GetName() const {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26	file:	access:private
+$	tags	/^GetPartitionTypeIndicator	DiskPartition.h	\/^		INT8	GetPartitionTypeIndicator() const  {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20	file:	access:private
+$	tags	/^GetSecPrecedingPartition	DiskPartition.h	\/^		INT32	GetSecPrecedingPartition() const {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24	file:	access:private
+$	tags	/^GetStartCylinderNo	DiskPartition.h	\/^		INT8	GetStartCylinderNo() const {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19	file:	access:private
+$	tags	/^GetStartHeadNo	DiskPartition.h	\/^		INT8	GetStartHeadNo()  const {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17	file:	access:private
+$	tags	/^GetStartSecNO	DiskPartition.h	\/^		INT8	GetStartSecNO() const { $\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18	file:	access:private
+$	tags	/^GetTotalSec	DiskPartition.h	\/^		INT32	GetTotalSec() const {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25	file:	access:private
+$	tags	/^__anon1::$	linux\/tags	\/^CMBRFactoryLinux	MBRFactoryLinux.h	?^class CMBRFactoryLinux : public CMBRFactory {$?;"	c$\/;"	m	class:__anon1	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8	file:	access:private
+$	tags	/^__anon1::__anon2::$	linux\/tags	\/^CMBRLinux	MBRImplLinux.h	?^class CMBRLinux : public CMBR {$?;"	c$\/;"	m	class:__anon1::__anon2	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10	file:	access:private
+$	tags	/^__anon1::__anon2::$	linux\/tags	\/^~CMBRLinux	MBRImplLinux.h	?^		virtual ~CMBRLinux() {};$?;"	f	class:CMBRLinux$\/;"	m	class:__anon1::__anon2	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10	file:	access:private
+$	tags	/^__anon4::__anon7::$	tags	\/^$	linux\\\/tags	\\\/^CMBRFactoryLinux	MBRFactoryLinux.h	?^class CMBRFactoryLinux : public CMBRFactory {$?;"	c$\\\/;"	m	class:__anon1	file:	access:private$\/;"	m	class:__anon4::__anon7	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::__anon29	file:	access:private
+$	tags	/^__anon4::__anon7::__anon8::$	tags	\/^__anon1::$	linux\\\/tags	\\\/^CMBRFactoryLinux	MBRFactoryLinux.h	?^class CMBRFactoryLinux : public CMBRFactory {$?;"	c$\\\/;"	m	class:__anon1	file:	access:private$\/;"	m	class:__anon4::__anon7::__anon8	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::__anon29::__anon30	file:	access:private
+$	tags	/^__anon4::__anon7::__anon8::__anon9::$	tags	\/^$	linux\\\/tags	\\\/^CMBRLinux	MBRImplLinux.h	?^class CMBRLinux : public CMBR {$?;"	c$\\\/;"	m	class:__anon1::__anon2	file:	access:private$\/;"	m	class:__anon4::__anon7::__anon8::__anon9	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::__anon29::__anon30::__anon31	file:	access:private
+$	tags	/^__anon4::__anon7::__anon8::__anon9::__anon10::$	tags	\/^$	linux\\\/tags	\\\/^~CMBRLinux	MBRImplLinux.h	?^		virtual ~CMBRLinux() {};$?;"	f	class:CMBRLinux$\\\/;"	m	class:__anon1::__anon2	file:	access:private$\/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::__anon29::__anon30::__anon31::__anon32	file:	access:private
+$	tags	/^__anon4::__anon7::__anon8::__anon9::__anon10::$	tags	\/^__anon1::__anon2::$	linux\\\/tags	\\\/^CMBRLinux	MBRImplLinux.h	?^class CMBRLinux : public CMBR {$?;"	c$\\\/;"	m	class:__anon1::__anon2	file:	access:private$\/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::__anon29::__anon30::__anon31::__anon32	file:	access:private
+$	tags	/^__anon4::__anon7::__anon8::__anon9::__anon10::$	tags	\/^__anon1::__anon2::$	linux\\\/tags	\\\/^~CMBRLinux	MBRImplLinux.h	?^		virtual ~CMBRLinux() {};$?;"	f	class:CMBRLinux$\\\/;"	m	class:__anon1::__anon2	file:	access:private$\/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::__anon29::__anon30::__anon31::__anon32	file:	access:private
+$	tags	/^~CDiskPartition	DiskPartition.h	\/^		~CDiskPartition() {};$\/;"	f	class:CDiskPartition	access:public	signature:()$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10	file:	access:private
+$	tags	/^~CMBR	MBRImpl.h	\/^		virtual ~CMBR() { };$\/;"	f	class:CMBR	access:public	signature:()$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26	file:	access:private
+$	tags	/^~CMBRFactoryLinux	linux\/MBRFactoryLinux.h	\/^		virtual ~CMBRFactoryLinux() {};$\/;"	f	class:CMBRFactoryLinux	access:public	signature:()$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10	file:	access:private
 BUFFERSIZE	windows/MBR_windows.cpp	6;"	d	file:
-CDiskPartition	DiskPartition.h	?^		CDiskPartition($?;"	f	class:CDiskPartition
-CDiskPartition	DiskPartition.h	?^class CDiskPartition {$?;"	c
-CDiskPartitionList	MBR.cpp	?^CDiskPartitionList::CDiskPartitionList()$?;"	f	class:CDiskPartitionList
-CDiskPartitionList	MBR.h	?^class CDiskPartitionList {$?;"	c
-CMBR	MBRImpl.h	?^		CMBR() { };$?;"	f	class:CMBR
-CMBR	MBRImpl.h	?^class CMBR {$?;"	c
-CMBRFactory	MBRFactory.h	?^class CMBRFactory {$?;"	c
-CMBRFactoryLinux	linux/MBRFactoryLinux.h	?^		CMBRFactoryLinux() {};$?;"	f	class:CMBRFactoryLinux
-CMBRFactoryLinux	linux/MBRFactoryLinux.h	?^class CMBRFactoryLinux : public CMBRFactory {$?;"	c
-CMBRFactoryWindows	windows/MBRFactoryWindows.h	?^		CMBRFactoryWindows() {};$?;"	f	class:CMBRFactoryWindows
-CMBRFactoryWindows	windows/MBRFactoryWindows.h	?^class CMBRFactoryWindows : public CMBRFactory {$?;"	c
-CMBRLinux	linux/MBRImplLinux.h	?^		CMBRLinux() {};$?;"	f	class:CMBRLinux
-CMBRLinux	linux/MBRImplLinux.h	?^class CMBRLinux : public CMBR {$?;"	c
-CMBRWindows	windows/MBRImplWindows.h	?^		CMBRWindows()$?;"	f	class:CMBRWindows
-CMBRWindows	windows/MBRImplWindows.h	?^class CMBRWindows : public CMBR {$?;"	c
-DiskBuf	linux/MBR_linux.cpp	?^unsigned char	DiskBuf[4096];$?;"	v
-DiskFd	linux/MBR_linux.cpp	?^int	DiskFd;$?;"	v
-DisplayError	windows/MBR_windows.cpp	?^void DisplayError(LPTSTR lpszFunction) $?;"	f
-FileIOCompletionRoutine	windows/MBR_windows.cpp	?^VOID CALLBACK FileIOCompletionRoutine($?;"	f
-GetActivePartition	DiskPartition.h	?^		bool	GetActivePartition() const {$?;"	f	class:CDiskPartition
-GetEndCylinderNo	DiskPartition.h	?^		INT8	GetEndCylinderNo() const {$?;"	f	class:CDiskPartition
-GetEndHeadNo	DiskPartition.h	?^		INT8	GetEndHeadNo() const {$?;"	f	class:CDiskPartition
-GetEndSecNo	DiskPartition.h	?^		INT8	GetEndSecNo() const {$?;"	f	class:CDiskPartition
-GetFactoryInstance	linux/MBRFactoryLinux.h	?^		static CMBRFactoryLinux* GetFactoryInstance()$?;"	f	class:CMBRFactoryLinux
-GetFactoryInstance	windows/MBRFactoryWindows.h	?^		static CMBRFactoryWindows* GetFactoryInstance()$?;"	f	class:CMBRFactoryWindows
-GetMBRFactory	MBRFactory.cpp	?^CMBRFactory::GetMBRFactory()$?;"	f	class:CMBRFactory
-GetName	DiskPartition.h	?^		const std::string* GetName() const {$?;"	f	class:CDiskPartition
-GetPartitionActiveFlag	MBR.cpp	?^CDiskPartitionList::GetPartitionActiveFlag(const int which) const$?;"	f	class:CDiskPartitionList
-GetPartitionActiveFlag	MBRImpl.cpp	?^CMBR::GetPartitionActiveFlag(const int id) const$?;"	f	class:CMBR
-GetPartitionCount	MBR.cpp	?^CDiskPartitionList::GetPartitionCount() const$?;"	f	class:CDiskPartitionList
-GetPartitionCount	MBRImpl.cpp	?^CMBR::GetPartitionCount() const {$?;"	f	class:CMBR
-GetPartitionName	MBR.cpp	?^CDiskPartitionList::GetPartitionName(const int which) const$?;"	f	class:CDiskPartitionList
-GetPartitionName	MBRImpl.cpp	?^CMBR::GetPartitionName(const int id) const$?;"	f	class:CMBR
-GetPartitionTolSec	MBR.cpp	?^CDiskPartitionList::GetPartitionTolSec(const int which) const$?;"	f	class:CDiskPartitionList
-GetPartitionTolSec	MBRImpl.cpp	?^CMBR::GetPartitionTolSec(const int id) const$?;"	f	class:CMBR
-GetPartitionTypeIndicator	DiskPartition.h	?^		INT8	GetPartitionTypeIndicator() const  {$?;"	f	class:CDiskPartition
-GetSecPrecedingPartition	DiskPartition.h	?^		INT32	GetSecPrecedingPartition() const {$?;"	f	class:CDiskPartition
-GetStartCylinderNo	DiskPartition.h	?^		INT8	GetStartCylinderNo() const {$?;"	f	class:CDiskPartition
-GetStartHeadNo	DiskPartition.h	?^		INT8	GetStartHeadNo()  const {$?;"	f	class:CDiskPartition
-GetStartSecNO	DiskPartition.h	?^		INT8	GetStartSecNO() const { $?;"	f	class:CDiskPartition
-GetTotalSec	DiskPartition.h	?^		INT32	GetTotalSec() const {$?;"	f	class:CDiskPartition
-MakeMBR	linux/MBRFactoryLinux.cpp	?^CMBRFactoryLinux::MakeMBR()$?;"	f	class:CMBRFactoryLinux
-MakeMBR	windows/MBRFactoryWindows.cpp	?^CMBRFactoryWindows::MakeMBR()$?;"	f	class:CMBRFactoryWindows
-PrintMBR	linux/MBR_linux.cpp	?^void PrintMBR(const unsigned char *src)$?;"	f
-ReadEBR	linux/MBR_linux.cpp	?^void ReadEBR(int fildes, long long offset)$?;"	f
-ReadEBR	windows/MBR_windows.cpp	?^void	ReadEBR(HANDLE hfile, __int64 offset)$?;"	f
-Scan	MBR.cpp	?^CDiskPartitionList::Scan()$?;"	f	class:CDiskPartitionList
-Scan	linux/MBRImplLinux.cpp	?^CMBRLinux::Scan()$?;"	f	class:CMBRLinux
-Scan	windows/MBRImplWindows.cpp	?^CMBRWindows::Scan()$?;"	f	class:CMBRWindows
+CDISK	DiskRead.h	/^class CDISK {$/;"	c
+CDISK::Close	DiskRead.h	/^		int	Close();$/;"	p	class:CDISK	access:protected	signature:()
+CDISK::Open	DiskRead.h	/^		int	Open();$/;"	p	class:CDISK	access:protected	signature:()
+CDISK::Read	DiskRead.h	/^		INT64	Read(INT64 secNum, UINT8 *buf);$/;"	p	class:CDISK	access:public	signature:(INT64 secNum, UINT8 *buf)
+CDISK::Seek	DiskRead.h	/^		INT64	Seek(off_t offset, int whence);$/;"	p	class:CDISK	access:protected	signature:(off_t offset, int whence)
+CDISK::Write	DiskRead.h	/^		INT64	Write(INT64 secNum, const UINT8 *buf);$/;"	p	class:CDISK	access:public	signature:(INT64 secNum, const UINT8 *buf)
+CDiskPartition	DiskPartition.h	/^		CDiskPartition($/;"	f	class:CDiskPartition	access:public	signature:( bool a, INT8 sh, INT8 ss, INT8 sc, INT8 pt, INT8 eh, INT8 es, INT8 ec, INT32 spp, INT32 t, std::string name = �)
+CDiskPartition	DiskPartition.h	/^class CDiskPartition {$/;"	c
+CDiskPartition::CDiskPartition	DiskPartition.h	/^		CDiskPartition($/;"	f	class:CDiskPartition	access:public	signature:( bool a, INT8 sh, INT8 ss, INT8 sc, INT8 pt, INT8 eh, INT8 es, INT8 ec, INT32 spp, INT32 t, std::string name = �)
+CDiskPartition::GetActivePartition	DiskPartition.h	/^		bool	GetActivePartition() const {$/;"	f	class:CDiskPartition	access:public	signature:() const
+CDiskPartition::GetEndCylinderNo	DiskPartition.h	/^		INT8	GetEndCylinderNo() const {$/;"	f	class:CDiskPartition	access:public	signature:() const
+CDiskPartition::GetEndHeadNo	DiskPartition.h	/^		INT8	GetEndHeadNo() const {$/;"	f	class:CDiskPartition	access:public	signature:() const
+CDiskPartition::GetEndSecNo	DiskPartition.h	/^		INT8	GetEndSecNo() const {$/;"	f	class:CDiskPartition	access:public	signature:() const
+CDiskPartition::GetName	DiskPartition.h	/^		const std::string* GetName() const {$/;"	f	class:CDiskPartition	access:public	signature:() const
+CDiskPartition::GetPartitionTypeIndicator	DiskPartition.h	/^		INT8	GetPartitionTypeIndicator() const  {$/;"	f	class:CDiskPartition	access:public	signature:() const
+CDiskPartition::GetSecPrecedingPartition	DiskPartition.h	/^		INT32	GetSecPrecedingPartition() const {$/;"	f	class:CDiskPartition	access:public	signature:() const
+CDiskPartition::GetStartCylinderNo	DiskPartition.h	/^		INT8	GetStartCylinderNo() const {$/;"	f	class:CDiskPartition	access:public	signature:() const
+CDiskPartition::GetStartHeadNo	DiskPartition.h	/^		INT8	GetStartHeadNo()  const {$/;"	f	class:CDiskPartition	access:public	signature:() const
+CDiskPartition::GetStartSecNO	DiskPartition.h	/^		INT8	GetStartSecNO() const { $/;"	f	class:CDiskPartition	access:public	signature:() const
+CDiskPartition::GetTotalSec	DiskPartition.h	/^		INT32	GetTotalSec() const {$/;"	f	class:CDiskPartition	access:public	signature:() const
+CDiskPartition::m_ActivePartition	DiskPartition.h	/^		bool	m_ActivePartition;\/\/活动分区标志$/;"	m	class:CDiskPartition	access:private
+CDiskPartition::m_EndCylinderNo	DiskPartition.h	/^		INT8	m_EndCylinderNo;\/\/终止柱面号(柱面号的高2位存放在扇区字节的高2位)$/;"	m	class:CDiskPartition	access:private
+CDiskPartition::m_EndHeadNo	DiskPartition.h	/^		INT8	m_EndHeadNo;\/\/结束磁头号$/;"	m	class:CDiskPartition	access:private
+CDiskPartition::m_EndSecNo	DiskPartition.h	/^		INT8	m_EndSecNo;\/\/结束扇区号$/;"	m	class:CDiskPartition	access:private
+CDiskPartition::m_PartitionName	DiskPartition.h	/^		std::string	m_PartitionName;\/\/注意这个成员变量并不属于磁盘分区的标准，是为了方便自己加的$/;"	m	class:CDiskPartition	access:private
+CDiskPartition::m_PartitionTypeIndicator	DiskPartition.h	/^		INT8	m_PartitionTypeIndicator;\/\/分区格式标志$/;"	m	class:CDiskPartition	access:private
+CDiskPartition::m_SecPrecedingPartition	DiskPartition.h	/^		INT32	m_SecPrecedingPartition;\/\/本分区之前已用扇区数目$/;"	m	class:CDiskPartition	access:private
+CDiskPartition::m_StartCylinderNo	DiskPartition.h	/^		INT8	m_StartCylinderNo;\/\/起始柱面号$/;"	m	class:CDiskPartition	access:private
+CDiskPartition::m_StartHeadNo	DiskPartition.h	/^		INT8	m_StartHeadNo;\/\/起始磁头号$/;"	m	class:CDiskPartition	access:private
+CDiskPartition::m_StartSecNo	DiskPartition.h	/^		INT8	m_StartSecNo;\/\/起始扇区号$/;"	m	class:CDiskPartition	access:private
+CDiskPartition::m_TotSec	DiskPartition.h	/^		INT32	m_TotSec;\/\/本分区扇区总数$/;"	m	class:CDiskPartition	access:private
+CDiskPartition::~CDiskPartition	DiskPartition.h	/^		~CDiskPartition() {};$/;"	f	class:CDiskPartition	access:public	signature:()
+CDiskPartitionList	MBR.cpp	/^CDiskPartitionList::CDiskPartitionList()$/;"	f	class:CDiskPartitionList	signature:()
+CDiskPartitionList	MBR.h	/^		CDiskPartitionList();$/;"	p	class:CDiskPartitionList	access:public	signature:()
+CDiskPartitionList	MBR.h	/^class CDiskPartitionList {$/;"	c
+CDiskPartitionList::CDiskPartitionList	MBR.cpp	/^CDiskPartitionList::CDiskPartitionList()$/;"	f	class:CDiskPartitionList	signature:()
+CDiskPartitionList::CDiskPartitionList	MBR.h	/^		CDiskPartitionList();$/;"	p	class:CDiskPartitionList	access:public	signature:()
+CDiskPartitionList::GetPartitionActiveFlag	MBR.cpp	/^CDiskPartitionList::GetPartitionActiveFlag(const int which) const$/;"	f	class:CDiskPartitionList	signature:(const int which) const
+CDiskPartitionList::GetPartitionActiveFlag	MBR.h	/^		bool	GetPartitionActiveFlag(const int which) const;$/;"	p	class:CDiskPartitionList	access:public	signature:(const int which) const
+CDiskPartitionList::GetPartitionCount	MBR.cpp	/^CDiskPartitionList::GetPartitionCount() const$/;"	f	class:CDiskPartitionList	signature:() const
+CDiskPartitionList::GetPartitionCount	MBR.h	/^		int	GetPartitionCount() const;$/;"	p	class:CDiskPartitionList	access:public	signature:() const
+CDiskPartitionList::GetPartitionName	MBR.cpp	/^CDiskPartitionList::GetPartitionName(const int which) const$/;"	f	class:CDiskPartitionList	signature:(const int which) const
+CDiskPartitionList::GetPartitionName	MBR.h	/^		const std::string*	GetPartitionName(const int which) const;$/;"	p	class:CDiskPartitionList	access:public	signature:(const int which) const
+CDiskPartitionList::GetPartitionTolSec	MBR.cpp	/^CDiskPartitionList::GetPartitionTolSec(const int which) const$/;"	f	class:CDiskPartitionList	signature:(const int which) const
+CDiskPartitionList::GetPartitionTolSec	MBR.h	/^		INT64	GetPartitionTolSec(const int which) const;$/;"	p	class:CDiskPartitionList	access:public	signature:(const int which) const
+CDiskPartitionList::Scan	MBR.cpp	/^CDiskPartitionList::Scan()$/;"	f	class:CDiskPartitionList	signature:()
+CDiskPartitionList::Scan	MBR.h	/^		int	Scan();$/;"	p	class:CDiskPartitionList	access:public	signature:()
+CDiskPartitionList::m_diskPartitionImpl	MBR.h	/^		CMBR	*m_diskPartitionImpl;$/;"	m	class:CDiskPartitionList	access:private
+CDiskPartitionList::~CDiskPartitionList	MBR.cpp	/^CDiskPartitionList::~CDiskPartitionList()$/;"	f	class:CDiskPartitionList	signature:()
+CDiskPartitionList::~CDiskPartitionList	MBR.h	/^		~CDiskPartitionList();$/;"	p	class:CDiskPartitionList	access:public	signature:()
+CMBR	MBRImpl.h	/^		CMBR() { };$/;"	f	class:CMBR	access:public	signature:()
+CMBR	MBRImpl.h	/^class CMBR {$/;"	c
+CMBR::CMBR	MBRImpl.h	/^		CMBR() { };$/;"	f	class:CMBR	access:public	signature:()
+CMBR::GetPartitionActiveFlag	MBRImpl.cpp	/^CMBR::GetPartitionActiveFlag(const int id) const$/;"	f	class:CMBR	signature:(const int id) const
+CMBR::GetPartitionActiveFlag	MBRImpl.h	/^		bool	GetPartitionActiveFlag(const int id) const;$/;"	p	class:CMBR	access:public	signature:(const int id) const
+CMBR::GetPartitionCount	MBRImpl.cpp	/^CMBR::GetPartitionCount() const$/;"	f	class:CMBR	signature:() const
+CMBR::GetPartitionCount	MBRImpl.h	/^		int	GetPartitionCount() const;$/;"	p	class:CMBR	access:public	signature:() const
+CMBR::GetPartitionName	MBRImpl.cpp	/^CMBR::GetPartitionName(const int id) const$/;"	f	class:CMBR	signature:(const int id) const
+CMBR::GetPartitionName	MBRImpl.h	/^		const std::string* GetPartitionName(const int id) const;$/;"	p	class:CMBR	access:public	signature:(const int id) const
+CMBR::GetPartitionTolSec	MBRImpl.cpp	/^CMBR::GetPartitionTolSec(const int id) const$/;"	f	class:CMBR	signature:(const int id) const
+CMBR::GetPartitionTolSec	MBRImpl.h	/^		INT64	GetPartitionTolSec(const int id) const;$/;"	p	class:CMBR	access:public	signature:(const int id) const
+CMBR::Scan	MBRImpl.h	/^		virtual int Scan() = 0;$/;"	p	class:CMBR	access:public	signature:()
+CMBR::m_partitionList	MBRImpl.h	/^		std::vector<CDiskPartition>	m_partitionList;$/;"	m	class:CMBR	access:protected
+CMBR::~CMBR	MBRImpl.h	/^		virtual ~CMBR() { };$/;"	f	class:CMBR	access:public	signature:()
+CMBRFactory	MBRFactory.h	/^class CMBRFactory {$/;"	c
+CMBRFactory::GetMBRFactory	MBRFactory.cpp	/^CMBRFactory::GetMBRFactory()$/;"	f	class:CMBRFactory	signature:()
+CMBRFactory::GetMBRFactory	MBRFactory.h	/^	static CMBRFactory*	GetMBRFactory();$/;"	p	class:CMBRFactory	access:public	signature:()
+CMBRFactory::MakeMBR	MBRFactory.h	/^	virtual CMBR	*MakeMBR() = 0;$/;"	p	class:CMBRFactory	access:public	signature:()
+CMBRFactory::~CMBRFactory	MBRFactory.h	/^	virtual	~CMBRFactory()$/;"	f	class:CMBRFactory	access:public	signature:()
+CMBRFactoryLinux	linux/MBRFactoryLinux.h	/^		CMBRFactoryLinux() {};$/;"	f	class:CMBRFactoryLinux	access:private	signature:()
+CMBRFactoryLinux	linux/MBRFactoryLinux.h	/^class CMBRFactoryLinux : public CMBRFactory {$/;"	c	inherits:CMBRFactory
+CMBRFactoryLinux::CMBRFactoryLinux	linux/MBRFactoryLinux.h	/^		CMBRFactoryLinux() {};$/;"	f	class:CMBRFactoryLinux	access:private	signature:()
+CMBRFactoryLinux::GetFactoryInstance	linux/MBRFactoryLinux.h	/^		static CMBRFactoryLinux* GetFactoryInstance()$/;"	f	class:CMBRFactoryLinux	access:public	signature:()
+CMBRFactoryLinux::MakeMBR	linux/MBRFactoryLinux.cpp	/^CMBRFactoryLinux::MakeMBR()$/;"	f	class:CMBRFactoryLinux	signature:()
+CMBRFactoryLinux::MakeMBR	linux/MBRFactoryLinux.h	/^		virtual CMBR*	MakeMBR();$/;"	p	class:CMBRFactoryLinux	access:public	signature:()
+CMBRFactoryLinux::~CMBRFactoryLinux	linux/MBRFactoryLinux.h	/^		virtual ~CMBRFactoryLinux() {};$/;"	f	class:CMBRFactoryLinux	access:public	signature:()
+CMBRFactoryWindows	windows/MBRFactoryWindows.h	/^		CMBRFactoryWindows() {};$/;"	f	class:CMBRFactoryWindows	access:private	signature:()
+CMBRFactoryWindows	windows/MBRFactoryWindows.h	/^class CMBRFactoryWindows : public CMBRFactory {$/;"	c	inherits:CMBRFactory
+CMBRFactoryWindows::CMBRFactoryWindows	windows/MBRFactoryWindows.h	/^		CMBRFactoryWindows() {};$/;"	f	class:CMBRFactoryWindows	access:private	signature:()
+CMBRFactoryWindows::GetFactoryInstance	windows/MBRFactoryWindows.h	/^		static CMBRFactoryWindows* GetFactoryInstance()$/;"	f	class:CMBRFactoryWindows	access:public	signature:()
+CMBRFactoryWindows::MakeMBR	windows/MBRFactoryWindows.cpp	/^CMBRFactoryWindows::MakeMBR()$/;"	f	class:CMBRFactoryWindows	signature:()
+CMBRFactoryWindows::MakeMBR	windows/MBRFactoryWindows.h	/^		virtual CMBR*	MakeMBR();$/;"	p	class:CMBRFactoryWindows	access:public	signature:()
+CMBRFactoryWindows::~CMBRFactoryWindows	windows/MBRFactoryWindows.h	/^		virtual ~CMBRFactoryWindows() {};$/;"	f	class:CMBRFactoryWindows	access:public	signature:()
+CMBRLinux	linux/MBRImplLinux.h	/^		CMBRLinux() {};$/;"	f	class:CMBRLinux	access:public	signature:()
+CMBRLinux	linux/MBRImplLinux.h	/^class CMBRLinux : public CMBR {$/;"	c	inherits:CMBR
+CMBRLinux::CMBRLinux	linux/MBRImplLinux.h	/^		CMBRLinux() {};$/;"	f	class:CMBRLinux	access:public	signature:()
+CMBRLinux::Scan	linux/MBRImplLinux.cpp	/^CMBRLinux::Scan()$/;"	f	class:CMBRLinux	signature:()
+CMBRLinux::Scan	linux/MBRImplLinux.h	/^		virtual int Scan();$/;"	p	class:CMBRLinux	access:public	signature:()
+CMBRLinux::~CMBRLinux	linux/MBRImplLinux.h	/^		virtual ~CMBRLinux() {};$/;"	f	class:CMBRLinux	access:public	signature:()
+CMBRWindows	windows/MBRImplWindows.h	/^		CMBRWindows()$/;"	f	class:CMBRWindows	access:public	signature:()
+CMBRWindows	windows/MBRImplWindows.h	/^class CMBRWindows : public CMBR {$/;"	c	inherits:CMBR
+CMBRWindows::CMBRWindows	windows/MBRImplWindows.h	/^		CMBRWindows()$/;"	f	class:CMBRWindows	access:public	signature:()
+CMBRWindows::Scan	windows/MBRImplWindows.cpp	/^CMBRWindows::Scan()$/;"	f	class:CMBRWindows	signature:()
+CMBRWindows::Scan	windows/MBRImplWindows.h	/^		virtual int Scan();$/;"	p	class:CMBRWindows	access:public	signature:()
+CMBRWindows::~CMBRWindows	windows/MBRImplWindows.h	/^		virtual ~CMBRWindows()$/;"	f	class:CMBRWindows	access:public	signature:()
+Close	DiskRead.h	/^		int	Close();$/;"	p	class:CDISK	access:protected	signature:()
+DiskBuf	linux/MBR_linux.cpp	/^unsigned char	DiskBuf[4096];$/;"	v
+DiskFd	linux/MBR_linux.cpp	/^int	DiskFd;$/;"	v
+DisplayError	windows/MBR_windows.cpp	/^void	DisplayError(LPTSTR lpszFunction);$/;"	p	file:	signature:(LPTSTR lpszFunction)
+DisplayError	windows/MBR_windows.cpp	/^void DisplayError(LPTSTR lpszFunction) $/;"	f	signature:(LPTSTR lpszFunction)
+FileIOCompletionRoutine	windows/MBR_windows.cpp	/^VOID CALLBACK FileIOCompletionRoutine($/;"	f	signature:( __in DWORD dwErrorCode, __in DWORD dwNumberOfBytesTransfered, __in LPOVERLAPPED lpOverlapped )
+FileIOCompletionRoutine	windows/MBR_windows.cpp	/^VOID CALLBACK FileIOCompletionRoutine($/;"	p	file:	signature:( __in DWORD dwErrorCode, __in DWORD dwNumberOfBytesTransfered, __in LPOVERLAPPED lpOverlapped )
+GetActivePartition	DiskPartition.h	/^		bool	GetActivePartition() const {$/;"	f	class:CDiskPartition	access:public	signature:() const
+GetEndCylinderNo	DiskPartition.h	/^		INT8	GetEndCylinderNo() const {$/;"	f	class:CDiskPartition	access:public	signature:() const
+GetEndHeadNo	DiskPartition.h	/^		INT8	GetEndHeadNo() const {$/;"	f	class:CDiskPartition	access:public	signature:() const
+GetEndSecNo	DiskPartition.h	/^		INT8	GetEndSecNo() const {$/;"	f	class:CDiskPartition	access:public	signature:() const
+GetFactoryInstance	linux/MBRFactoryLinux.h	/^		static CMBRFactoryLinux* GetFactoryInstance()$/;"	f	class:CMBRFactoryLinux	access:public	signature:()
+GetFactoryInstance	windows/MBRFactoryWindows.h	/^		static CMBRFactoryWindows* GetFactoryInstance()$/;"	f	class:CMBRFactoryWindows	access:public	signature:()
+GetMBRFactory	MBRFactory.cpp	/^CMBRFactory::GetMBRFactory()$/;"	f	class:CMBRFactory	signature:()
+GetMBRFactory	MBRFactory.h	/^	static CMBRFactory*	GetMBRFactory();$/;"	p	class:CMBRFactory	access:public	signature:()
+GetName	DiskPartition.h	/^		const std::string* GetName() const {$/;"	f	class:CDiskPartition	access:public	signature:() const
+GetPartitionActiveFlag	MBR.cpp	/^CDiskPartitionList::GetPartitionActiveFlag(const int which) const$/;"	f	class:CDiskPartitionList	signature:(const int which) const
+GetPartitionActiveFlag	MBR.h	/^		bool	GetPartitionActiveFlag(const int which) const;$/;"	p	class:CDiskPartitionList	access:public	signature:(const int which) const
+GetPartitionActiveFlag	MBRImpl.cpp	/^CMBR::GetPartitionActiveFlag(const int id) const$/;"	f	class:CMBR	signature:(const int id) const
+GetPartitionActiveFlag	MBRImpl.h	/^		bool	GetPartitionActiveFlag(const int id) const;$/;"	p	class:CMBR	access:public	signature:(const int id) const
+GetPartitionCount	MBR.cpp	/^CDiskPartitionList::GetPartitionCount() const$/;"	f	class:CDiskPartitionList	signature:() const
+GetPartitionCount	MBR.h	/^		int	GetPartitionCount() const;$/;"	p	class:CDiskPartitionList	access:public	signature:() const
+GetPartitionCount	MBRImpl.cpp	/^CMBR::GetPartitionCount() const$/;"	f	class:CMBR	signature:() const
+GetPartitionCount	MBRImpl.h	/^		int	GetPartitionCount() const;$/;"	p	class:CMBR	access:public	signature:() const
+GetPartitionName	MBR.cpp	/^CDiskPartitionList::GetPartitionName(const int which) const$/;"	f	class:CDiskPartitionList	signature:(const int which) const
+GetPartitionName	MBR.h	/^		const std::string*	GetPartitionName(const int which) const;$/;"	p	class:CDiskPartitionList	access:public	signature:(const int which) const
+GetPartitionName	MBRImpl.cpp	/^CMBR::GetPartitionName(const int id) const$/;"	f	class:CMBR	signature:(const int id) const
+GetPartitionName	MBRImpl.h	/^		const std::string* GetPartitionName(const int id) const;$/;"	p	class:CMBR	access:public	signature:(const int id) const
+GetPartitionTolSec	MBR.cpp	/^CDiskPartitionList::GetPartitionTolSec(const int which) const$/;"	f	class:CDiskPartitionList	signature:(const int which) const
+GetPartitionTolSec	MBR.h	/^		INT64	GetPartitionTolSec(const int which) const;$/;"	p	class:CDiskPartitionList	access:public	signature:(const int which) const
+GetPartitionTolSec	MBRImpl.cpp	/^CMBR::GetPartitionTolSec(const int id) const$/;"	f	class:CMBR	signature:(const int id) const
+GetPartitionTolSec	MBRImpl.h	/^		INT64	GetPartitionTolSec(const int id) const;$/;"	p	class:CMBR	access:public	signature:(const int id) const
+GetPartitionTypeIndicator	DiskPartition.h	/^		INT8	GetPartitionTypeIndicator() const  {$/;"	f	class:CDiskPartition	access:public	signature:() const
+GetSecPrecedingPartition	DiskPartition.h	/^		INT32	GetSecPrecedingPartition() const {$/;"	f	class:CDiskPartition	access:public	signature:() const
+GetStartCylinderNo	DiskPartition.h	/^		INT8	GetStartCylinderNo() const {$/;"	f	class:CDiskPartition	access:public	signature:() const
+GetStartHeadNo	DiskPartition.h	/^		INT8	GetStartHeadNo()  const {$/;"	f	class:CDiskPartition	access:public	signature:() const
+GetStartSecNO	DiskPartition.h	/^		INT8	GetStartSecNO() const { $/;"	f	class:CDiskPartition	access:public	signature:() const
+GetTotalSec	DiskPartition.h	/^		INT32	GetTotalSec() const {$/;"	f	class:CDiskPartition	access:public	signature:() const
+MakeMBR	MBRFactory.h	/^	virtual CMBR	*MakeMBR() = 0;$/;"	p	class:CMBRFactory	access:public	signature:()
+MakeMBR	linux/MBRFactoryLinux.cpp	/^CMBRFactoryLinux::MakeMBR()$/;"	f	class:CMBRFactoryLinux	signature:()
+MakeMBR	linux/MBRFactoryLinux.h	/^		virtual CMBR*	MakeMBR();$/;"	p	class:CMBRFactoryLinux	access:public	signature:()
+MakeMBR	windows/MBRFactoryWindows.cpp	/^CMBRFactoryWindows::MakeMBR()$/;"	f	class:CMBRFactoryWindows	signature:()
+MakeMBR	windows/MBRFactoryWindows.h	/^		virtual CMBR*	MakeMBR();$/;"	p	class:CMBRFactoryWindows	access:public	signature:()
+Open	DiskRead.h	/^		int	Open();$/;"	p	class:CDISK	access:protected	signature:()
+PrintMBR	linux/MBR_linux.cpp	/^void PrintMBR(const unsigned char *src)$/;"	f	signature:(const unsigned char *src)
+PrintMBR	linux/MBR_linux.cpp	/^void PrintMBR(const unsigned char *src);$/;"	p	file:	signature:(const unsigned char *src)
+Read	DiskRead.h	/^		INT64	Read(INT64 secNum, UINT8 *buf);$/;"	p	class:CDISK	access:public	signature:(INT64 secNum, UINT8 *buf)
+ReadEBR	linux/MBR_linux.cpp	/^void ReadEBR(int fildes, long long offset)$/;"	f	signature:(int fildes, long long offset)
+ReadEBR	windows/MBR_windows.cpp	/^void	ReadEBR(HANDLE hfile, __int64 offset)$/;"	f	signature:(HANDLE hfile, __int64 offset)
+ReadEBR	windows/MBR_windows.cpp	/^void	ReadEBR(HANDLE hfile, __int64 offset);$/;"	p	file:	signature:(HANDLE hfile, __int64 offset)
+Scan	MBR.cpp	/^CDiskPartitionList::Scan()$/;"	f	class:CDiskPartitionList	signature:()
+Scan	MBR.h	/^		int	Scan();$/;"	p	class:CDiskPartitionList	access:public	signature:()
+Scan	MBRImpl.h	/^		virtual int Scan() = 0;$/;"	p	class:CMBR	access:public	signature:()
+Scan	linux/MBRImplLinux.cpp	/^CMBRLinux::Scan()$/;"	f	class:CMBRLinux	signature:()
+Scan	linux/MBRImplLinux.h	/^		virtual int Scan();$/;"	p	class:CMBRLinux	access:public	signature:()
+Scan	windows/MBRImplWindows.cpp	/^CMBRWindows::Scan()$/;"	f	class:CMBRWindows	signature:()
+Scan	windows/MBRImplWindows.h	/^		virtual int Scan();$/;"	p	class:CMBRWindows	access:public	signature:()
+Seek	DiskRead.h	/^		INT64	Seek(off_t offset, int whence);$/;"	p	class:CDISK	access:protected	signature:(off_t offset, int whence)
+Write	DiskRead.h	/^		INT64	Write(INT64 secNum, const UINT8 *buf);$/;"	p	class:CDISK	access:public	signature:(INT64 secNum, const UINT8 *buf)
+_FAT_DISKREAD_H__	DiskRead.h	2;"	d
 __FAT_DISKPARTITION_H__	DiskPartition.h	2;"	d
 __FAT_DISK_PARTITION_LIST_H__	MBR.h	2;"	d
 __FAT_MBR_FACTORY_H__	MBRFactory.h	2;"	d
@@ -62,36 +203,77 @@ __FAT_MBR_FACTORY_WINDOWS_H__	windows/MBRFactoryWindows.h	2;"	d
 __FAT_MBR_H__	MBRImpl.h	2;"	d
 __FAT_MBR_IMPL_LINUX_H__	linux/MBRImplLinux.h	2;"	d
 __FAT_MBR_IMPL_WINDOWS_H__	windows/MBRImplWindows.h	2;"	d
-_tmain	windows/MBR_windows.cpp	?^void __cdecl _tmain(int argc,  TCHAR *argv[])$?;"	f
-g_BytesTransferred	windows/MBR_windows.cpp	?^DWORD	g_BytesTransferred = 0;$?;"	v
-g_iPartitionNum	linux/MBR_linux.cpp	?^int	g_iPartitionNum = 0;$?;"	v
-g_iPartitionNum	windows/MBR_windows.cpp	?^DWORD	g_iPartitionNum = 0;$?;"	v
-m_ActivePartition	DiskPartition.h	?^		bool	m_ActivePartition;//活动分区标志$?;"	m	class:CDiskPartition
-m_EndCylinderNo	DiskPartition.h	?^		INT8	m_EndCylinderNo;//终止柱面号(柱面号的高2位存放在扇区字节的高2位)$?;"	m	class:CDiskPartition
-m_EndHeadNo	DiskPartition.h	?^		INT8	m_EndHeadNo;//结束磁头号$?;"	m	class:CDiskPartition
-m_EndSecNo	DiskPartition.h	?^		INT8	m_EndSecNo;//结束扇区号$?;"	m	class:CDiskPartition
-m_PartitionName	DiskPartition.h	?^		std::string	m_PartitionName;//注意这个成员变量并不属于磁盘分区的标准，是为了方便自己加的$?;"	m	class:CDiskPartition
-m_PartitionTypeIndicator	DiskPartition.h	?^		INT8	m_PartitionTypeIndicator;//分区格式标志$?;"	m	class:CDiskPartition
-m_SecPrecedingPartition	DiskPartition.h	?^		INT32	m_SecPrecedingPartition;//本分区之前已用扇区数目$?;"	m	class:CDiskPartition
-m_StartCylinderNo	DiskPartition.h	?^		INT8	m_StartCylinderNo;//起始柱面号$?;"	m	class:CDiskPartition
-m_StartHeadNo	DiskPartition.h	?^		INT8	m_StartHeadNo;//起始磁头号$?;"	m	class:CDiskPartition
-m_StartSecNo	DiskPartition.h	?^		INT8	m_StartSecNo;//起始扇区号$?;"	m	class:CDiskPartition
-m_TotSec	DiskPartition.h	?^		INT32	m_TotSec;//本分区扇区总数$?;"	m	class:CDiskPartition
-m_diskPartitionImpl	MBR.h	?^		CMBR	*m_diskPartitionImpl;$?;"	m	class:CDiskPartitionList
-m_partitionList	MBRImpl.h	?^		std::vector<CDiskPartition>	m_partitionList;$?;"	m	class:CMBR
-main	diskPartition.cpp	?^main(void)$?;"	f
-main	linux/MBR_linux.cpp	?^main(void)$?;"	f
-n	linux/MBR_linux.cpp	?^int	n;$?;"	v
-printNowOffset	linux/MBR_linux.cpp	?^void printNowOffset(int files)$?;"	f
-printSectorContent	linux/MBR_linux.cpp	?^void printSectorContent(const unsigned char *src, int size)$?;"	f
-sectorNo	linux/MBR_linux.cpp	?^int	sectorNo = 0;$?;"	v
-sectorSize	linux/MBR_linux.cpp	?^int	sectorSize = 512;$?;"	v
+__anon1::$	linux/tags	/^CMBRFactoryLinux	MBRFactoryLinux.h	?^class CMBRFactoryLinux : public CMBRFactory {$?;"	c$/;"	m	class:__anon1	file:	access:private
+__anon1::__anon2::$	linux/tags	/^CMBRLinux	MBRImplLinux.h	?^class CMBRLinux : public CMBR {$?;"	c$/;"	m	class:__anon1::__anon2	file:	access:private
+__anon1::__anon2::$	linux/tags	/^DiskFd	MBR_linux.cpp	?^int	DiskFd;$?;"	v$/;"	m	class:__anon1::__anon2	file:	access:private
+__anon1::__anon2::$	linux/tags	/^~CMBRLinux	MBRImplLinux.h	?^		virtual ~CMBRLinux() {};$?;"	f	class:CMBRLinux$/;"	m	class:__anon1::__anon2	file:	access:private
+__anon4::$	tags	/^CMBRLinux	linux\/MBRImplLinux.h	\/^class CMBRLinux : public CMBR {$\/;"	c	inherits:CMBR$/;"	m	class:__anon4	file:	access:private
+__anon4::$	tags	/^CMBRLinux::CMBRLinux	linux\/MBRImplLinux.h	\/^		CMBRLinux() {};$\/;"	f	class:CMBRLinux	access:public	signature:()$/;"	m	class:__anon4	file:	access:private
+__anon4::$	tags	/^CMBRLinux::~CMBRLinux	linux\/MBRImplLinux.h	\/^		virtual ~CMBRLinux() {};$\/;"	f	class:CMBRLinux	access:public	signature:()$/;"	m	class:__anon4	file:	access:private
+__anon4::__anon7::$	tags	/^$	linux\/tags	\/^CMBRFactoryLinux	MBRFactoryLinux.h	?^class CMBRFactoryLinux : public CMBRFactory {$?;"	c$\/;"	m	class:__anon1	file:	access:private$/;"	m	class:__anon4::__anon7	file:	access:private
+__anon4::__anon7::__anon8::$	tags	/^__anon1::$	linux\/tags	\/^CMBRFactoryLinux	MBRFactoryLinux.h	?^class CMBRFactoryLinux : public CMBRFactory {$?;"	c$\/;"	m	class:__anon1	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8	file:	access:private
+__anon4::__anon7::__anon8::__anon9::$	tags	/^$	linux\/tags	\/^CMBRLinux	MBRImplLinux.h	?^class CMBRLinux : public CMBR {$?;"	c$\/;"	m	class:__anon1::__anon2	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::$	tags	/^$	linux\/tags	\/^~CMBRLinux	MBRImplLinux.h	?^		virtual ~CMBRLinux() {};$?;"	f	class:CMBRLinux$\/;"	m	class:__anon1::__anon2	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::$	tags	/^CMBRFactoryLinux	linux\/MBRFactoryLinux.h	\/^		CMBRFactoryLinux() {};$\/;"	f	class:CMBRFactoryLinux	access:private	signature:()$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::$	tags	/^__anon1::__anon2::$	linux\/tags	\/^CMBRLinux	MBRImplLinux.h	?^class CMBRLinux : public CMBR {$?;"	c$\/;"	m	class:__anon1::__anon2	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::$	tags	/^__anon1::__anon2::$	linux\/tags	\/^~CMBRLinux	MBRImplLinux.h	?^		virtual ~CMBRLinux() {};$?;"	f	class:CMBRLinux$\/;"	m	class:__anon1::__anon2	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::$	tags	/^~CDiskPartition	DiskPartition.h	\/^		~CDiskPartition() {};$\/;"	f	class:CDiskPartition	access:public	signature:()$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::$	tags	/^~CMBRFactoryLinux	linux\/MBRFactoryLinux.h	\/^		virtual ~CMBRFactoryLinux() {};$\/;"	f	class:CMBRFactoryLinux	access:public	signature:()$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::$	tags	/^GetActivePartition	DiskPartition.h	\/^		bool	GetActivePartition() const {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::$	tags	/^GetStartHeadNo	DiskPartition.h	\/^		INT8	GetStartHeadNo()  const {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::$	tags	/^GetStartSecNO	DiskPartition.h	\/^		INT8	GetStartSecNO() const { $\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::$	tags	/^GetStartCylinderNo	DiskPartition.h	\/^		INT8	GetStartCylinderNo() const {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::$	tags	/^GetPartitionTypeIndicator	DiskPartition.h	\/^		INT8	GetPartitionTypeIndicator() const  {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::$	tags	/^GetEndHeadNo	DiskPartition.h	\/^		INT8	GetEndHeadNo() const {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::$	tags	/^GetEndSecNo	DiskPartition.h	\/^		INT8	GetEndSecNo() const {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::$	tags	/^GetEndCylinderNo	DiskPartition.h	\/^		INT8	GetEndCylinderNo() const {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::$	tags	/^GetSecPrecedingPartition	DiskPartition.h	\/^		INT32	GetSecPrecedingPartition() const {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::$	tags	/^GetTotalSec	DiskPartition.h	\/^		INT32	GetTotalSec() const {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::$	tags	/^CMBR	MBRImpl.h	\/^		CMBR() { };$\/;"	f	class:CMBR	access:public	signature:()$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::$	tags	/^GetName	DiskPartition.h	\/^		const std::string* GetName() const {$\/;"	f	class:CDiskPartition	access:public	signature:() const$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::$	tags	/^~CMBR	MBRImpl.h	\/^		virtual ~CMBR() { };$\/;"	f	class:CMBR	access:public	signature:()$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::__anon29::$	tags	/^__anon4::__anon7::$	tags	\/^$	linux\\\/tags	\\\/^CMBRFactoryLinux	MBRFactoryLinux.h	?^class CMBRFactoryLinux : public CMBRFactory {$?;"	c$\\\/;"	m	class:__anon1	file:	access:private$\/;"	m	class:__anon4::__anon7	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::__anon29	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::__anon29::__anon30::$	tags	/^__anon4::__anon7::__anon8::$	tags	\/^__anon1::$	linux\\\/tags	\\\/^CMBRFactoryLinux	MBRFactoryLinux.h	?^class CMBRFactoryLinux : public CMBRFactory {$?;"	c$\\\/;"	m	class:__anon1	file:	access:private$\/;"	m	class:__anon4::__anon7::__anon8	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::__anon29::__anon30	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::__anon29::__anon30::__anon31::$	tags	/^__anon4::__anon7::__anon8::__anon9::$	tags	\/^$	linux\\\/tags	\\\/^CMBRLinux	MBRImplLinux.h	?^class CMBRLinux : public CMBR {$?;"	c$\\\/;"	m	class:__anon1::__anon2	file:	access:private$\/;"	m	class:__anon4::__anon7::__anon8::__anon9	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::__anon29::__anon30::__anon31	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::__anon29::__anon30::__anon31::__anon32::$	tags	/^__anon4::__anon7::__anon8::__anon9::__anon10::$	tags	\/^$	linux\\\/tags	\\\/^~CMBRLinux	MBRImplLinux.h	?^		virtual ~CMBRLinux() {};$?;"	f	class:CMBRLinux$\\\/;"	m	class:__anon1::__anon2	file:	access:private$\/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::__anon29::__anon30::__anon31::__anon32	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::__anon29::__anon30::__anon31::__anon32::$	tags	/^__anon4::__anon7::__anon8::__anon9::__anon10::$	tags	\/^__anon1::__anon2::$	linux\\\/tags	\\\/^CMBRLinux	MBRImplLinux.h	?^class CMBRLinux : public CMBR {$?;"	c$\\\/;"	m	class:__anon1::__anon2	file:	access:private$\/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::__anon29::__anon30::__anon31::__anon32	file:	access:private
+__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::__anon29::__anon30::__anon31::__anon32::$	tags	/^__anon4::__anon7::__anon8::__anon9::__anon10::$	tags	\/^__anon1::__anon2::$	linux\\\/tags	\\\/^~CMBRLinux	MBRImplLinux.h	?^		virtual ~CMBRLinux() {};$?;"	f	class:CMBRLinux$\\\/;"	m	class:__anon1::__anon2	file:	access:private$\/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10	file:	access:private$/;"	m	class:__anon4::__anon7::__anon8::__anon9::__anon10::__anon16::__anon17::__anon18::__anon19::__anon20::__anon21::__anon22::__anon23::__anon24::__anon25::__anon26::__anon29::__anon30::__anon31::__anon32	file:	access:private
+_tmain	windows/MBR_windows.cpp	/^void __cdecl _tmain(int argc,  TCHAR *argv[])$/;"	f	signature:(int argc, TCHAR *argv[])
+format	linux/tags	/^!_TAG_FILE_FORMAT	2	\/extended format; --format=1 will not append ;" to lines\/$/;"	v
+format	tags	/^!_TAG_FILE_FORMAT	2	\/extended format; --format=1 will not append ;" to lines\/$/;"	v
+g_BytesTransferred	windows/MBR_windows.cpp	/^DWORD	g_BytesTransferred = 0;$/;"	v
+g_iPartitionNum	linux/MBR_linux.cpp	/^int	g_iPartitionNum = 0;$/;"	v
+g_iPartitionNum	windows/MBR_windows.cpp	/^DWORD	g_iPartitionNum = 0;$/;"	v
+getNextMBR	linux/MBR_linux.cpp	/^unsigned int getNextMBR(const unsigned char *);$/;"	p	file:	signature:(const unsigned char *)
+m_ActivePartition	DiskPartition.h	/^		bool	m_ActivePartition;\/\/活动分区标志$/;"	m	class:CDiskPartition	access:private
+m_EndCylinderNo	DiskPartition.h	/^		INT8	m_EndCylinderNo;\/\/终止柱面号(柱面号的高2位存放在扇区字节的高2位)$/;"	m	class:CDiskPartition	access:private
+m_EndHeadNo	DiskPartition.h	/^		INT8	m_EndHeadNo;\/\/结束磁头号$/;"	m	class:CDiskPartition	access:private
+m_EndSecNo	DiskPartition.h	/^		INT8	m_EndSecNo;\/\/结束扇区号$/;"	m	class:CDiskPartition	access:private
+m_PartitionName	DiskPartition.h	/^		std::string	m_PartitionName;\/\/注意这个成员变量并不属于磁盘分区的标准，是为了方便自己加的$/;"	m	class:CDiskPartition	access:private
+m_PartitionTypeIndicator	DiskPartition.h	/^		INT8	m_PartitionTypeIndicator;\/\/分区格式标志$/;"	m	class:CDiskPartition	access:private
+m_SecPrecedingPartition	DiskPartition.h	/^		INT32	m_SecPrecedingPartition;\/\/本分区之前已用扇区数目$/;"	m	class:CDiskPartition	access:private
+m_StartCylinderNo	DiskPartition.h	/^		INT8	m_StartCylinderNo;\/\/起始柱面号$/;"	m	class:CDiskPartition	access:private
+m_StartHeadNo	DiskPartition.h	/^		INT8	m_StartHeadNo;\/\/起始磁头号$/;"	m	class:CDiskPartition	access:private
+m_StartSecNo	DiskPartition.h	/^		INT8	m_StartSecNo;\/\/起始扇区号$/;"	m	class:CDiskPartition	access:private
+m_TotSec	DiskPartition.h	/^		INT32	m_TotSec;\/\/本分区扇区总数$/;"	m	class:CDiskPartition	access:private
+m_diskPartitionImpl	MBR.h	/^		CMBR	*m_diskPartitionImpl;$/;"	m	class:CDiskPartitionList	access:private
+m_partitionList	MBRImpl.h	/^		std::vector<CDiskPartition>	m_partitionList;$/;"	m	class:CMBR	access:protected
+main	diskPartition.cpp	/^main(void)$/;"	f	signature:(void)
+main	linux/MBR_linux.cpp	/^main(int argc, char *argv[])$/;"	f	signature:(int argc, char *argv[])
+n	linux/MBR_linux.cpp	/^int	n;$/;"	v
+printNowOffset	linux/MBR_linux.cpp	/^void printNowOffset(int files)$/;"	f	signature:(int files)
+printNowOffset	linux/MBR_linux.cpp	/^void printNowOffset(int);$/;"	p	file:	signature:(int)
+printSectorContent	linux/MBR_linux.cpp	/^void printSectorContent(const unsigned char *, int);$/;"	p	file:	signature:(const unsigned char *, int)
+printSectorContent	linux/MBR_linux.cpp	/^void printSectorContent(const unsigned char *src, int size)$/;"	f	signature:(const unsigned char *src, int size)
+sectorNo	linux/MBR_linux.cpp	/^int	sectorNo = 0;$/;"	v
+sectorSize	linux/MBR_linux.cpp	/^int	sectorSize = 512;$/;"	v
 wszDrive	windows/MBR_windows.cpp	7;"	d	file:
-~CDiskPartition	DiskPartition.h	?^		~CDiskPartition() {};$?;"	f	class:CDiskPartition
-~CDiskPartitionList	MBR.cpp	?^CDiskPartitionList::~CDiskPartitionList()$?;"	f	class:CDiskPartitionList
-~CMBR	MBRImpl.h	?^		virtual ~CMBR() { };$?;"	f	class:CMBR
-~CMBRFactory	MBRFactory.h	?^	virtual	~CMBRFactory()$?;"	f	class:CMBRFactory
-~CMBRFactoryLinux	linux/MBRFactoryLinux.h	?^		virtual ~CMBRFactoryLinux() {};$?;"	f	class:CMBRFactoryLinux
-~CMBRFactoryWindows	windows/MBRFactoryWindows.h	?^		virtual ~CMBRFactoryWindows() {};$?;"	f	class:CMBRFactoryWindows
-~CMBRLinux	linux/MBRImplLinux.h	?^		virtual ~CMBRLinux() {};$?;"	f	class:CMBRLinux
-~CMBRWindows	windows/MBRImplWindows.h	?^		virtual ~CMBRWindows()$?;"	f	class:CMBRWindows
+~CDiskPartition	DiskPartition.h	/^		~CDiskPartition() {};$/;"	f	class:CDiskPartition	access:public	signature:()
+~CDiskPartitionList	MBR.cpp	/^CDiskPartitionList::~CDiskPartitionList()$/;"	f	class:CDiskPartitionList	signature:()
+~CDiskPartitionList	MBR.h	/^		~CDiskPartitionList();$/;"	p	class:CDiskPartitionList	access:public	signature:()
+~CMBR	MBRImpl.h	/^		virtual ~CMBR() { };$/;"	f	class:CMBR	access:public	signature:()
+~CMBRFactory	MBRFactory.h	/^	virtual	~CMBRFactory()$/;"	f	class:CMBRFactory	access:public	signature:()
+~CMBRFactoryLinux	linux/MBRFactoryLinux.h	/^		virtual ~CMBRFactoryLinux() {};$/;"	f	class:CMBRFactoryLinux	access:public	signature:()
+~CMBRFactoryWindows	windows/MBRFactoryWindows.h	/^		virtual ~CMBRFactoryWindows() {};$/;"	f	class:CMBRFactoryWindows	access:public	signature:()
+~CMBRLinux	linux/MBRImplLinux.h	/^		virtual ~CMBRLinux() {};$/;"	f	class:CMBRLinux	access:public	signature:()
+~CMBRWindows	windows/MBRImplWindows.h	/^		virtual ~CMBRWindows()$/;"	f	class:CMBRWindows	access:public	signature:()

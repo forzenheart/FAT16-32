@@ -1,9 +1,11 @@
-#include <unistd.h>
-#include <fcntl.h>
 #include "../../base/FATBasicDataDefine.h"
 #include "../../base/FATPartitionTypeIndicator.h"
+#include <unistd.h>
+#include <errno.h>
+#include <fcntl.h>
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
 
 //中英文对照表
 //柱面	Cylinder
@@ -28,22 +30,33 @@ int	g_iPartitionNum = 0;
 void PrintMBR(const unsigned char *src);
 
 int
-main(void)
+main(int argc, char *argv[])
 {
-
-	if ((DiskFd = open("/dev/sda", O_RDONLY)) < 0)
-		fprintf(stderr, "open error.This programma"
-				"needs to be run from root! Make sure about that.\n");
-	else {
-		if (lseek(DiskFd, sectorNo * sectorSize, SEEK_SET) == -1)
-			fprintf(stderr, "lseek error\n");
-		if ((n = read(DiskFd, DiskBuf, sizeof(DiskBuf))) < 0) 
-			fprintf(stderr, "read error\n");
-		//printf("read : %d bytes.\nThe Disk info:\n", n);
-		//printSectorContent(DiskBuf, 512);
-		PrintMBR(DiskBuf);
+	if (argc == 2) {
+		if ((DiskFd = open(argv[1], O_RDONLY)) < 0) {
+			int	errsv = errno;
+			switch(errsv) {
+				case EACCES :
+					fprintf(stderr, "Please run this program from root.\n");
+					break;
+				case ENOENT :
+					fprintf(stderr,"no such file\n");
+					break;
+				default :
+					fprintf(stderr, "%s\n", strerror(errsv));
+			}
+		}
+		else {
+			if (lseek(DiskFd, sectorNo * sectorSize, SEEK_SET) == -1)
+				fprintf(stderr, "lseek error\n");
+			if ((n = read(DiskFd, DiskBuf, sizeof(DiskBuf))) < 0) 
+				fprintf(stderr, "read error\n");
+			//printf("read : %d bytes.\nThe Disk info:\n", n);
+			//printSectorContent(DiskBuf, 512);
+			PrintMBR(DiskBuf);
+		}
+		close(DiskFd);
 	}
-	close(DiskFd);
 	return 0;
 }
 
@@ -66,7 +79,7 @@ void ReadEBR(int fildes, long long offset)
 	//printSectorContent(EBRBuf, 512);
 
 	if (EBRBuf[446 + 4 + 16] == 0x0f || 
-		EBRBuf[446 + 4 + 16] == 0x05)
+			EBRBuf[446 + 4 + 16] == 0x05)
 		ReadEBR(fildes, offset);
 
 }
@@ -79,7 +92,7 @@ void printSectorContent(const unsigned char *src, int size)
 		//printf("%011X : ",i * 16);
 		//for (int j = 0; j < 16; j++)
 		//{
-			//printf("%02X ", src[i * 16 + j]);
+		//printf("%02X ", src[i * 16 + j]);
 		//}
 		//printf("\n");
 	}
@@ -104,7 +117,7 @@ void PrintMBR(const unsigned char *src)
 		}
 		else {
 			printf("PartitionNum	Type		ActivePartition		Capacity\n"
-				"%2d		%10s	%3s		%.2f (MB)\n", 
+					"%2d		%10s	%3s		%.2f (MB)\n", 
 					g_iPartitionNum++, 
 					FATPartTypeName[src[446 + 4 + i * 16]], 
 					(src[446 + 0 + i * 16] == 0x80 ? "Yes" : "No"), 

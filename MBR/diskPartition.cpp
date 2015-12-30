@@ -4,18 +4,18 @@
 int
 main(void)
 {
-	CDiskPartitionList	mbr;
-	mbr.Scan();
+	CDiskPartitionList	partition;
+	partition.Scan();
 
 	printf("PartitionID	PartitionName	TotalSectors	Capacity	ActivePartition\n");
-	for (int i = 0; i < mbr.GetPartitionCount(); i++)
+	for (int i = 0; i < partition.GetPartitionCount(); i++)
 	{
 		printf("%d		%s :		%02X		%8lld(bytes)		%d\n", 
 				i, 
-				mbr.GetPartitionName(i)->c_str(), 
-				mbr.GetPartitionTolSec(i), 
-				mbr.GetPartitionTolSec(i) * 512, 
-				mbr.GetPartitionActiveFlag(i));
+				partition.GetPartitionName(i)->c_str(), 
+				partition.GetPartitionTolSec(i), 
+				partition.GetPartitionTolSec(i) * 512, 
+				partition.GetPartitionActiveFlag(i));
 	}
 
 	return 0;
