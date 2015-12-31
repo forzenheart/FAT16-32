@@ -4,10 +4,10 @@
 
 class CDiskList {
 	public:
-	//virtual int	EnumPhysicalDisk() = 0;
-	int	GetPhysicalDiskCount() const;
-	CPhysicalDisk*	GetPhysicalDiskByID(const int which) const;
-	const std::string*	GetPhysicalDiskNameByID(const int which) const;
+		CDiskList();
+		int	GetPhysicalDiskCount() const;
+		CPhysicalDisk*	GetPhysicalDiskByID(const int which) const;
+		const std::string*	GetPhysicalDiskNameByID(const int which) const;
 	private:
 	CPartitionListImpl	*m_partitionListImpl;
 };

@@ -13,7 +13,7 @@ CMBRLinux::Scan()
 	diskList.Scan();
 	for (int i = 0; i < diskList.count(); i++)
 	{
-		diskListGetDiskByID(i)->ReadSec(0, MBRbuf);
+		diskList.GetDiskByID(i)->ReadSec(0, MBRbuf);
 
 		INT64	secUsedsize = 0;
 		INT64	secTolsize = 0;
@@ -28,7 +28,7 @@ CMBRLinux::Scan()
 					MBRbuf[446 + 4 + j * 16] == 0x05)
 			{
 				//Get the EBR start sector number from the MBR
-				diskListGetDiskByID(i)->ReadSec(GETCONTENT(MBRBuf[446 + 8 + j * 16]), EBRbuf);
+				diskList.GetDiskByID(i)->ReadSec(GETCONTENT(MBRBuf[446 + 8 + j * 16]), EBRbuf);
 				 while(GETCONTENT(EBRbuf[446 + 4 + 16]) == 0x0f ||
 						 GETCONTENT(EBRBuf[446 + 4 + 16]) == 0x05)
 				 {
@@ -36,7 +36,7 @@ CMBRLinux::Scan()
 
 
 					 //Get the Next EBR start sector number
-					diskListGetDiskByID(i)->ReadSec(GETCONTENT(EBRBuf[446 + 8 + 16]), EBRbuf);
+					diskList.GetDiskByID(i)->ReadSec(GETCONTENT(EBRBuf[446 + 8 + 16]), EBRbuf);
 				 }
 			}
 			else {
