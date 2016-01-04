@@ -1,26 +1,31 @@
+#makefile of ReadPartition
 CC = g++
-VPATH = base platform MBR MBR/linux MBR/windows
-#CPPFLAGS = -I base platform MBR MBR/linux MBR/windows
 
-SOURCES = diskPartition.cpp \
-	  MBR.cpp \
-	  MBRFactory.cpp \
-	  MBRFactoryLinux.cpp MBRFactoryWindows.cpp \
-	  MBRImpl.cpp \
-	  MBRImplLinux.cpp MBRImplWindows.cpp
+VPATH = base \
+	platform \
+	ReadPartition ReadPartition/linux ReadPartition/windows
 
-diskPartition : MBRFactory.o MBRFactoryLinux.o MBRFactoryWindows.o \
-		MBRImpl.o MBRImplLinux.o MBRImplWindows.o \
-		MBR.o diskPartition.cpp
-	$(CC) $^ -g -o $@
+CPPFLAGS = -I. base \
+	   platform \
+	   ReadPartition ReadPartition/linux ReadPartition/windows
 
-MBR.o : MBRFactory.h
-MBRFactoryLinux.o : MBRFactory.h
-MBRFactoryWindows.o : MBRFactory.h
-MBRFactory.o : MBRImpl.h
-MBRImplLinux.o : MBRImpl.h
-MBRImplWindows.o : MBRImpl.h
-MBRImpl.o : DiskPartition.h
+
+SOURCES = FATPhysicalDisk.cpp			\
+	  FATPhysicalDiskLinux.cpp		\
+	  FATPhysicalDiskWindows.cpp		\
+	  FATPhysicalDiskListImpl.cpp		\
+	  FATPhysicalDiskListImplLinux.cpp	\
+	  FATPhysicalDiskListImplWindows.cpp	\
+
+.PHONY : all
+all : FATPhysicalDisk.o FATPhysicalDiskLinux.o \
+	FATPhysicalDiskListImpl.o FATPhysicalDiskListImplLinux.o
+
+FATPhysicalDisk.o : 
+FATPhysicalDiskLinux.o : FATPhysicalDisk.h
+FATPhysicalDiskListImpl.o :
+FATPhysicalDiskListImplLinux.o : FATPhysicalDiskListImpl.h
+
 
 include $(subst .c, .d, $(SOURCE))
 
@@ -31,4 +36,4 @@ include $(subst .c, .d, $(SOURCE))
 
 .PHONY : clean
 clean : 	
-	rm diskPartition *.o
+	rm *.o

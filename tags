@@ -4,73 +4,172 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-BPB_BkBootSec	base/FATBasicDataDefine.h	107;"	d
-BPB_BytsPerClus	base/FATBasicDataDefine.h	33;"	d
-BPB_BytsPerSec	base/FATBasicDataDefine.h	31;"	d
-BPB_ExtFlags	base/FATBasicDataDefine.h	95;"	d
-BPB_FATSz16	base/FATBasicDataDefine.h	51;"	d
-BPB_FATSz32	base/FATBasicDataDefine.h	93;"	d
-BPB_FSInfo	base/FATBasicDataDefine.h	106;"	d
-BPB_FSVer	base/FATBasicDataDefine.h	104;"	d
-BPB_HiddSec	base/FATBasicDataDefine.h	57;"	d
-BPB_Media	base/FATBasicDataDefine.h	49;"	d
-BPB_NumFATs	base/FATBasicDataDefine.h	40;"	d
-BPB_NumHeads	base/FATBasicDataDefine.h	55;"	d
-BPB_Reserved	base/FATBasicDataDefine.h	109;"	d
-BPB_RootClus	base/FATBasicDataDefine.h	105;"	d
-BPB_RootEntCnt	base/FATBasicDataDefine.h	42;"	d
-BPB_RootEntCnt	calculation.h	/^因为FAT32的BPB_RootEntCnt为0, 所以对于FAT32卷RootDirSectors的值也一定是0;32是$/;"	v
-BPB_RsvdSecCnt	base/FATBasicDataDefine.h	37;"	d
-BPB_SecPerTrk	base/FATBasicDataDefine.h	53;"	d
-BPB_TotSec16	base/FATBasicDataDefine.h	47;"	d
-BPB_TotSec32	base/FATBasicDataDefine.h	59;"	d
-BS_BootSig	base/FATBasicDataDefine.h	114;"	d
-BS_BootSig	base/FATBasicDataDefine.h	78;"	d
-BS_DrvNum	base/FATBasicDataDefine.h	110;"	d
-BS_FilSysType	base/FATBasicDataDefine.h	118;"	d
-BS_FilSysType	base/FATBasicDataDefine.h	120;"	d
-BS_FileSysType	base/FATBasicDataDefine.h	85;"	d
-BS_OEMName	base/FATBasicDataDefine.h	25;"	d
-BS_Reserved1	base/FATBasicDataDefine.h	112;"	d
-BS_Reserved1	base/FATBasicDataDefine.h	76;"	d
-BS_VolID	base/FATBasicDataDefine.h	116;"	d
-BS_VolID	base/FATBasicDataDefine.h	80;"	d
-BS_VolLab	base/FATBasicDataDefine.h	83;"	d
-BS_drvNum	base/FATBasicDataDefine.h	74;"	d
-BS_jmpBoot	base/FATBasicDataDefine.h	23;"	d
-BUFFERSIZE	platform/win32/MBR_windows.cpp	6;"	d	file:
-CPP	platform/linux/makefile	/^CPP = g++$/;"	m
-DisplayError	platform/win32/MBR_windows.cpp	/^void DisplayError(LPTSTR lpszFunction) $/;"	f
-FAT_PLARFROM_LINUX	platform/FATPlatformConfig.h	11;"	d
-FAT_PLARFROM_UNKNOWN	platform/FATPlatformConfig.h	10;"	d
-FAT_PLARFROM_WEB	platform/FATPlatformConfig.h	13;"	d
-FAT_PLARFROM_WIN32	platform/FATPlatformConfig.h	12;"	d
-FAT_TARGET_PLATFROM	platform/FATPlatformConfig.h	16;"	d
-FAT_TARGET_PLATFROM	platform/FATPlatformConfig.h	20;"	d
-FAT_TARGET_PLATFROM	platform/FATPlatformConfig.h	21;"	d
-FAT_TARGET_PLATFROM	platform/FATPlatformConfig.h	26;"	d
-FAT_TARGET_PLATFROM	platform/FATPlatformConfig.h	27;"	d
-FAT_TARGET_PLATFROM	platform/FATPlatformConfig.h	32;"	d
-FAT_TARGET_PLATFROM	platform/FATPlatformConfig.h	33;"	d
-FileIOCompletionRoutine	platform/win32/MBR_windows.cpp	/^VOID CALLBACK FileIOCompletionRoutine($/;"	f
-MAX	platform/linux/FATStdCLinux.h	24;"	d
-MIN	platform/linux/FATStdCLinux.h	20;"	d
-NULL	platform/linux/FATPlatformDefineLinux.h	14;"	d
-NULL	platform/linux/FATPlatformDefineLinux.h	16;"	d
-Objects	platform/linux/makefile	/^Objects = MBR_linux.o$/;"	m
-RootDirSectors	calculation.h	/^因为FAT32的BPB_RootEntCnt为0, 所以对于FAT32卷RootDirSectors的值也一定是0;32是$/;"	v
-_FATBASCIDATADEFINE_H	base/FATBasicDataDefine.h	2;"	d
-_FAT_H_	fat.h	2;"	d
-_FAT_PLARFROM_MARCO_H_	platform/FATPlatformMacros.h	2;"	d
+BPB_BkBootSec	base/FATMBRDataDefine.h	110;"	d
+BPB_BytsPerClus	base/FATMBRDataDefine.h	33;"	d
+BPB_BytsPerSec	base/FATMBRDataDefine.h	31;"	d
+BPB_ExtFlags	base/FATMBRDataDefine.h	98;"	d
+BPB_FATSz16	base/FATMBRDataDefine.h	51;"	d
+BPB_FATSz32	base/FATMBRDataDefine.h	96;"	d
+BPB_FSInfo	base/FATMBRDataDefine.h	109;"	d
+BPB_FSVer	base/FATMBRDataDefine.h	107;"	d
+BPB_HiddSec	base/FATMBRDataDefine.h	57;"	d
+BPB_Media	base/FATMBRDataDefine.h	49;"	d
+BPB_NumFATs	base/FATMBRDataDefine.h	40;"	d
+BPB_NumHeads	base/FATMBRDataDefine.h	55;"	d
+BPB_Reserved	base/FATMBRDataDefine.h	112;"	d
+BPB_RootClus	base/FATMBRDataDefine.h	108;"	d
+BPB_RootEntCnt	FATFile/calculation.h	/^因为FAT32的BPB_RootEntCnt为0, 所以对于FAT32卷RootDirSectors的值也一定是0;32是$/;"	v
+BPB_RootEntCnt	base/FATMBRDataDefine.h	42;"	d
+BPB_RsvdSecCnt	base/FATMBRDataDefine.h	37;"	d
+BPB_SecPerTrk	base/FATMBRDataDefine.h	53;"	d
+BPB_TotSec16	base/FATMBRDataDefine.h	47;"	d
+BPB_TotSec32	base/FATMBRDataDefine.h	59;"	d
+BS_BootSig	base/FATMBRDataDefine.h	117;"	d
+BS_BootSig	base/FATMBRDataDefine.h	82;"	d
+BS_DrvNum	base/FATMBRDataDefine.h	113;"	d
+BS_FilSysType	base/FATMBRDataDefine.h	121;"	d
+BS_FileSysType	base/FATMBRDataDefine.h	89;"	d
+BS_OEMName	base/FATMBRDataDefine.h	25;"	d
+BS_Reserved1	base/FATMBRDataDefine.h	115;"	d
+BS_Reserved1	base/FATMBRDataDefine.h	80;"	d
+BS_VolID	base/FATMBRDataDefine.h	119;"	d
+BS_VolID	base/FATMBRDataDefine.h	84;"	d
+BS_VolLab	base/FATMBRDataDefine.h	87;"	d
+BS_drvNum	base/FATMBRDataDefine.h	78;"	d
+BS_jmpBoot	base/FATMBRDataDefine.h	23;"	d
+BUFFERSIZE	MBR/windows/MBR_windows.cpp	6;"	d	file:
+CC	makefile	/^CC = g++$/;"	m
+CDiskPartition	MBR/DiskPartition.h	/^		CDiskPartition($/;"	f	class:CDiskPartition
+CDiskPartition	MBR/DiskPartition.h	/^class CDiskPartition {$/;"	c
+CDiskPartitionList	MBR/MBR.cpp	/^CDiskPartitionList::CDiskPartitionList()$/;"	f	class:CDiskPartitionList
+CDiskPartitionList	MBR/MBR.h	/^class CDiskPartitionList {$/;"	c
+CMBR	MBR/MBRImpl.h	/^		CMBR() { };$/;"	f	class:CMBR
+CMBR	MBR/MBRImpl.h	/^class CMBR {$/;"	c
+CMBRFactory	MBR/MBRFactory.h	/^class CMBRFactory {$/;"	c
+CMBRFactoryLinux	MBR/linux/MBRFactoryLinux.h	/^		CMBRFactoryLinux() {};$/;"	f	class:CMBRFactoryLinux
+CMBRFactoryLinux	MBR/linux/MBRFactoryLinux.h	/^class CMBRFactoryLinux : public CMBRFactory {$/;"	c
+CMBRFactoryWindows	MBR/windows/MBRFactoryWindows.h	/^		CMBRFactoryWindows() {};$/;"	f	class:CMBRFactoryWindows
+CMBRFactoryWindows	MBR/windows/MBRFactoryWindows.h	/^class CMBRFactoryWindows : public CMBRFactory {$/;"	c
+CMBRLinux	MBR/linux/MBRImplLinux.h	/^		CMBRLinux() {};$/;"	f	class:CMBRLinux
+CMBRLinux	MBR/linux/MBRImplLinux.h	/^class CMBRLinux : public CMBR {$/;"	c
+CMBRWindows	MBR/windows/MBRImplWindows.h	/^		CMBRWindows()$/;"	f	class:CMBRWindows
+CMBRWindows	MBR/windows/MBRImplWindows.h	/^class CMBRWindows : public CMBR {$/;"	c
+DiskBuf	MBR/linux/MBR_linux.cpp	/^unsigned char	DiskBuf[4096];$/;"	v
+DiskFd	MBR/linux/MBR_linux.cpp	/^int	DiskFd;$/;"	v
+DisplayError	MBR/windows/MBR_windows.cpp	/^void DisplayError(LPTSTR lpszFunction) $/;"	f
+FAT16	base/FATMBRDataDefine.h	70;"	d
+FAT32	base/FATMBRDataDefine.h	71;"	d
+FATPartTypeName	base/FATPartitionTypeIndicator.h	/^const char *FATPartTypeName[] = {$/;"	v
+FATTYPE	base/FATMBRDataDefine.h	73;"	d
+FAT_PLATFORM_LINUX	platform/FATPlatformConfig.h	5;"	d
+FAT_PLATFORM_UNKNOWN	platform/FATPlatformConfig.h	4;"	d
+FAT_PLATFORM_WEB	platform/FATPlatformConfig.h	7;"	d
+FAT_PLATFORM_WINDOWS	platform/FATPlatformConfig.h	6;"	d
+FAT_TARGET_PLATFORM	platform/FATPlatformConfig.h	13;"	d
+FAT_TARGET_PLATFORM	platform/FATPlatformConfig.h	14;"	d
+FAT_TARGET_PLATFORM	platform/FATPlatformConfig.h	19;"	d
+FAT_TARGET_PLATFORM	platform/FATPlatformConfig.h	20;"	d
+FAT_TARGET_PLATFORM	platform/FATPlatformConfig.h	25;"	d
+FAT_TARGET_PLATFORM	platform/FATPlatformConfig.h	26;"	d
+FAT_TARGET_PLATFORM	platform/FATPlatformConfig.h	9;"	d
+FileIOCompletionRoutine	MBR/windows/MBR_windows.cpp	/^VOID CALLBACK FileIOCompletionRoutine($/;"	f
+GetActivePartition	MBR/DiskPartition.h	/^		bool	GetActivePartition() const {$/;"	f	class:CDiskPartition
+GetEndCylinderNo	MBR/DiskPartition.h	/^		INT8	GetEndCylinderNo() const {$/;"	f	class:CDiskPartition
+GetEndHeadNo	MBR/DiskPartition.h	/^		INT8	GetEndHeadNo() const {$/;"	f	class:CDiskPartition
+GetEndSecNo	MBR/DiskPartition.h	/^		INT8	GetEndSecNo() const {$/;"	f	class:CDiskPartition
+GetFactoryInstance	MBR/linux/MBRFactoryLinux.h	/^		static CMBRFactoryLinux* GetFactoryInstance()$/;"	f	class:CMBRFactoryLinux
+GetFactoryInstance	MBR/windows/MBRFactoryWindows.h	/^		static CMBRFactoryWindows* GetFactoryInstance()$/;"	f	class:CMBRFactoryWindows
+GetMBRFactory	MBR/MBRFactory.cpp	/^CMBRFactory::GetMBRFactory()$/;"	f	class:CMBRFactory
+GetName	MBR/DiskPartition.h	/^		const std::string* GetName() const {$/;"	f	class:CDiskPartition
+GetPartitionActiveFlag	MBR/MBR.cpp	/^CDiskPartitionList::GetPartitionActiveFlag(const int which) const$/;"	f	class:CDiskPartitionList
+GetPartitionActiveFlag	MBR/MBRImpl.cpp	/^CMBR::GetPartitionActiveFlag(const int id) const$/;"	f	class:CMBR
+GetPartitionCount	MBR/MBR.cpp	/^CDiskPartitionList::GetPartitionCount() const$/;"	f	class:CDiskPartitionList
+GetPartitionCount	MBR/MBRImpl.cpp	/^CMBR::GetPartitionCount() const {$/;"	f	class:CMBR
+GetPartitionName	MBR/MBR.cpp	/^CDiskPartitionList::GetPartitionName(const int which) const$/;"	f	class:CDiskPartitionList
+GetPartitionName	MBR/MBRImpl.cpp	/^CMBR::GetPartitionName(const int id) const$/;"	f	class:CMBR
+GetPartitionTolSec	MBR/MBR.cpp	/^CDiskPartitionList::GetPartitionTolSec(const int which) const$/;"	f	class:CDiskPartitionList
+GetPartitionTolSec	MBR/MBRImpl.cpp	/^CMBR::GetPartitionTolSec(const int id) const$/;"	f	class:CMBR
+GetPartitionTypeIndicator	MBR/DiskPartition.h	/^		INT8	GetPartitionTypeIndicator() const  {$/;"	f	class:CDiskPartition
+GetSecPrecedingPartition	MBR/DiskPartition.h	/^		INT32	GetSecPrecedingPartition() const {$/;"	f	class:CDiskPartition
+GetStartCylinderNo	MBR/DiskPartition.h	/^		INT8	GetStartCylinderNo() const {$/;"	f	class:CDiskPartition
+GetStartHeadNo	MBR/DiskPartition.h	/^		INT8	GetStartHeadNo()  const {$/;"	f	class:CDiskPartition
+GetStartSecNO	MBR/DiskPartition.h	/^		INT8	GetStartSecNO() const { $/;"	f	class:CDiskPartition
+GetTotalSec	MBR/DiskPartition.h	/^		INT32	GetTotalSec() const {$/;"	f	class:CDiskPartition
+INT16	base/FATBasicDataDefine.h	/^typedef short	INT16;$/;"	t
+INT32	base/FATBasicDataDefine.h	/^typedef	long	INT32;$/;"	t
+INT64	base/FATBasicDataDefine.h	/^typedef	LONGLONG	INT64;$/;"	t
+INT64	base/FATBasicDataDefine.h	/^typedef	long long	INT64;$/;"	t
+INT8	base/FATBasicDataDefine.h	/^typedef	char	INT8;$/;"	t
+MakeMBR	MBR/linux/MBRFactoryLinux.cpp	/^CMBRFactoryLinux::MakeMBR()$/;"	f	class:CMBRFactoryLinux
+MakeMBR	MBR/windows/MBRFactoryWindows.cpp	/^CMBRFactoryWindows::MakeMBR()$/;"	f	class:CMBRFactoryWindows
+PrintMBR	MBR/linux/MBR_linux.cpp	/^void PrintMBR(const unsigned char *src)$/;"	f
+ReadEBR	MBR/linux/MBR_linux.cpp	/^void ReadEBR(int fildes, long long offset)$/;"	f
+ReadEBR	MBR/windows/MBR_windows.cpp	/^void	ReadEBR(HANDLE hfile, __int64 offset)$/;"	f
+RootDirSectors	FATFile/calculation.h	/^因为FAT32的BPB_RootEntCnt为0, 所以对于FAT32卷RootDirSectors的值也一定是0;32是$/;"	v
+SOURCES	makefile	/^SOURCES = diskPartition.cpp \\$/;"	m
+Scan	MBR/MBR.cpp	/^CDiskPartitionList::Scan()$/;"	f	class:CDiskPartitionList
+Scan	MBR/linux/MBRImplLinux.cpp	/^CMBRLinux::Scan()$/;"	f	class:CMBRLinux
+Scan	MBR/windows/MBRImplWindows.cpp	/^CMBRWindows::Scan()$/;"	f	class:CMBRWindows
+UINT16	base/FATBasicDataDefine.h	/^typedef unsigned short	UINT16;$/;"	t
+UINT32	base/FATBasicDataDefine.h	/^typedef	DWORD		UINT32;$/;"	t
+UINT32	base/FATBasicDataDefine.h	/^typedef unsigned long	UINT32;$/;"	t
+UINT64	base/FATBasicDataDefine.h	/^typedef	ULONGLONG	UINT64;$/;"	t
+UINT64	base/FATBasicDataDefine.h	/^typedef unsigned long long	UINT64;$/;"	t
+UINT8	base/FATBasicDataDefine.h	/^typedef	BYTE		UINT8;$/;"	t
+UINT8	base/FATBasicDataDefine.h	/^typedef	unsigned char	UINT8;$/;"	t
+UNIT16	base/FATBasicDataDefine.h	/^typedef	WORD		UNIT16;$/;"	t
+VPATH	makefile	/^VPATH = base platform MBR MBR\/linux MBR\/windows$/;"	m
 _FAT_STD_C_H__	platform/linux/FATStdCLinux.h	2;"	d
-_PLATFORM_FATPLATFORMDEFINE_H__	platform/FATPlatformDefine.h	2;"	d
-_PLATFORM_FATSTDC_H__	platform/FATStdC.h	2;"	d
-_PLATFORM_FAT_CONFIG_H__	platform/FATPlatformConfig.h	2;"	d
+_FAT_SYSTEM_ERROR_H__	errorSystem/error.h	2;"	d
 __FATPLATFORMDEFINE_H__	platform/linux/FATPlatformDefineLinux.h	2;"	d
-_tmain	platform/win32/MBR_windows.cpp	/^void __cdecl _tmain(int argc,  TCHAR *argv[])$/;"	f
-g_BytesTransferred	platform/win32/MBR_windows.cpp	/^DWORD g_BytesTransferred = 0;$/;"	v
-main	fat.cpp	/^main(void)$/;"	f
-main	platform/linux/MBR_linux.cpp	/^main(void)$/;"	f
-print_now_off_set	platform/linux/MBR_linux.cpp	/^static void print_now_off_set(int files)$/;"	f	file:
-wszDrive	platform/win32/MBR_windows.cpp	7;"	d	file:
-wszDrive	platform/win32/path.cpp	1;"	d	file:
+__FATPLATFORMDEFINE_H__	platform/win32/FATPlatformDefineWin32.h	2;"	d
+__FAT_BASCI_DATA_DEFINE_H__	base/FATBasicDataDefine.h	2;"	d
+__FAT_DISKPARTITION_H__	MBR/DiskPartition.h	2;"	d
+__FAT_DISK_PARTITION_LIST_H__	MBR/MBR.h	2;"	d
+__FAT_H__	fat.h	2;"	d
+__FAT_MBR_DATA_DEFINE_H__	base/FATMBRDataDefine.h	2;"	d
+__FAT_MBR_FACTORY_H__	MBR/MBRFactory.h	2;"	d
+__FAT_MBR_FACTORY_LINUX_H__	MBR/linux/MBRFactoryLinux.h	2;"	d
+__FAT_MBR_FACTORY_WINDOWS_H__	MBR/windows/MBRFactoryWindows.h	2;"	d
+__FAT_MBR_H__	MBR/MBRImpl.h	2;"	d
+__FAT_MBR_IMPL_LINUX_H__	MBR/linux/MBRImplLinux.h	2;"	d
+__FAT_MBR_IMPL_WINDOWS_H__	MBR/windows/MBRImplWindows.h	2;"	d
+__FAT_PARTITION_TYPE_INDICATOR_H__	base/FATPartitionTypeIndicator.h	2;"	d
+__FAT_PLATFORM_CONFIG_H__	platform/FATPlatformConfig.h	2;"	d
+__FAT_STD_C_H__	platform/win32/FATStdCWin32.h	2;"	d
+_tmain	MBR/windows/MBR_windows.cpp	/^void __cdecl _tmain(int argc,  TCHAR *argv[])$/;"	f
+g_BytesTransferred	MBR/windows/MBR_windows.cpp	/^DWORD	g_BytesTransferred = 0;$/;"	v
+g_iPartitionNum	MBR/linux/MBR_linux.cpp	/^int	g_iPartitionNum = 0;$/;"	v
+g_iPartitionNum	MBR/windows/MBR_windows.cpp	/^DWORD	g_iPartitionNum = 0;$/;"	v
+m_ActivePartition	MBR/DiskPartition.h	/^		bool	m_ActivePartition;\/\/活动分区标志$/;"	m	class:CDiskPartition
+m_EndCylinderNo	MBR/DiskPartition.h	/^		INT8	m_EndCylinderNo;\/\/终止柱面号(柱面号的高2位存放在扇区字节的高2位)$/;"	m	class:CDiskPartition
+m_EndHeadNo	MBR/DiskPartition.h	/^		INT8	m_EndHeadNo;\/\/结束磁头号$/;"	m	class:CDiskPartition
+m_EndSecNo	MBR/DiskPartition.h	/^		INT8	m_EndSecNo;\/\/结束扇区号$/;"	m	class:CDiskPartition
+m_PartitionName	MBR/DiskPartition.h	/^		std::string	m_PartitionName;\/\/注意这个成员变量并不属于磁盘分区的标准，是为了方便自己加的$/;"	m	class:CDiskPartition
+m_PartitionTypeIndicator	MBR/DiskPartition.h	/^		INT8	m_PartitionTypeIndicator;\/\/分区格式标志$/;"	m	class:CDiskPartition
+m_SecPrecedingPartition	MBR/DiskPartition.h	/^		INT32	m_SecPrecedingPartition;\/\/本分区之前已用扇区数目$/;"	m	class:CDiskPartition
+m_StartCylinderNo	MBR/DiskPartition.h	/^		INT8	m_StartCylinderNo;\/\/起始柱面号$/;"	m	class:CDiskPartition
+m_StartHeadNo	MBR/DiskPartition.h	/^		INT8	m_StartHeadNo;\/\/起始磁头号$/;"	m	class:CDiskPartition
+m_StartSecNo	MBR/DiskPartition.h	/^		INT8	m_StartSecNo;\/\/起始扇区号$/;"	m	class:CDiskPartition
+m_TotSec	MBR/DiskPartition.h	/^		INT32	m_TotSec;\/\/本分区扇区总数$/;"	m	class:CDiskPartition
+m_diskPartitionImpl	MBR/MBR.h	/^		CMBR	*m_diskPartitionImpl;$/;"	m	class:CDiskPartitionList
+m_partitionList	MBR/MBRImpl.h	/^		std::vector<CDiskPartition>	m_partitionList;$/;"	m	class:CMBR
+main	MBR/diskPartition.cpp	/^main(void)$/;"	f
+main	MBR/linux/MBR_linux.cpp	/^main(void)$/;"	f
+main	test/testFATBasicDataDefine.cpp	/^main(void)$/;"	f
+main	test/testFATMBRDataDefine.cpp	/^main(void)$/;"	f
+main	test/testFATPlatformConfig.cpp	/^int main(void)$/;"	f
+n	MBR/linux/MBR_linux.cpp	/^int	n;$/;"	v
+printNowOffset	MBR/linux/MBR_linux.cpp	/^void printNowOffset(int files)$/;"	f
+printSectorContent	MBR/linux/MBR_linux.cpp	/^void printSectorContent(const unsigned char *src, int size)$/;"	f
+sectorNo	MBR/linux/MBR_linux.cpp	/^int	sectorNo = 0;$/;"	v
+sectorSize	MBR/linux/MBR_linux.cpp	/^int	sectorSize = 512;$/;"	v
+wszDrive	MBR/windows/MBR_windows.cpp	7;"	d	file:
+~CDiskPartition	MBR/DiskPartition.h	/^		~CDiskPartition() {};$/;"	f	class:CDiskPartition
+~CDiskPartitionList	MBR/MBR.cpp	/^CDiskPartitionList::~CDiskPartitionList()$/;"	f	class:CDiskPartitionList
+~CMBR	MBR/MBRImpl.h	/^		virtual ~CMBR() { };$/;"	f	class:CMBR
+~CMBRFactory	MBR/MBRFactory.h	/^	virtual	~CMBRFactory()$/;"	f	class:CMBRFactory
+~CMBRFactoryLinux	MBR/linux/MBRFactoryLinux.h	/^		virtual ~CMBRFactoryLinux() {};$/;"	f	class:CMBRFactoryLinux
+~CMBRFactoryWindows	MBR/windows/MBRFactoryWindows.h	/^		virtual ~CMBRFactoryWindows() {};$/;"	f	class:CMBRFactoryWindows
+~CMBRLinux	MBR/linux/MBRImplLinux.h	/^		virtual ~CMBRLinux() {};$/;"	f	class:CMBRLinux
+~CMBRWindows	MBR/windows/MBRImplWindows.h	/^		virtual ~CMBRWindows()$/;"	f	class:CMBRWindows

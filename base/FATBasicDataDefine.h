@@ -3,10 +3,11 @@
 
 //#include "../platform/FATStdC.h"
 //#include "FATPartitionTypeIndicator.h"	//分区格式标志
-#include "../platform/FATPlatformConfig.h"
-#include "FATMBRDataDefine.h"		//MBR基本偏移量定义
-#include "FATDBRDataDefine.h"		//DBR基本偏移量定义
-#include "FATFileDataDefine.h"		//FAT基本偏移量定义
+#include "platform/FATPlatformConfig.h"
+#include "base/FATMRBDataDefine.h"		//MBR基本偏移量定义
+#include "base/FATDBRDataDefine.h"		//DBR基本偏移量定义
+#include "base/FATFATDataDefine.h"		//FAT16/32基本偏移量
+#include "base/FATFileDataDefine.h"		//FAT基本偏移量定义
 
 /*
  *fat文件系统基本数据结构的定义
@@ -39,5 +40,8 @@ typedef unsigned long long	UINT64;
 #ifdef	ULONGLONG
 typedef	ULONGLONG	UINT64;
 #endif	//ULONGLONG
+
+//suppose the max physical disk number in family computer
+#define	MAXPHYSICALDISKNUMBER	24
 
 #endif //__FAT_BASCI_DATA_DEFINE_H__
