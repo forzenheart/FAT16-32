@@ -5,6 +5,6 @@
 
 class CPhysicalDiskListImplLinux : public CPhysicalDiskListImpl {
 	public:
-		int	EnumPhysicalDisk();
+		virtual int	EnumPhysicalDisk();
 };
 #endif	//_FAT_PHYSICAL_DISK_LISTIMPL_LINUX_H__

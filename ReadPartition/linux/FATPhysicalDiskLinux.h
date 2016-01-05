@@ -5,8 +5,8 @@
 class CPhysicalDiskLinux : public CPhysicalDisk {
 	public:
 		CPhysicalDiskLinux(int fd);
-		INT64	ReadSector(INT64 secNum, void *buf, INT64 bytes);
-		INT64	WriteSector(INT64 secNum, const void *buf, INT64 bytes);
+		virtual INT64	ReadSector(INT64 secNum, void *buf, INT64 bytes);
+		virtual INT64	WriteSector(INT64 secNum, const void *buf, INT64 bytes);
 	protected:
 		INT64	Seek(INT64 secNum, int whence = 0);
 };

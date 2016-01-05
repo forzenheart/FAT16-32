@@ -37,7 +37,10 @@ CPhysicalDiskLinux::Seek(INT64 secNum, int whence)
 	INT64 n;
 
 	if ((n = lseek(m_diskHandle.fd, secNum * 512, whence)) == -1)
+	{
+		printf("fd = %d\n", m_diskHandle.fd);
 		fprintf(stderr, "Seek error\n");
+	}
 
 	return n;
 }

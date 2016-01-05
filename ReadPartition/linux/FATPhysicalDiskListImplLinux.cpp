@@ -13,8 +13,8 @@ CPhysicalDiskListImplLinux::EnumPhysicalDisk()
 {
 	m_physicalDiskList.clear();
 
-	int	iDiskFd;
-	CPhysicalDisk	*pPhydisk;
+	int	iDiskFd = -1;
+	CPhysicalDisk	*pPhydisk = NULL;
 
 	/*Because of the physical disk pathname, this function just
 	 *Just work in Centos and Ubuntu;
@@ -22,25 +22,34 @@ CPhysicalDiskListImplLinux::EnumPhysicalDisk()
 	 */
 	std::string	pathName = "/dev/sd"; 
 
-	for (int i = 0; i < MAXPHYSICALDISKNUMBER; i++) {
+	for (int i = 0; i < MAXPHYSICALDISKNUMBER; i++)
+	{
 		//Get the filedes in linux;
-		if (iDiskFd = open((pathName + char(i + 'a')).c_str(), O_RDONLY) < 0) {
+		if ((iDiskFd = open((pathName + (char)(i + 'a')).c_str(), O_RDONLY)) < 0)
+		{
 			int errsv = errno;
-			if (errsv == EACCES) {
+			if (errsv == EACCES)
+			{
 				fprintf(stderr, "Please run this program from root.\n");
 				break;
-			} else if (errsv == ENOENT) {
+			}
+			else if (errsv == ENOENT)
+			{
 				//Got the max number of this computer physical disk;
 				break;
-			} else {
+			}
+			else
+			{
 				fprintf(stderr, "another mistake in linux : %s\n", strerror(errsv));
 				break;
 			}
 		}
 		//push the physical disk into the disklist here
 		pPhydisk = new CPhysicalDiskLinux(iDiskFd);
+		printf("%d\n", iDiskFd);
 		m_physicalDiskList.push_back(pPhydisk);
 	}
+	pPhydisk = NULL;
 
 	return m_physicalDiskList.size();
 }

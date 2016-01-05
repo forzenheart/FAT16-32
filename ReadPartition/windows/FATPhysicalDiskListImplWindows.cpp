@@ -11,15 +11,17 @@ int
 CPhysicalDiskListImplWindows::EnumPhysicalDisk()
 {
 	m_physicalDiskList.clear();
+
 	//windows platform
 	HANDLE	hFile;
 	DWORD	dwErrorsv;
-	CPhysicalDisk	*pPhydisk;
+	CPhysicalDisk	*pPhydisk = NULL;
 
 	std::string	pathName = "\\\\.\\PhysicalDrive";
-	for (int i = 0; i < MAXPHYSICALDISKNUMBER; i++) {
+	for (int i = 0; i < MAXPHYSICALDISKNUMBER; i++)
+	{
 		//Get the disk Handle in windows
-		if (hFile = CreateFile((pathName + CHAR(i + '0')).c_str(),
+		if (hFile = CreateFile((pathName + (CHAR)(i + '0')).c_str(),
 					GENERIC_READ, 
 					FILE_SHARE_READ |
 					FILE_SHARE_WRITE, 
@@ -31,10 +33,14 @@ CPhysicalDiskListImplWindows::EnumPhysicalDisk()
 			{
 				fprintf(stderr, "This programma need be run from root\n");
 				break;
-			} else if (dwErrorsv == ERROR_FILE_NOT_FOUND) {
+			}
+			else if (dwErrorsv == ERROR_FILE_NOT_FOUND)
+			{
 				fprintf(stdout, "Can`t find the PhysicalDisk %d\n", i);
 				break;
-			} else {
+			}
+			else
+			{
 				fprintf(stderr, "another Mistake in Windows, the errorNum %lld\n", dwErrorsv);
 				break;
 			}
@@ -43,6 +49,7 @@ CPhysicalDiskListImplWindows::EnumPhysicalDisk()
 		pPhydisk = new CPhysicalDiskWindows(hFile);
 		m_physicalDiskList.push_back(pPhydisk);
 	}
+	pPhydisk = NULL;
 	return m_physicalDiskList.size();
 }
 

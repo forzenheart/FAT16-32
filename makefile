@@ -1,14 +1,12 @@
 #makefile of ReadPartition
 CC = g++
 
-VPATH = base \
+VPATH = . base \
 	platform \
-	ReadPartition ReadPartition/linux ReadPartition/windows
+	ReadPartition ReadPartition/linux ReadPartition/windows	\
+	test
 
-CPPFLAGS = -I. base \
-	   platform \
-	   ReadPartition ReadPartition/linux ReadPartition/windows
-
+CPPFLAGS = -I . 
 
 SOURCES = FATPhysicalDisk.cpp			\
 	  FATPhysicalDiskLinux.cpp		\
@@ -16,16 +14,33 @@ SOURCES = FATPhysicalDisk.cpp			\
 	  FATPhysicalDiskListImpl.cpp		\
 	  FATPhysicalDiskListImplLinux.cpp	\
 	  FATPhysicalDiskListImplWindows.cpp	\
+	  FATPhysicalDiskFactory.cpp		\
+	  FATPhysicalDiskFactoryLinux.cpp	\
+	  FATPhysicalDiskFactoryWindows.cpp	\
+	  FATPhysicalDiskList.cpp		\
+	  testFATPhysicalDiskList.cpp
+
+Objects = FATPhysicalDisk.o FATPhysicalDiskLinux.o			\
+	FATPhysicalDiskListImpl.o FATPhysicalDiskListImplLinux.o	\
+	FATPhysicalDiskFactory.o FATPhysicalDiskFactoryLinux.o		\
+	FATPhysicalDiskList.o
 
 .PHONY : all
-all : FATPhysicalDisk.o FATPhysicalDiskLinux.o \
-	FATPhysicalDiskListImpl.o FATPhysicalDiskListImplLinux.o
+all :	FATPhysicalDisk.o FATPhysicalDiskLinux.o			\
+	FATPhysicalDiskListImpl.o FATPhysicalDiskListImplLinux.o	\
+	FATPhysicalDiskFactory.o FATPhysicalDiskFactoryLinux.o		\
+	FATPhysicalDiskList.o
 
+testfat : $(Objects) testFATPhysicalDiskList.cpp
+	g++ $(CPPFLAGS) $^ -g -o $@
+
+FATPhysicalDiskList.o :  
 FATPhysicalDisk.o : 
-FATPhysicalDiskLinux.o : FATPhysicalDisk.h
-FATPhysicalDiskListImpl.o :
-FATPhysicalDiskListImplLinux.o : FATPhysicalDiskListImpl.h
-
+FATPhysicalDiskLinux.o : 
+FATPhysicalDiskListImpl.o : 
+FATPhysicalDiskListImplLinux.o : 
+FATPhysicalDiskFactory.o : 
+FATPhysicalDiskFactoryLinux.o : 
 
 include $(subst .c, .d, $(SOURCE))
 

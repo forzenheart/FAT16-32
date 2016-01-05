@@ -6,7 +6,7 @@
 class CPhysicalDiskFactory {
 	public:
 		virtual ~CPhysicalDiskFactory() { };
-		virtual CPhysicalDiskListImpl*	MakePhysicalDiskList() = 0;
+		virtual CPhysicalDiskListImpl*	MakePhysicalDisk() = 0;
 		static	CPhysicalDiskFactory*	GetPhysicalDiskFactory();
 };
 

@@ -1,12 +1,19 @@
 #include "ReadPartition/FATPhysicalDiskListImpl.h"
 
-class CPhysicalDiskList {
+class CPhysicalDiskList
+{
 	public:
+		static CPhysicalDiskList*	GetInstance();
+
 		int	EnumPhysicalDisk();
 		int	GetCount() const;
 		CPhysicalDisk*	GetPhysicalDiskByID(const int which) const;
-	private:
+
+	protected:
 		CPhysicalDiskList();
-		CPhysicalDiskList(CPhysicalDiskList&);
+		CPhysicalDiskList(const CPhysicalDiskList&);
+		static	CPhysicalDiskList	*m_physicalDiskListInstance;
+
+	private:
 		CPhysicalDiskListImpl	*m_physicalListImpl;
 };
