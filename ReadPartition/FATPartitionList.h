@@ -1,33 +1,39 @@
-#ifndef	_FAT_PARTITONLIST_H__
-#define	_FAT_PARTITONLIST_H__
+#ifndef	_FAT_PARTITON_LIST_H__
+#define	_FAT_PARTITON_LIST_H__
 
-#include "ReadPartition/FATPhysicalDiskListImpl.h"
-#include "ReadPartition/FATDiskPartition.h"
+#include "ReadPartition/FATPhysicalDiskList.h"
 
-class CPartitionList {
+class CPartitionList
+{
 	public:
+		static	CPartitionList*	GetInstance();
 
-		const std::string*	GetNameByID(const int which) const;
-		const std::string*	GetTypeByID(const int which) const;
+		int	EnumPartition();
+		int	GetPartitionCount() const;
 
-		int	GetCount() const;
+		bool	GetActiveFlagByID(const int which) const;
+
 		INT64	GetCapacityByID(const int which) const;
-		INT64	GetActiveFlagByID(const int which) const;
-		INT8	GetStartHeadNoByID()  const;
-		INT8	GetStartSecNOByID() const;
-		INT8	GetStartCylinderNoByID() const;
-		INT8	GetPartitionTypeIndicatorByID() const ;
-		INT8	GetEndHeadNoByID() const;
-		INT8	GetEndSecNoByID() const;
-		INT8	GetEndCylinderNoByID() const;
-		INT32	GetSecPrecedingPartitionByID() const;
-		INT32	GetTotalSecByID() const;
+
+		INT8	GetStartHeadNoByID(const int which)  const;
+		INT8	GetStartSecNOByID(const int which) const;
+		INT8	GetStartCylinderNoByID(const int which) const;
+
+		INT8	GetEndHeadNoByID(const int which) const;
+		INT8	GetEndSecNoByID(const int which) const;
+		INT8	GetEndCylinderNoByID(const int which) const;
+
+		INT32	GetSecPrecedingPartitionByID(const int which) const;
+		INT32	GetTotalSecByID(const int which) const;
+		const std::string*	GetPartitionNameByID(const int which) const;
+		const std::string*	GetPartitionTypeByID(const int which) const;
 
 	private:
 		std::vector<CDiskPartition>	m_diskPartitionList;
 
 		CPartitionList();
-		CPartitionList(CPartitionList&);
-		int ScanPartition();
+		CPartitionList(const CPartitionList&);
+		
+		static	CPartitionList*	m_partitionListInstance;
 };
-#endif	//_FAT_PARTITONLIST_H__
+#endif	//_FAT_PARTITON_LIST_H__
