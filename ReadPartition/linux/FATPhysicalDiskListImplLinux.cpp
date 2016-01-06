@@ -46,7 +46,6 @@ CPhysicalDiskListImplLinux::EnumPhysicalDisk()
 		}
 		//push the physical disk into the disklist here
 		pPhydisk = new CPhysicalDiskLinux(iDiskFd);
-		printf("%d\n", iDiskFd);
 		m_physicalDiskList.push_back(pPhydisk);
 	}
 	pPhydisk = NULL;

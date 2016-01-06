@@ -9,11 +9,11 @@ int main(void)
 	printf("No	AcFlag	Capacity(MB)	TypeName\n");
 	for (int i = 0; i < cp->GetPartitionCount(); i++)
 	{
-		printf("%d	%s	 %d	%s\n", 
+		printf("%d	%s	 %9d	%s\n", 
 				i, 
 				cp->GetActiveFlagByID(i) ? "Yes" : "No", 
-				cp->GetTotalSecByID(i) * 512, 
-				cp->GetPartitionTypeByID(i));
+				cp->GetTotalSecByID(i) * 512 / 1024, 
+				cp->GetPartitionTypeByID(i)->c_str());
 
 	}
 	return 0;

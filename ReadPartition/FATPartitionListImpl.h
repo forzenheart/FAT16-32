@@ -29,6 +29,7 @@ class CPartitionListImpl
 		CPartitionListImpl(const CPartitionListImpl&);
 
 		int	EnumPartition();
+		int	PushPartition(UINT8 *buf, int n);
 
 		std::vector<CDiskPartition*>	m_diskPartitionList;
 		static CPartitionListImpl*	m_partitionListImplInstance;

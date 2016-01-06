@@ -1,6 +1,7 @@
 #include "ReadPartition/FATPartitionListImpl.h"
 #include "ReadPartition/FATPhysicalDiskList.h"
 #include "base/FATPartitionTypeIndicator.h"
+#include <stdio.h>
 
 //Notice the int bytes! 
 #define	GETCONTENT(S)		(*((int*)(&(S))))
@@ -39,8 +40,65 @@ CPartitionListImpl::EnumPartition()
 {
 	m_diskPartitionList.clear();
 
+	//分别用于储存MBR扇区和EBR扇区信息
 	UINT8	u8MBRbuf[BUFFERSIZE] = {0};
 	UINT8	u8EBRbuf[BUFFERSIZE] = {0};
+
+	//获取物理磁盘句柄
+	CPhysicalDiskList*	pPhyDiskL = CPhysicalDiskList::GetInstance();
+	//枚举物理磁盘
+	pPhyDiskL->EnumPhysicalDisk();
+
+	for (int i = 0; i < pPhyDiskL->GetCount(); i++)
+	{
+		CPhysicalDisk*	pPhyDisk = pPhyDiskL->GetPhysicalDiskByID(i);
+		pPhyDisk->ReadSector(0, u8MBRbuf, BUFFERSIZE);
+
+		for (int j = 0; j < MBRPARTITIONNUM; j++)
+		{
+			//根据前面总扇区数目是否为0来判断该分区是否存在
+			if (GETCONTENT(u8MBRbuf[MBR_SECS_PRE_PART + j * BYTESOFPARTITION]) == FAT_ZERO)
+			{
+				break;
+			}
+			//判断是否是EBR分区
+			if (!(u8MBRbuf[MBR_PARTION_TYPE + j * BYTESOFPARTITION] == EBRTYPE1 ||
+					u8MBRbuf[MBR_PARTION_TYPE + j * BYTESOFPARTITION] == EBRTYPE2))
+			{
+				//将MBR分区信息加入分区链表
+				PushPartition(u8MBRbuf, j);
+			}
+			else
+			{
+				//判断为EBR分区，循环扫描并将EBR分区信息加入分区链表里面
+				pPhyDisk->ReadSector(GETCONTENT(u8MBRbuf[MBR_SECS_PRE_PART + j * BYTESOFPARTITION]),
+						u8EBRbuf, BUFFERSIZE);
+				//EBR循环查找
+				while (u8EBRbuf[MBR_PARTION_TYPE + BYTESOFPARTITION] == EBRTYPE1 ||
+						u8EBRbuf[MBR_PARTION_TYPE + BYTESOFPARTITION] == EBRTYPE2)
+				{
+					//将EBR分区信息加入分区链表
+					//EBR第一个分区信息为该EBR的信息，第二个分区位扩展分区信息
+					PushPartition(u8EBRbuf, 0);
+					//获取下一个EBR分区的开始扇区
+					pPhyDisk->ReadSector(GETCONTENT(u8EBRbuf[MBR_SECS_PRE_PART + BYTESOFPARTITION]),
+							u8EBRbuf, BUFFERSIZE);
+				}
+			}
+		}
+	}
+}
+
+int
+CPartitionListImpl::GetCount() const
+{
+	return m_diskPartitionList.size();
+}
+
+int
+CPartitionListImpl::PushPartition(UINT8 *buf, int n)
+{
+	CDiskPartition*	pDiskPartition = NULL;
 
 	bool	bPartActiveFlag = false;
 	UINT8	u8StartHead = 0;
@@ -53,108 +111,33 @@ CPartitionListImpl::EnumPartition()
 	INT64	i64SecTolsize = 0;
 	std::string	sType = "";
 
-	CDiskPartition*	pDiskPartition = NULL;
-	CPhysicalDiskList*	pPhyDiskL = CPhysicalDiskList::GetInstance();
+	//获取分区信息
+	bPartActiveFlag = buf[MBR_BOOTINDICATOR + n * BYTESOFPARTITION];
+	u8StartHead = buf[MBR_START_HEAD + n * BYTESOFPARTITION];
+	u8StartSector = buf[MBR_START_SECTOR + n * BYTESOFPARTITION];
+	u16StartCylinder = buf[MBR_START_CYLINDER + n * BYTESOFPARTITION];
+	sType = FATPartTypeName[buf[MBR_PARTION_TYPE + n * BYTESOFPARTITION]];
+	u8EndHead = buf[MBR_END_HEAD + n * BYTESOFPARTITION];
+	u8EndSector = buf[MBR_END_SECTOR + n * BYTESOFPARTITION];
+	u16EndCylinder = buf[MBR_END_CYLINDER + n * BYTESOFPARTITION];
+	i64SecUsedsize = GETCONTENT(buf[MBR_SECS_PRE_PART + n * BYTESOFPARTITION]);
+	i64SecTolsize = GETCONTENT(buf[MBR_SECSINPART + n * BYTESOFPARTITION]);
 
-	pPhyDiskL->EnumPhysicalDisk();
+	//将获取的分区信息加入分区链表里面
+	pDiskPartition = new CDiskPartition(bPartActiveFlag,
+			u8StartHead,
+			u8StartSector,
+			u16StartCylinder, 
+			sType, 
+			u8EndHead, 
+			u8EndSector, 
+			u16EndCylinder, 
+			i64SecUsedsize, 
+			i64SecTolsize);
 
-	for (int i = 0; i < pPhyDiskL->GetCount(); i++)
-	{
-		CPhysicalDisk*	pPhyDisk = pPhyDiskL->GetPhysicalDiskByID(i);
-		pPhyDisk->ReadSector(0, u8MBRbuf, BUFFERSIZE);
-
-		for (int j = 0; j < MBRPARTITIONNUM; j++)
-		{
-			//根据前面总扇区数目是否为0来判断该分区是否存在
-			if (GETCONTENT(u8MBRbuf[MBR_SECS_PRE_PART+ j * BYTESOFPARTITION]) == FAT_ZERO)
-			{
-				break;
-			}
-			
-			//It`s not a  Windows EBR partition
-			if (!(GETCONTENT(u8MBRbuf[MBR_PARTION_TYPE + j * BYTESOFPARTITION]) == EBRTYPE1 ||
-					GETCONTENT(u8MBRbuf[MBR_PARTION_TYPE + j * BYTESOFPARTITION]) == EBRTYPE2))
-			{
-				//Read the MBR Partition Information here
-				bPartActiveFlag = GETCONTENT(u8MBRbuf[MBR_BOOTINDICATOR + j * BYTESOFPARTITION]);
-
-				u8StartHead = GETCONTENT(u8MBRbuf[MBR_START_HEAD + j * BYTESOFPARTITION]);
-				u8StartSector = GETCONTENT(u8MBRbuf[MBR_START_SECTOR + j * BYTESOFPARTITION]);
-				u16StartCylinder = GETCONTENT(u8MBRbuf[MBR_START_CYLINDER + j * BYTESOFPARTITION]);
-
-				sType = FATPartTypeName[GETCONTENT(u8MBRbuf[MBR_PARTION_TYPE + j * BYTESOFPARTITION])];
-
-				u8EndHead = GETCONTENT(u8MBRbuf[MBR_END_HEAD + j * BYTESOFPARTITION]);
-				u8EndSector = GETCONTENT(u8MBRbuf[MBR_END_SECTOR + j * BYTESOFPARTITION]);
-				u16EndCylinder = GETCONTENT(u8MBRbuf[MBR_END_CYLINDER + j * BYTESOFPARTITION]);
-
-				i64SecUsedsize = GETCONTENT(u8MBRbuf[MBR_SECS_PRE_PART + j * BYTESOFPARTITION]);
-				i64SecTolsize = GETCONTENT(u8MBRbuf[MBR_SECSINPART + j * BYTESOFPARTITION]);
-
-				pDiskPartition = new CDiskPartition(bPartActiveFlag,
-						u8StartHead,
-						u8StartSector,
-						u16StartCylinder, 
-						sType, 
-						u8EndHead, 
-						u8EndSector, 
-						u16EndCylinder, 
-						i64SecUsedsize, 
-						i64SecTolsize);
-
-				m_diskPartitionList.push_back(pDiskPartition);
-			}
-			else
-			{
-				//Get the EBR start sector number from the MBR
-				pPhyDisk->ReadSector(GETCONTENT(u8MBRbuf[MBR_SECS_PRE_PART + j * BYTESOFPARTITION]),
-						u8EBRbuf, BUFFERSIZE);
-				while (GETCONTENT(u8EBRbuf[MBR_PARTION_TYPE + BYTESOFPARTITION]) == EBRTYPE1 ||
-						GETCONTENT(u8EBRbuf[MBR_PARTION_TYPE + BYTESOFPARTITION]) == EBRTYPE2)
-				{
-					//Read the EBR Partition Information here
-					bPartActiveFlag = GETCONTENT(u8EBRbuf[MBR_BOOTINDICATOR + j * BYTESOFPARTITION]);
-					u8StartHead = GETCONTENT(u8EBRbuf[MBR_START_HEAD + j * BYTESOFPARTITION]);
-					u8StartSector = GETCONTENT(u8EBRbuf[MBR_START_SECTOR + j * BYTESOFPARTITION]);
-					u16StartCylinder = GETCONTENT(u8EBRbuf[MBR_START_CYLINDER + j * BYTESOFPARTITION]);
-
-					sType = FATPartTypeName[GETCONTENT(u8EBRbuf[MBR_PARTION_TYPE + j * BYTESOFPARTITION])];
-
-					u8EndHead = GETCONTENT(u8EBRbuf[MBR_END_HEAD + j * BYTESOFPARTITION]);
-					u8EndSector = GETCONTENT(u8EBRbuf[MBR_END_SECTOR + j * BYTESOFPARTITION]);
-					u16EndCylinder = GETCONTENT(u8EBRbuf[MBR_END_CYLINDER + j * BYTESOFPARTITION]);
-
-					i64SecUsedsize = GETCONTENT(u8EBRbuf[MBR_SECS_PRE_PART + j * BYTESOFPARTITION]);
-					i64SecTolsize = GETCONTENT(u8EBRbuf[MBR_SECSINPART + j * BYTESOFPARTITION]);
-
-					pDiskPartition = new CDiskPartition(bPartActiveFlag,
-							u8StartHead,
-							u8StartSector,
-							u16StartCylinder, 
-							sType, 
-							u8EndHead, 
-							u8EndSector, 
-							u16EndCylinder, 
-							i64SecUsedsize, 
-							i64SecTolsize);
-
-					m_diskPartitionList.push_back(pDiskPartition);
-
-					//Get the Next EBR start sector number
-					pPhyDisk->ReadSector(GETCONTENT(u8EBRbuf[MBR_SECS_PRE_PART + BYTESOFPARTITION]),
-							u8EBRbuf, BUFFERSIZE);
-				}
-			}
-			
-		}
-	}
+	m_diskPartitionList.push_back(pDiskPartition);
 }
 
-int
-CPartitionListImpl::GetCount() const
-{
-	return m_diskPartitionList.size();
-}
 bool
 CPartitionListImpl::GetActiveFlagByID(const int which) const
 {
