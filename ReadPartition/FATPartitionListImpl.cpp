@@ -87,6 +87,7 @@ CPartitionListImpl::EnumPartition()
 			}
 		}
 	}
+	return m_diskPartitionList.size();
 }
 
 int
@@ -136,6 +137,11 @@ CPartitionListImpl::PushPartition(UINT8 *buf, int n)
 			i64SecTolsize);
 
 	m_diskPartitionList.push_back(pDiskPartition);
+	if (pDiskPartition != NULL)
+	{
+		return 0;
+	}
+	return -1;
 }
 
 bool

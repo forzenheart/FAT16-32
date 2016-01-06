@@ -17,7 +17,9 @@ CPhysicalDiskWindows::ReadSector(INT64 secNum, void *buf, INT64 bytes)
 	DWORD	dwBytesRead;
 
 	Seek(secNum);
-	if (FALSE == ReadFile(m_diskHandle.HANDLE, buf, bytes, &dwBytesRead, NULL)) {
+
+	if (FALSE == ReadFile(m_diskHandle.HANDLE, buf, bytes, &dwBytesRead, NULL))
+	{
 		fprintf(stderr, "ReadFile error.\n");
 		return -1;
 	}
@@ -37,7 +39,8 @@ CPhysicalDiskWindows::Seek(INT64 secNum, int whence)
 	LARGE_INTEGER	li;
 	li.QuadPart = secNum * 512;
 
-	 if (INVALID_SET_FILE_POINTER == SetFilePointerEx(m_diskHandle.HANDLE, li, NULL, whence)) {
+	 if (INVALID_SET_FILE_POINTER == SetFilePointerEx(m_diskHandle.HANDLE, li, NULL, whence))
+	 {
 		 fprintf(stderr, "SetFilePointerEx error\n");
 		 return -1;
 	 }

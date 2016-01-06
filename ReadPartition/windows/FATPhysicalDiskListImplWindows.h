@@ -3,7 +3,8 @@
 
 #include "ReadPartition/FATPhysicalDiskListImpl.h"
 
-class CPhysicalDiskListImplWindows : public CPhysicalDiskListImpl {
+class CPhysicalDiskListImplWindows : public CPhysicalDiskListImpl
+{
 	public:
 		virtual int	EnumPhysicalDisk();
 };

@@ -9,7 +9,7 @@ class CPhysicalDiskFactoryWindows : public CPhysicalDiskFactory
 	static CPhysicalDiskFactoryWindows* GetFactoryInstance()
 	{
 		static CPhysicalDiskFactoryWindows * factory = NULL;
-		if (!factory)
+		if (factory == NULL)
 		{
 			factory = new CPhysicalDiskFactoryWindows;
 		}
@@ -17,6 +17,7 @@ class CPhysicalDiskFactoryWindows : public CPhysicalDiskFactory
 	}
 	virtual ~CPhysicalDiskFactoryWindows();
 	virtual CPhysicalDiskListImpl*	MakePhysicalDisk();
+
 	private:
 	CPhysicalDiskFactoryWindows();
 	CPhysicalDiskFactoryWindows(const CPhysicalDiskFactoryWindows&);

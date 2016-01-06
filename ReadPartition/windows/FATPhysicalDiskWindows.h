@@ -1,7 +1,10 @@
 #ifndef	_FAT_PHYSICAL_DISK_WINDOWS_H__
 #define	_FAT_PHYSICAL_DISK_WINDOWS_H__
 
-class CPhysicalDiskWindows : public CPhysicalDisk {
+#include "ReadPartition/FATPhysicalDisk.h"
+
+class CPhysicalDiskWindows : public CPhysicalDisk
+{
 	public:
 		CPhysicalDiskWindows(void *handle);
 		virtual INT64	ReadSector(INT64 secNum, void *buf, INT64 bytes);

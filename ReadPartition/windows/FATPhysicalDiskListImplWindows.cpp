@@ -21,11 +21,11 @@ CPhysicalDiskListImplWindows::EnumPhysicalDisk()
 	for (int i = 0; i < MAXPHYSICALDISKNUMBER; i++)
 	{
 		//Get the disk Handle in windows
-		if (hFile = CreateFile((pathName + (CHAR)(i + '0')).c_str(),
+		if ((hFile = CreateFile((pathName + (CHAR)(i + '0')).c_str(),
 					GENERIC_READ, 
 					FILE_SHARE_READ |
 					FILE_SHARE_WRITE, 
-					NULL, OPEN_EXISTING, 0, NULL) 
+					NULL, OPEN_EXISTING, 0, NULL))
 				== INVALID_HANDLE_VALUE)	
 		{
 			dwErrorsv = GetLastError();
