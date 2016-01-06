@@ -18,22 +18,28 @@ SOURCES = FATPhysicalDisk.cpp			\
 	  FATPhysicalDiskFactoryLinux.cpp	\
 	  FATPhysicalDiskFactoryWindows.cpp	\
 	  FATPhysicalDiskList.cpp		\
-	  testFATPhysicalDiskList.cpp
+	  FATPartitionListImpl.cpp		\
 
 Objects = FATPhysicalDisk.o FATPhysicalDiskLinux.o			\
 	FATPhysicalDiskListImpl.o FATPhysicalDiskListImplLinux.o	\
 	FATPhysicalDiskFactory.o FATPhysicalDiskFactoryLinux.o		\
-	FATPhysicalDiskList.o
+	FATPhysicalDiskList.o FATPartitionList.o FATPartitionListImpl.o	\
+	FATDiskPartition.o
 
 .PHONY : all
 all :	FATPhysicalDisk.o FATPhysicalDiskLinux.o			\
 	FATPhysicalDiskListImpl.o FATPhysicalDiskListImplLinux.o	\
 	FATPhysicalDiskFactory.o FATPhysicalDiskFactoryLinux.o		\
-	FATPhysicalDiskList.o
+	FATPhysicalDiskList.o FATPartitionListImpl.o FATPartitionList.o	\
+	FATDiskPartition.o
 
-testfat : $(Objects) testFATPhysicalDiskList.cpp
+testfat : $(Objects) testFATPartitionList.cpp
 	g++ $(CPPFLAGS) $^ -g -o $@
 
+
+FATPartitionList.o :
+FATPartitionListImpl.o :
+FATDiskPartition.o :
 FATPhysicalDiskList.o :  
 FATPhysicalDisk.o : 
 FATPhysicalDiskLinux.o : 
@@ -51,4 +57,4 @@ include $(subst .c, .d, $(SOURCE))
 
 .PHONY : clean
 clean : 	
-	rm *.o
+	rm *.o testfat

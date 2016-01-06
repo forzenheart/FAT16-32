@@ -1,16 +1,15 @@
-#ifndef	_FAT_PARTITON_LIST_H__
-#define	_FAT_PARTITON_LIST_H__
+#ifndef	_FAT_PARTITION_LIST_IMPL_H__
+#define	_FAT_PARTITION_LIST_IMPL_H__
 
-#include "ReadPartition/FATPhysicalDiskList.h"
-#include "ReadPartition/FATPartitionListImpl.h"
+#include "ReadPartition/FATDiskPartition.h"
+#include <vector>
 
-class CPartitionList
+class CPartitionListImpl
 {
 	public:
-		static	CPartitionList*	GetInstance();
+		static CPartitionListImpl*	GetInstance();
 
-		int	GetPartitionCount() const;
-
+		int	GetCount() const;
 		bool	GetActiveFlagByID(const int which) const;
 		UINT8	GetStartHeadNoByID(const int which)  const;
 		UINT8	GetStartSecNOByID(const int which) const;
@@ -26,10 +25,13 @@ class CPartitionList
 		const std::string*	GetPartitionTypeByID(const int which) const;
 
 	private:
-		CPartitionList();
-		CPartitionList(const CPartitionList&);
-		
-		static	CPartitionList*	m_partitionListInstance;
-		CPartitionListImpl*	m_partitionListImpl;
+		CPartitionListImpl();
+		CPartitionListImpl(const CPartitionListImpl&);
+
+		int	EnumPartition();
+
+		std::vector<CDiskPartition*>	m_diskPartitionList;
+		static CPartitionListImpl*	m_partitionListImplInstance;
 };
-#endif	//_FAT_PARTITON_LIST_H__
+
+#endif	//_FAT_PARTITION_LIST_IMPL_H__

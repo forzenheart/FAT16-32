@@ -8,9 +8,13 @@ main(void)
 
 	printf("%d\n", cp->EnumPhysicalDisk());
 	printf("%d\n", cp->GetCount());
+
 	CPhysicalDisk*	pd = cp->GetPhysicalDiskByID(0);
+
 	unsigned char buf[512] = {0};
+
 	pd->ReadSector(0, buf, 512);
+
 	for (int i = 0; i < 512 / 16; i++)
 	{
 		//Change the print format of decimal or hex

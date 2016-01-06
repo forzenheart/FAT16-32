@@ -2,16 +2,16 @@
 
 CDiskPartition::CDiskPartition(
 		bool a,
-		INT8 sh, 
-		INT8 ss, 
-		INT8 sc, 
-		INT8 pt, 
-		INT8 eh, 
-		INT8 es,
-		INT8 ec, 
-		INT32 spp, 
-		INT32 t, 
-		std::string name = "") 
+		UINT8 sh, 
+		UINT8 ss, 
+		UINT16 sc, 
+		std::string pt, 
+		UINT8 eh, 
+		UINT8 es,
+		UINT16 ec, 
+		INT64 spp, 
+		INT64 t, 
+		std::string name) 
 :
 m_ActivePartition(a), 
 	m_StartHeadNo(sh), 
