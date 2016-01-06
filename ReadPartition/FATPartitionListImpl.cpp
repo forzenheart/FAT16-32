@@ -54,7 +54,7 @@ CPartitionListImpl::EnumPartition()
 		CPhysicalDisk*	pPhyDisk = pPhyDiskL->GetPhysicalDiskByID(i);
 		pPhyDisk->ReadSector(0, u8MBRbuf, BUFFERSIZE);
 
-		for (int j = 0; j < MBRPARTITIONNUM; j++)
+		for (int j = 0; j< MBRPARTITIONNUM; j++)
 		{
 			//根据前面总扇区数目是否为0来判断该分区是否存在
 			if (GETCONTENT(u8MBRbuf[MBR_SECS_PRE_PART + j * BYTESOFPARTITION]) == FAT_ZERO)
@@ -135,8 +135,7 @@ CPartitionListImpl::PushPartition(UINT8 *buf, int n)
 			u16EndCylinder, 
 			i64SecUsedsize, 
 			i64SecTolsize);
-
-	m_diskPartitionList.push_back(pDiskPartition);
+m_diskPartitionList.push_back(pDiskPartition);
 	if (pDiskPartition != NULL)
 	{
 		return 0;
