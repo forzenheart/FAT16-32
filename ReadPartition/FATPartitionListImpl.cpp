@@ -142,9 +142,11 @@ CPartitionListImpl::PushPartition(UINT8 *buf, int n, bool isprimary)
 
 	//如该分区总扇区数目为0, 则判断为空扇区
 	if (i64SecTolsize == 0)
+	{
 		return -1;
+	}
 	//将获取的分区信息加入分区链表里面
-	pDiskPartition = new CDiskPartition(bPartActiveFlag,
+	if ((pDiskPartition = new CDiskPartition(bPartActiveFlag,
 			u8StartHead,
 			u8StartSector,
 			u16StartCylinder, 
@@ -158,11 +160,9 @@ CPartitionListImpl::PushPartition(UINT8 *buf, int n, bool isprimary)
 			i64Unused, 
 			bIsPrimary, 
 			sPartName, 
-			sVolumeName);
-
-	m_diskPartitionList.push_back(pDiskPartition);
-	if (pDiskPartition != NULL)
+			sVolumeName)) != NULL)
 	{
+		m_diskPartitionList.push_back(pDiskPartition);
 		return 0;
 	}
 	return -1;
