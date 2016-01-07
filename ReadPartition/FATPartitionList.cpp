@@ -110,7 +110,7 @@ CPartitionList::GetSecPrecedingPartitionByID(const int which) const
 	{
 		return m_partitionListImpl->GetSecPrecedingPartitionByID(which);
 	}
-	return 0;
+	return -1;
 }
 
 INT64
@@ -120,7 +120,27 @@ CPartitionList::GetTotalSecByID(const int which) const
 	{
 		return m_partitionListImpl->GetTotalSecByID(which);
 	}
-	return 0;
+	return -1;
+}
+
+INT64
+CPartitionList::GetSpaceFreeByID(const int which) const
+{
+	if (m_partitionListImpl)
+	{
+		return m_partitionListImpl->GetSpaceFreeByID(which);
+	}
+	return -1;
+}
+
+INT64
+CPartitionList::GetSpaceUsedByID(const int which) const
+{
+	if (m_partitionListImpl)
+	{
+		return m_partitionListImpl->GetSpaceUsedByID(which);
+	}
+	return -1;
 }
 
 const std::string*
@@ -130,7 +150,7 @@ CPartitionList::GetPartitionTypeByID(const int which) const
 	{
 		return m_partitionListImpl->GetPartitionTypeByID(which);
 	}
-	return 0;
+	return NULL;
 }
 
 const std::string*
@@ -140,5 +160,16 @@ CPartitionList::GetPartitionNameByID(const int which) const
 	{
 		return m_partitionListImpl->GetPartitionNameByID(which);
 	}
-	return 0;
+	return NULL;
 }
+
+const std::string*
+CPartitionList::GetVolumeNameByID(const int which) const
+{
+	if (m_partitionListImpl)
+	{
+		return m_partitionListImpl->GetVolumeNameByID(which);
+	}
+	return NULL;
+}
+

@@ -51,38 +51,48 @@ CPartitionListImpl::EnumPartition()
 
 	for (int i = 0; i < pPhyDiskL->GetCount(); i++)
 	{
+		//分区类型有MBR磁盘分区和GPT磁盘分区
 		CPhysicalDisk*	pPhyDisk = pPhyDiskL->GetPhysicalDiskByID(i);
 		pPhyDisk->ReadSector(0, u8MBRbuf, BUFFERSIZE);
-
-		for (int j = 0; j< MBRPARTITIONNUM; j++)
+		//判断是否是GPT分区类型
+		if (u8MBRbuf[GPT_PARTION_TYPE] == 0xEE
+				&& u8MBRbuf[GPT_SECS_IN_PART] == 0XFF
+				&& u8MBRbuf[GPT_SECS_IN_PART + 2] == 0xFF)
 		{
-			//根据前面总扇区数目是否为0来判断该分区是否存在
-			if (GETCONTENT(u8MBRbuf[MBR_SECS_PRE_PART + j * BYTESOFPARTITION]) == FAT_ZERO)
+			//!尚未处理GPT分区表
+		}
+		else
+		{
+			for (int j = 0; j< MBRPARTITIONNUM; j++)
 			{
-				break;
-			}
-			//判断是否是EBR分区
-			if (!(u8MBRbuf[MBR_PARTION_TYPE + j * BYTESOFPARTITION] == EBRTYPE1 ||
-					u8MBRbuf[MBR_PARTION_TYPE + j * BYTESOFPARTITION] == EBRTYPE2))
-			{
-				//将MBR分区信息加入分区链表
-				PushPartition(u8MBRbuf, j);
-			}
-			else
-			{
-				//判断为EBR分区，循环扫描并将EBR分区信息加入分区链表里面
-				pPhyDisk->ReadSector(GETCONTENT(u8MBRbuf[MBR_SECS_PRE_PART + j * BYTESOFPARTITION]),
-						u8EBRbuf, BUFFERSIZE);
-				//EBR循环查找
-				while (u8EBRbuf[MBR_PARTION_TYPE + BYTESOFPARTITION] == EBRTYPE1 ||
-						u8EBRbuf[MBR_PARTION_TYPE + BYTESOFPARTITION] == EBRTYPE2)
+				//根据前面总扇区数目是否为0来判断该分区是否存在
+				//if (GETCONTENT(u8MBRbuf[MBR_SECS_PRE_PART + j * BYTESOFPARTITION]) == FAT_ZERO)
+				//{
+					//break;
+				//}
+				//判断是否是EBR分区
+				if (!(u8MBRbuf[MBR_PARTION_TYPE + j * BYTESOFPARTITION] == EBRTYPE1 ||
+							u8MBRbuf[MBR_PARTION_TYPE + j * BYTESOFPARTITION] == EBRTYPE2))
 				{
-					//将EBR分区信息加入分区链表
-					//EBR第一个分区信息为该EBR的信息，第二个分区位扩展分区信息
-					PushPartition(u8EBRbuf, 0);
-					//获取下一个EBR分区的开始扇区
-					pPhyDisk->ReadSector(GETCONTENT(u8EBRbuf[MBR_SECS_PRE_PART + BYTESOFPARTITION]),
+					//将MBR分区信息加入分区链表
+					PushPartition(u8MBRbuf, j, true);
+				}
+				else
+				{
+					//判断为EBR分区，循环扫描并将EBR分区信息加入分区链表里面
+					pPhyDisk->ReadSector(GETCONTENT(u8MBRbuf[MBR_SECS_PRE_PART + j * BYTESOFPARTITION]),
 							u8EBRbuf, BUFFERSIZE);
+					//EBR循环查找
+					while (u8EBRbuf[MBR_PARTION_TYPE + BYTESOFPARTITION] == EBRTYPE1 ||
+							u8EBRbuf[MBR_PARTION_TYPE + BYTESOFPARTITION] == EBRTYPE2)
+					{
+						//将EBR分区信息加入分区链表
+						//EBR第一个分区信息为该EBR的信息，第二个分区位扩展分区信息
+						PushPartition(u8EBRbuf, 0);
+						//获取下一个EBR分区的开始扇区
+						pPhyDisk->ReadSector(GETCONTENT(u8EBRbuf[MBR_SECS_PRE_PART + BYTESOFPARTITION]),
+								u8EBRbuf, BUFFERSIZE);
+					}
 				}
 			}
 		}
@@ -97,11 +107,12 @@ CPartitionListImpl::GetCount() const
 }
 
 int
-CPartitionListImpl::PushPartition(UINT8 *buf, int n)
+CPartitionListImpl::PushPartition(UINT8 *buf, int n, bool isprimary)
 {
 	CDiskPartition*	pDiskPartition = NULL;
 
 	bool	bPartActiveFlag = false;
+	bool	bIsPrimary = isprimary;
 	UINT8	u8StartHead = 0;
 	UINT8	u8StartSector = 0;
 	UINT16	u16StartCylinder = 0;
@@ -110,7 +121,11 @@ CPartitionListImpl::PushPartition(UINT8 *buf, int n)
 	UINT16	u16EndCylinder = 0;
 	INT64	i64SecUsedsize = 0;
 	INT64	i64SecTolsize = 0;
-	std::string	sType = "";
+	INT64	i64Used = 0;
+	INT64	i64Unused = 0;
+	std::string	sType = "*";
+	std::string	sPartName = "*";
+	std::string	sVolumeName = "*";
 
 	//获取分区信息
 	bPartActiveFlag = buf[MBR_BOOTINDICATOR + n * BYTESOFPARTITION];
@@ -122,8 +137,12 @@ CPartitionListImpl::PushPartition(UINT8 *buf, int n)
 	u8EndSector = buf[MBR_END_SECTOR + n * BYTESOFPARTITION];
 	u16EndCylinder = buf[MBR_END_CYLINDER + n * BYTESOFPARTITION];
 	i64SecUsedsize = GETCONTENT(buf[MBR_SECS_PRE_PART + n * BYTESOFPARTITION]);
-	i64SecTolsize = GETCONTENT(buf[MBR_SECSINPART + n * BYTESOFPARTITION]);
+	i64SecTolsize = GETCONTENT(buf[MBR_SECS_IN_PART + n * BYTESOFPARTITION]);
+	//尚未获取非MBR内信息
 
+	//如该分区总扇区数目为0, 则判断为空扇区
+	if (i64SecTolsize == 0)
+		return -1;
 	//将获取的分区信息加入分区链表里面
 	pDiskPartition = new CDiskPartition(bPartActiveFlag,
 			u8StartHead,
@@ -134,8 +153,14 @@ CPartitionListImpl::PushPartition(UINT8 *buf, int n)
 			u8EndSector, 
 			u16EndCylinder, 
 			i64SecUsedsize, 
-			i64SecTolsize);
-m_diskPartitionList.push_back(pDiskPartition);
+			i64SecTolsize, 
+			i64Used, 
+			i64Unused, 
+			bIsPrimary, 
+			sPartName, 
+			sVolumeName);
+
+	m_diskPartitionList.push_back(pDiskPartition);
 	if (pDiskPartition != NULL)
 	{
 		return 0;
@@ -153,6 +178,15 @@ CPartitionListImpl::GetActiveFlagByID(const int which) const
 	return false;
 }
 
+bool
+CPartitionListImpl::IsPrimary(const int which) const
+{
+	if (!m_diskPartitionList.empty())
+	{
+		return m_diskPartitionList[which]->IsPrimary();
+	}
+	return false;
+}
 UINT8
 CPartitionListImpl::GetStartHeadNoByID(const int which)  const
 {
@@ -233,6 +267,26 @@ CPartitionListImpl::GetTotalSecByID(const int which) const
 	return 0;
 }
 
+INT64
+CPartitionListImpl::GetSpaceFreeByID(const int which) const
+{
+	if (!m_diskPartitionList.empty())
+	{
+		return m_diskPartitionList[which]->GetSpaceFree();
+	}
+	return 0;
+}
+
+INT64
+CPartitionListImpl::GetSpaceUsedByID(const int which) const
+{
+	if (!m_diskPartitionList.empty())
+	{
+		return m_diskPartitionList[which]->GetSpaceUsed();
+	}
+	return 0;
+}
+
 const std::string*
 CPartitionListImpl::GetPartitionTypeByID(const int which) const
 {
@@ -248,9 +302,17 @@ CPartitionListImpl::GetPartitionNameByID(const int which) const
 {
 	if (!m_diskPartitionList.empty())
 	{
-		//return m_diskPartitionList[which]->();
-		return NULL;
+		return m_diskPartitionList[which]->GetPartitionName();
 	}
 	return NULL;
 }
 
+const std::string*
+CPartitionListImpl::GetVolumeNameByID(const int which) const
+{
+	if (!m_diskPartitionList.empty())
+	{
+		return m_diskPartitionList[which]->GetVolumeName();
+	}
+	return NULL;
+}

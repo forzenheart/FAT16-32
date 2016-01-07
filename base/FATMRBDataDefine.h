@@ -16,7 +16,9 @@
 #define	MBR_END_CYLINDER	0x01C5	//10b	//结束柱面：占用10位，最大为1023
 #define	MBR_SECS_PRE_PART	0x01C6	//4	//本分区之前使用的扇区数，指从该磁盘开始到该分区开始之间的偏移量
 						//注意是以扇区数目表示，而不是字节数目
-#define	MBR_SECSINPART		0x01CA	//4	//该分区包含的总扇区数
+#define	MBR_SECS_IN_PART	0x01CA	//4	//该分区包含的总扇区数
 
+#define	GPT_PARTION_TYPE	0x01C2	//1	//GPT分区定类型
+#define	GPT_SECS_IN_PART	0x01C6	//4	//GPT MBR保护扇区该值一定为0XFFFF
 
 #endif	//_FAT_MBR_DATA_DEFINE_H__

@@ -6,7 +6,9 @@ VPATH = . base \
 	ReadPartition ReadPartition/linux ReadPartition/windows	\
 	test
 
-CPPFLAGS = -I . 
+CPPFLAGS += -I . 
+OUTPUT_OPTION += -Wall
+OUTPUT_OPTION += -g
 
 SOURCES = FATPhysicalDisk.cpp			\
 	  FATPhysicalDiskLinux.cpp		\
@@ -34,8 +36,7 @@ all :	FATPhysicalDisk.o FATPhysicalDiskLinux.o			\
 	FATDiskPartition.o
 
 testfat : $(Objects) testFATPartitionList.cpp
-	g++ $(CPPFLAGS) $^ -g -o $@
-
+	g++ $(CPPFLAGS) $^ -g -Wall -o $@
 
 FATPartitionList.o :
 FATPartitionListImpl.o :

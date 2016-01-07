@@ -4,7 +4,7 @@
 //常见分区格式
 
 const char *FATPartTypeName[] = {
-	"Illegal in DOS and Windws", //00H
+	"Illegal in DOS and Windows", //00H
 	"FAT12",		//01H
 	"XENIX root",		//02H
 	"XENIX usr",		//03H

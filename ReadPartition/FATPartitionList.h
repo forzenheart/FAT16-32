@@ -9,9 +9,12 @@ class CPartitionList
 	public:
 		static	CPartitionList*	GetInstance();
 
-		int	GetPartitionCount() const;
+		//int	GetPhysicalDiskCout() const;
+		//CPartitionList*	GetPartitionListByPhysicalDiskID(const int which) const;
 
+		int	GetPartitionCount() const;
 		bool	GetActiveFlagByID(const int which) const;
+		bool	IsPrimary(const int which) const;
 		UINT8	GetStartHeadNoByID(const int which)  const;
 		UINT8	GetStartSecNOByID(const int which) const;
 		UINT16	GetStartCylinderNoByID(const int which) const;
@@ -22,8 +25,12 @@ class CPartitionList
 
 		INT64	GetSecPrecedingPartitionByID(const int which) const;
 		INT64	GetTotalSecByID(const int which) const;
+		INT64	GetSpaceFreeByID(const int which) const;
+		INT64	GetSpaceUsedByID(const int which) const;
+
 		const std::string*	GetPartitionNameByID(const int which) const;
 		const std::string*	GetPartitionTypeByID(const int which) const;
+		const std::string*	GetVolumeNameByID(const int which) const;
 
 	private:
 		CPartitionList();

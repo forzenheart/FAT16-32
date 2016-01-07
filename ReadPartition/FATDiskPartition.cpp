@@ -11,7 +11,11 @@ CDiskPartition::CDiskPartition(
 		UINT16 ec, 
 		INT64 spp, 
 		INT64 t, 
-		std::string name) 
+		INT64 used, 
+		INT64 unused, 
+		bool isprimary, 
+		std::string partname, 
+		std::string volumename) 
 :
 m_ActivePartition(a), 
 	m_StartHeadNo(sh), 
@@ -23,6 +27,10 @@ m_ActivePartition(a),
 	m_EndCylinderNo(ec), 
 	m_SecPrecedingPartition(spp), 
 	m_TotSec(t), 
-	m_PartitionName(name)
+	m_Used(used), 
+	m_Unused(unused), 
+	m_IsPrimary(isprimary), 
+	m_PartitionName(partname), 
+	m_VolumeName(volumename)
 { }
 
