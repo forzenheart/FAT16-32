@@ -6,18 +6,18 @@
 class CPhysicalDisk {
 	friend	 class CPhysicalDiskListImpl;
 	public:
-	virtual	INT64	ReadSector(INT64 secNum, void *buf, INT64 bytes) = 0;
-	virtual	INT64	WriteSector(INT64 secNum, const void *buf, INT64 bytes) = 0;
+	virtual	int_fast64_t	ReadSector(int_fast64_t secNum, void *buf, int_fast64_t bytes) = 0;
+	virtual	int_fast64_t	WriteSector(int_fast64_t secNum, const void *buf, int_fast64_t bytes) = 0;
 
 	protected:
-	virtual	INT64	Seek(INT64 secNum, int whence = 0) = 0;
+	virtual	int_fast64_t	Seek(int_fast64_t secNum, int_fast32_t whence = 0) = 0;
 
 	CPhysicalDisk(void *handle);
-	CPhysicalDisk(int fd);
+	CPhysicalDisk(int_fast32_t fd);
 
 	union {
 		void	*HANDLE;
-		int	fd;
+		int_fast32_t	fd;
 	} m_diskHandle;
 };
 

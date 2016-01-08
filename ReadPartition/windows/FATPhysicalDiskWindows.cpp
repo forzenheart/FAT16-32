@@ -11,8 +11,8 @@ CPhysicalDiskWindows::CPhysicalDiskWindows(void *handle)
 
 }
 		
-INT64
-CPhysicalDiskWindows::ReadSector(INT64 secNum, void *buf, INT64 bytes)
+int_fast64_t
+CPhysicalDiskWindows::ReadSector(int_fast64_t secNum, void *buf, int_fast64_t bytes)
 {
 	DWORD	dwBytesRead;
 
@@ -23,18 +23,18 @@ CPhysicalDiskWindows::ReadSector(INT64 secNum, void *buf, INT64 bytes)
 		fprintf(stderr, "ReadFile error.\n");
 		return -1;
 	}
-	return static_cast<INT64>(dwBytesRead);
+	return static_cast<int_fast64_t>(dwBytesRead);
 }
 
-INT64
-CPhysicalDiskWindows::WriteSector(INT64 secNum, const void *buf, INT64 bytes)
+int_fast64_t
+CPhysicalDiskWindows::WriteSector(int_fast64_t secNum, const void *buf, int_fast64_t bytes)
 {
 	//None implementation
 	return -1;
 }
 
-INT64
-CPhysicalDiskWindows::Seek(INT64 secNum, int whence)
+int_fast64_t
+CPhysicalDiskWindows::Seek(int_fast64_t secNum, int_fast32_t whence)
 {
 	LARGE_INTEGER	li;
 	li.QuadPart = secNum * 512;

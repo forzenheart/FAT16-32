@@ -3,8 +3,8 @@
 #include "base/FATPartitionTypeIndicator.h"
 #include <stdio.h>
 
-//Notice the int bytes! 
-#define	GETCONTENT(S)		(*((int*)(&(S))))
+//Notice the int_fast32_t bytes! 
+#define	GETCONTENT(S)		(*((int32_t*)(&(S))))
 #define	BUFFERSIZE		4096
 #define	MBRPARTITIONNUM		4
 #define	BYTESOFPARTITION	16
@@ -35,14 +35,14 @@ CPartitionListImpl::CPartitionListImpl(const CPartitionListImpl&)
 
 }
 
-int
+int_fast32_t
 CPartitionListImpl::EnumPartition()
 {
 	m_diskPartitionList.clear();
 
 	//分别用于储存MBR扇区和EBR扇区信息
-	UINT8	u8MBRbuf[BUFFERSIZE] = {0};
-	UINT8	u8EBRbuf[BUFFERSIZE] = {0};
+	uint8_t	u8MBRbuf[BUFFERSIZE] = {0};
+	uint8_t	u8EBRbuf[BUFFERSIZE] = {0};
 
 	//获取物理磁盘句柄
 	CPhysicalDiskList*	pPhyDiskL = CPhysicalDiskList::GetInstance();
@@ -100,29 +100,29 @@ CPartitionListImpl::EnumPartition()
 	return m_diskPartitionList.size();
 }
 
-int
+int_fast32_t
 CPartitionListImpl::GetCount() const
 {
 	return m_diskPartitionList.size();
 }
 
-int
-CPartitionListImpl::PushPartition(UINT8 *buf, int n, bool isprimary)
+int_fast32_t
+CPartitionListImpl::PushPartition(uint_fast8_t *buf, int_fast32_t n, bool isprimary)
 {
 	CDiskPartition*	pDiskPartition = NULL;
 
 	bool	bPartActiveFlag = false;
 	bool	bIsPrimary = isprimary;
-	UINT8	u8StartHead = 0;
-	UINT8	u8StartSector = 0;
-	UINT16	u16StartCylinder = 0;
-	UINT8	u8EndHead = 0;
-	UINT8	u8EndSector = 0;
-	UINT16	u16EndCylinder = 0;
-	INT64	i64SecUsedsize = 0;
-	INT64	i64SecTolsize = 0;
-	INT64	i64Used = 0;
-	INT64	i64Unused = 0;
+	uint_fast8_t	u8StartHead = 0;
+	uint_fast8_t	u8StartSector = 0;
+	uint_fast16_t	u16StartCylinder = 0;
+	uint_fast8_t	u8EndHead = 0;
+	uint_fast8_t	u8EndSector = 0;
+	uint_fast16_t	u16EndCylinder = 0;
+	int_fast64_t	i64SecUsedsize = 0;
+	int_fast64_t	i64SecTolsize = 0;
+	int_fast64_t	i64Used = 0;
+	int_fast64_t	i64Unused = 0;
 	std::string	sType = "*";
 	std::string	sPartName = "*";
 	std::string	sVolumeName = "*";
@@ -169,7 +169,7 @@ CPartitionListImpl::PushPartition(UINT8 *buf, int n, bool isprimary)
 }
 
 bool
-CPartitionListImpl::GetActiveFlagByID(const int which) const
+CPartitionListImpl::GetActiveFlagByID(const int_fast32_t which) const
 {
 	if (!m_diskPartitionList.empty())
 	{
@@ -179,7 +179,7 @@ CPartitionListImpl::GetActiveFlagByID(const int which) const
 }
 
 bool
-CPartitionListImpl::IsPrimary(const int which) const
+CPartitionListImpl::IsPrimary(const int_fast32_t which) const
 {
 	if (!m_diskPartitionList.empty())
 	{
@@ -187,8 +187,8 @@ CPartitionListImpl::IsPrimary(const int which) const
 	}
 	return false;
 }
-UINT8
-CPartitionListImpl::GetStartHeadNoByID(const int which)  const
+uint_fast8_t
+CPartitionListImpl::GetStartHeadNoByID(const int_fast32_t which)  const
 {
 	if (!m_diskPartitionList.empty())
 	{
@@ -197,8 +197,8 @@ CPartitionListImpl::GetStartHeadNoByID(const int which)  const
 	return 0;
 }
 
-UINT8
-CPartitionListImpl::GetStartSecNOByID(const int which) const
+uint_fast8_t
+CPartitionListImpl::GetStartSecNOByID(const int_fast32_t which) const
 {
 	if (!m_diskPartitionList.empty())
 	{
@@ -207,8 +207,8 @@ CPartitionListImpl::GetStartSecNOByID(const int which) const
 	return 0;
 }
 
-UINT16
-CPartitionListImpl::GetStartCylinderNoByID(const int which) const
+uint_fast16_t
+CPartitionListImpl::GetStartCylinderNoByID(const int_fast32_t which) const
 {
 	if (!m_diskPartitionList.empty())
 	{
@@ -217,8 +217,8 @@ CPartitionListImpl::GetStartCylinderNoByID(const int which) const
 	return 0;
 }
 
-UINT8
-CPartitionListImpl::GetEndHeadNoByID(const int which) const
+uint_fast8_t
+CPartitionListImpl::GetEndHeadNoByID(const int_fast32_t which) const
 {
 	if (!m_diskPartitionList.empty())
 	{
@@ -227,8 +227,8 @@ CPartitionListImpl::GetEndHeadNoByID(const int which) const
 	return 0;
 }
 
-UINT8
-CPartitionListImpl::GetEndSecNoByID(const int which) const
+uint_fast8_t
+CPartitionListImpl::GetEndSecNoByID(const int_fast32_t which) const
 {
 	if (!m_diskPartitionList.empty())
 	{
@@ -237,8 +237,8 @@ CPartitionListImpl::GetEndSecNoByID(const int which) const
 	return 0;
 }
 
-UINT16
-CPartitionListImpl::GetEndCylinderNoByID(const int which) const
+uint_fast16_t
+CPartitionListImpl::GetEndCylinderNoByID(const int_fast32_t which) const
 {
 	if (!m_diskPartitionList.empty())
 	{
@@ -247,8 +247,8 @@ CPartitionListImpl::GetEndCylinderNoByID(const int which) const
 	return 0;
 }
 
-INT64
-CPartitionListImpl::GetSecPrecedingPartitionByID(const int which) const
+int_fast64_t
+CPartitionListImpl::GetSecPrecedingPartitionByID(const int_fast32_t which) const
 {
 	if (!m_diskPartitionList.empty())
 	{
@@ -257,8 +257,8 @@ CPartitionListImpl::GetSecPrecedingPartitionByID(const int which) const
 	return 0;
 }
 
-INT64
-CPartitionListImpl::GetTotalSecByID(const int which) const
+int_fast64_t
+CPartitionListImpl::GetTotalSecByID(const int_fast32_t which) const
 {
 	if (!m_diskPartitionList.empty())
 	{
@@ -267,8 +267,8 @@ CPartitionListImpl::GetTotalSecByID(const int which) const
 	return 0;
 }
 
-INT64
-CPartitionListImpl::GetSpaceFreeByID(const int which) const
+int_fast64_t
+CPartitionListImpl::GetSpaceFreeByID(const int_fast32_t which) const
 {
 	if (!m_diskPartitionList.empty())
 	{
@@ -277,8 +277,8 @@ CPartitionListImpl::GetSpaceFreeByID(const int which) const
 	return 0;
 }
 
-INT64
-CPartitionListImpl::GetSpaceUsedByID(const int which) const
+int_fast64_t
+CPartitionListImpl::GetSpaceUsedByID(const int_fast32_t which) const
 {
 	if (!m_diskPartitionList.empty())
 	{
@@ -288,7 +288,7 @@ CPartitionListImpl::GetSpaceUsedByID(const int which) const
 }
 
 const std::string*
-CPartitionListImpl::GetPartitionTypeByID(const int which) const
+CPartitionListImpl::GetPartitionTypeByID(const int_fast32_t which) const
 {
 	if (!m_diskPartitionList.empty())
 	{
@@ -298,7 +298,7 @@ CPartitionListImpl::GetPartitionTypeByID(const int which) const
 }
 
 const std::string*
-CPartitionListImpl::GetPartitionNameByID(const int which) const
+CPartitionListImpl::GetPartitionNameByID(const int_fast32_t which) const
 {
 	if (!m_diskPartitionList.empty())
 	{
@@ -308,7 +308,7 @@ CPartitionListImpl::GetPartitionNameByID(const int which) const
 }
 
 const std::string*
-CPartitionListImpl::GetVolumeNameByID(const int which) const
+CPartitionListImpl::GetVolumeNameByID(const int_fast32_t which) const
 {
 	if (!m_diskPartitionList.empty())
 	{

@@ -8,40 +8,43 @@
 #include "base/FATDBRDataDefine.h"		//DBR基本偏移量定义
 #include "base/FATFATDataDefine.h"		//FAT16/32基本偏移量
 #include "base/FATFileDataDefine.h"		//FAT基本偏移量定义
+#include <stdint.h>
 
 /*
  *fat文件系统基本数据结构的定义
  */
-typedef	char	INT8;
-typedef short	INT16;
-typedef	long	INT32;
-
-typedef	long long	INT64;
-
-#if defined(LONGLONG)
-typedef	LONGLONG	INT64;
-#endif //LONGLONG
-
-typedef	unsigned char	UINT8;
-
-#if defined(BYTE)
-typedef	BYTE		UINT8;
-#endif //BYTE	
-
-typedef unsigned short	UINT16;
-#if defined(WORD)
-typedef	WORD		UNIT16;
-#endif	//WORD
-
-typedef unsigned long	UINT32;
-#if defined(DWORD)
-typedef	DWORD		UINT32;
-#endif	//DWORD
-
-typedef unsigned long long	UINT64;
-#if defined(ULONGLONG)
-typedef	ULONGLONG	UINT64;
-#endif	//ULONGLONG
+/*
+ *typedef	char	int_fast8_t;
+ *typedef short	int_fast16_t;
+ *typedef	long	int_fast32_t;
+ *
+ *typedef	long long	int_fast64_t;
+ *
+ *#if defined(LONGLONG)
+ *typedef	LONGLONG	int_fast64_t;
+ *#endif //LONGLONG
+ *
+ *typedef	unsigned char	uint_fast8_t;
+ *
+ *#if defined(BYTE)
+ *typedef	BYTE		uint_fast8_t;
+ *#endif //BYTE	
+ *
+ *typedef unsigned short	uint_fast16_t;
+ *#if defined(WORD)
+ *typedef	WORD		uint_fast16_t;
+ *#endif	//WORD
+ *
+ *typedef unsigned long	uint_fast32_t;
+ *#if defined(DWORD)
+ *typedef	DWORD		uint_fast32_t;
+ *#endif	//DWORD
+ *
+ *typedef unsigned long long	uint_fast64_t;
+ *#if defined(ULONGLONG)
+ *typedef	ULONGLONG	uint_fast64_t;
+ *#endif	//ULONGLONG
+ */
 
 //suppose the max physical disk number in family computer
 #if	!defined(MAXPHYSICALDISKNUMBER)

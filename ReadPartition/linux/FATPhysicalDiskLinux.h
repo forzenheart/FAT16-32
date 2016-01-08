@@ -4,11 +4,11 @@
 
 class CPhysicalDiskLinux : public CPhysicalDisk {
 	public:
-		CPhysicalDiskLinux(int fd);
-		virtual INT64	ReadSector(INT64 secNum, void *buf, INT64 bytes);
-		virtual INT64	WriteSector(INT64 secNum, const void *buf, INT64 bytes);
+		CPhysicalDiskLinux(int_fast32_t fd);
+		virtual int_fast64_t	ReadSector(int_fast64_t secNum, void *buf, int_fast64_t bytes);
+		virtual int_fast64_t	WriteSector(int_fast64_t secNum, const void *buf, int_fast64_t bytes);
 	protected:
-		INT64	Seek(INT64 secNum, int whence = 0);
+		int_fast64_t	Seek(int_fast64_t secNum, int_fast32_t whence = 0);
 };
 
 #endif	//_FAT_PHYSICAL_DISK_LINUX_H__

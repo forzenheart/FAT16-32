@@ -4,16 +4,16 @@
 #include <unistd.h>
 #include <cstdio>
 
-CPhysicalDiskLinux::CPhysicalDiskLinux(int fd)
+CPhysicalDiskLinux::CPhysicalDiskLinux(int_fast32_t fd)
 	: CPhysicalDisk(fd)
 {
 
 }
 
-INT64
-CPhysicalDiskLinux::ReadSector(INT64 secNum, void *buf, INT64 bytes)
+int_fast64_t
+CPhysicalDiskLinux::ReadSector(int_fast64_t secNum, void *buf, int_fast64_t bytes)
 {
-	INT64	bytesRead;
+	int_fast64_t	bytesRead;
 
 	Seek(secNum);
 
@@ -23,18 +23,18 @@ CPhysicalDiskLinux::ReadSector(INT64 secNum, void *buf, INT64 bytes)
 	return bytesRead;
 }
 
-INT64
-CPhysicalDiskLinux::WriteSector(INT64 secNum, const void *buf, INT64 bytes)
+int_fast64_t
+CPhysicalDiskLinux::WriteSector(int_fast64_t secNum, const void *buf, int_fast64_t bytes)
 {
-	INT64	n = -1;
+	int_fast64_t	n = -1;
 
 	return n;
 }
 
-INT64
-CPhysicalDiskLinux::Seek(INT64 secNum, int whence)
+int_fast64_t
+CPhysicalDiskLinux::Seek(int_fast64_t secNum, int_fast32_t whence)
 {
-	INT64 n;
+	int_fast64_t n;
 
 	if ((n = lseek(m_diskHandle.fd, secNum * 512, whence)) == -1)
 	{

@@ -6,6 +6,6 @@
 class CPhysicalDiskListImplWindows : public CPhysicalDiskListImpl
 {
 	public:
-		virtual int	EnumPhysicalDisk();
+		virtual int_fast32_t	EnumPhysicalDisk();
 };
 #endif	//_FAT_PHYSICAL_DISK_LIST_IMPL_WINDOWS_H__

@@ -9,28 +9,28 @@ class CPartitionList
 	public:
 		static	CPartitionList*	GetInstance();
 
-		//int	GetPhysicalDiskCout() const;
-		//CPartitionList*	GetPartitionListByPhysicalDiskID(const int which) const;
+		//int_fast32_t	GetPhysicalDiskCout() const;
+		//CPartitionList*	GetPartitionListByPhysicalDiskID(const int_fast32_t which) const;
 
-		int	GetPartitionCount() const;
-		bool	GetActiveFlagByID(const int which) const;
-		bool	IsPrimary(const int which) const;
-		UINT8	GetStartHeadNoByID(const int which)  const;
-		UINT8	GetStartSecNOByID(const int which) const;
-		UINT16	GetStartCylinderNoByID(const int which) const;
+		int_fast32_t	GetPartitionCount() const;
+		bool	GetActiveFlagByID(const int_fast32_t which) const;
+		bool	IsPrimary(const int_fast32_t which) const;
+		uint_fast8_t	GetStartHeadNoByID(const int_fast32_t which)  const;
+		uint_fast8_t	GetStartSecNOByID(const int_fast32_t which) const;
+		uint_fast16_t	GetStartCylinderNoByID(const int_fast32_t which) const;
 
-		UINT8	GetEndHeadNoByID(const int which) const;
-		UINT8	GetEndSecNoByID(const int which) const;
-		UINT16	GetEndCylinderNoByID(const int which) const;
+		uint_fast8_t	GetEndHeadNoByID(const int_fast32_t which) const;
+		uint_fast8_t	GetEndSecNoByID(const int_fast32_t which) const;
+		uint_fast16_t	GetEndCylinderNoByID(const int_fast32_t which) const;
 
-		INT64	GetSecPrecedingPartitionByID(const int which) const;
-		INT64	GetTotalSecByID(const int which) const;
-		INT64	GetSpaceFreeByID(const int which) const;
-		INT64	GetSpaceUsedByID(const int which) const;
+		int_fast64_t	GetSecPrecedingPartitionByID(const int_fast32_t which) const;
+		int_fast64_t	GetTotalSecByID(const int_fast32_t which) const;
+		int_fast64_t	GetSpaceFreeByID(const int_fast32_t which) const;
+		int_fast64_t	GetSpaceUsedByID(const int_fast32_t which) const;
 
-		const std::string*	GetPartitionNameByID(const int which) const;
-		const std::string*	GetPartitionTypeByID(const int which) const;
-		const std::string*	GetVolumeNameByID(const int which) const;
+		const std::string*	GetPartitionNameByID(const int_fast32_t which) const;
+		const std::string*	GetPartitionTypeByID(const int_fast32_t which) const;
+		const std::string*	GetVolumeNameByID(const int_fast32_t which) const;
 
 	private:
 		CPartitionList();

@@ -8,12 +8,12 @@
 #include <cstdio>
 #include <string.h>
 
-int
+int_fast32_t
 CPhysicalDiskListImplLinux::EnumPhysicalDisk()
 {
 	m_physicalDiskList.clear();
 
-	int	iDiskFd = -1;
+	int_fast32_t	iDiskFd = -1;
 	CPhysicalDisk	*pPhydisk = NULL;
 
 	/*Because of the physical disk pathname, this function just
@@ -22,12 +22,12 @@ CPhysicalDiskListImplLinux::EnumPhysicalDisk()
 	 */
 	std::string	pathName = "/dev/sd"; 
 
-	for (int i = 0; i < MAXPHYSICALDISKNUMBER; i++)
+	for (int_fast32_t i = 0; i < MAXPHYSICALDISKNUMBER; i++)
 	{
 		//Get the filedes in linux;
 		if ((iDiskFd = open((pathName + (char)(i + 'a')).c_str(), O_RDONLY)) < 0)
 		{
-			int errsv = errno;
+			int_fast32_t errsv = errno;
 			if (errsv == EACCES)
 			{
 				fprintf(stderr, "Please run this program from root.\n");

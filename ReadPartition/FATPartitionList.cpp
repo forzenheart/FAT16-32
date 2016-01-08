@@ -22,7 +22,7 @@ CPartitionList::CPartitionList(const CPartitionList&)
 
 }
 
-int
+int_fast32_t
 CPartitionList::GetPartitionCount() const
 {
 	if (m_partitionListImpl)
@@ -33,7 +33,7 @@ CPartitionList::GetPartitionCount() const
 }
 
 bool
-CPartitionList::GetActiveFlagByID(const int which) const
+CPartitionList::GetActiveFlagByID(const int_fast32_t which) const
 {
 	if (m_partitionListImpl)
 	{
@@ -42,8 +42,8 @@ CPartitionList::GetActiveFlagByID(const int which) const
 	return false;
 }
 
-UINT8
-CPartitionList::GetStartHeadNoByID(const int which)  const
+uint_fast8_t
+CPartitionList::GetStartHeadNoByID(const int_fast32_t which)  const
 {
 	if (m_partitionListImpl)
 	{
@@ -52,8 +52,8 @@ CPartitionList::GetStartHeadNoByID(const int which)  const
 	return 0;
 }
 
-UINT8
-CPartitionList::GetStartSecNOByID(const int which) const
+uint_fast8_t
+CPartitionList::GetStartSecNOByID(const int_fast32_t which) const
 {
 	if (m_partitionListImpl)
 	{
@@ -61,8 +61,8 @@ CPartitionList::GetStartSecNOByID(const int which) const
 	}
 	return 0;
 }
-UINT16
-CPartitionList::GetStartCylinderNoByID(const int which) const
+uint_fast16_t
+CPartitionList::GetStartCylinderNoByID(const int_fast32_t which) const
 {
 	if (m_partitionListImpl)
 	{
@@ -71,8 +71,8 @@ CPartitionList::GetStartCylinderNoByID(const int which) const
 	return 0;
 }
 
-UINT8
-CPartitionList::GetEndHeadNoByID(const int which) const
+uint_fast8_t
+CPartitionList::GetEndHeadNoByID(const int_fast32_t which) const
 {
 	if (m_partitionListImpl)
 	{
@@ -81,8 +81,8 @@ CPartitionList::GetEndHeadNoByID(const int which) const
 	return 0;
 
 }
-UINT8
-CPartitionList::GetEndSecNoByID(const int which) const
+uint_fast8_t
+CPartitionList::GetEndSecNoByID(const int_fast32_t which) const
 {
 	if (m_partitionListImpl)
 	{
@@ -91,8 +91,8 @@ CPartitionList::GetEndSecNoByID(const int which) const
 	return 0;
 
 }
-UINT16
-CPartitionList::GetEndCylinderNoByID(const int which) const
+uint_fast16_t
+CPartitionList::GetEndCylinderNoByID(const int_fast32_t which) const
 {
 
 	if (m_partitionListImpl)
@@ -102,8 +102,8 @@ CPartitionList::GetEndCylinderNoByID(const int which) const
 	return 0;
 }
 
-INT64
-CPartitionList::GetSecPrecedingPartitionByID(const int which) const
+int_fast64_t
+CPartitionList::GetSecPrecedingPartitionByID(const int_fast32_t which) const
 {
 
 	if (m_partitionListImpl)
@@ -113,8 +113,8 @@ CPartitionList::GetSecPrecedingPartitionByID(const int which) const
 	return -1;
 }
 
-INT64
-CPartitionList::GetTotalSecByID(const int which) const
+int_fast64_t
+CPartitionList::GetTotalSecByID(const int_fast32_t which) const
 {
 	if (m_partitionListImpl)
 	{
@@ -123,8 +123,8 @@ CPartitionList::GetTotalSecByID(const int which) const
 	return -1;
 }
 
-INT64
-CPartitionList::GetSpaceFreeByID(const int which) const
+int_fast64_t
+CPartitionList::GetSpaceFreeByID(const int_fast32_t which) const
 {
 	if (m_partitionListImpl)
 	{
@@ -133,8 +133,8 @@ CPartitionList::GetSpaceFreeByID(const int which) const
 	return -1;
 }
 
-INT64
-CPartitionList::GetSpaceUsedByID(const int which) const
+int_fast64_t
+CPartitionList::GetSpaceUsedByID(const int_fast32_t which) const
 {
 	if (m_partitionListImpl)
 	{
@@ -144,7 +144,7 @@ CPartitionList::GetSpaceUsedByID(const int which) const
 }
 
 const std::string*
-CPartitionList::GetPartitionTypeByID(const int which) const
+CPartitionList::GetPartitionTypeByID(const int_fast32_t which) const
 {
 	if (m_partitionListImpl)
 	{
@@ -154,7 +154,7 @@ CPartitionList::GetPartitionTypeByID(const int which) const
 }
 
 const std::string*
-CPartitionList::GetPartitionNameByID(const int which) const
+CPartitionList::GetPartitionNameByID(const int_fast32_t which) const
 {
 	if (m_partitionListImpl)
 	{
@@ -164,7 +164,7 @@ CPartitionList::GetPartitionNameByID(const int which) const
 }
 
 const std::string*
-CPartitionList::GetVolumeNameByID(const int which) const
+CPartitionList::GetVolumeNameByID(const int_fast32_t which) const
 {
 	if (m_partitionListImpl)
 	{

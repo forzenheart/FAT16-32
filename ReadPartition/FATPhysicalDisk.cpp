@@ -5,7 +5,7 @@ CPhysicalDisk::CPhysicalDisk(void *handle)
 	m_diskHandle.HANDLE = handle;
 }
 
-CPhysicalDisk::CPhysicalDisk(int fd)
+CPhysicalDisk::CPhysicalDisk(int_fast32_t fd)
 {
 	m_diskHandle.fd = fd;
 } 

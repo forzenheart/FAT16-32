@@ -7,7 +7,7 @@
 #include <string>
 #include <strsafe.h>
 
-int
+int_fast32_t
 CPhysicalDiskListImplWindows::EnumPhysicalDisk()
 {
 	m_physicalDiskList.clear();
@@ -18,7 +18,7 @@ CPhysicalDiskListImplWindows::EnumPhysicalDisk()
 	CPhysicalDisk	*pPhydisk = NULL;
 
 	std::string	pathName = "\\\\.\\PhysicalDrive";
-	for (int i = 0; i < MAXPHYSICALDISKNUMBER; i++)
+	for (int_fast32_t i = 0; i < MAXPHYSICALDISKNUMBER; i++)
 	{
 		//Get the disk Handle in windows
 		if ((hFile = CreateFile((pathName + (CHAR)(i + '0')).c_str(),

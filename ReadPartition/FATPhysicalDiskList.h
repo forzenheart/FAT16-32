@@ -5,9 +5,9 @@ class CPhysicalDiskList
 	public:
 		static CPhysicalDiskList*	GetInstance();
 
-		int	EnumPhysicalDisk();
-		int	GetCount() const;
-		CPhysicalDisk*	GetPhysicalDiskByID(const int which) const;
+		int_fast32_t	EnumPhysicalDisk();
+		int_fast32_t	GetCount() const;
+		CPhysicalDisk*	GetPhysicalDiskByID(const int_fast32_t which) const;
 
 	protected:
 		CPhysicalDiskList();

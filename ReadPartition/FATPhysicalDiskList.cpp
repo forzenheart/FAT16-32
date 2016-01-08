@@ -28,7 +28,7 @@ CPhysicalDiskList::CPhysicalDiskList(const CPhysicalDiskList&)
 
 }
 
-int
+int_fast32_t
 CPhysicalDiskList::EnumPhysicalDisk()
 {
 	if (m_physicalListImpl)
@@ -38,7 +38,7 @@ CPhysicalDiskList::EnumPhysicalDisk()
 	return -1;
 }
 
-int
+int_fast32_t
 CPhysicalDiskList::GetCount() const
 {
 	if (m_physicalListImpl)
@@ -49,7 +49,7 @@ CPhysicalDiskList::GetCount() const
 }
 
 CPhysicalDisk*
-CPhysicalDiskList::GetPhysicalDiskByID(const int which) const
+CPhysicalDiskList::GetPhysicalDiskByID(const int_fast32_t which) const
 {
 	if (m_physicalListImpl)
 	{

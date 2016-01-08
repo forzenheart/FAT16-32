@@ -7,10 +7,10 @@ class CPhysicalDiskWindows : public CPhysicalDisk
 {
 	public:
 		CPhysicalDiskWindows(void *handle);
-		virtual INT64	ReadSector(INT64 secNum, void *buf, INT64 bytes);
-		virtual INT64	WriteSector(INT64 secNum, const void *buf, INT64 bytes);
+		virtual int_fast64_t	ReadSector(int_fast64_t secNum, void *buf, int_fast64_t bytes);
+		virtual int_fast64_t	WriteSector(int_fast64_t secNum, const void *buf, int_fast64_t bytes);
 	protected:
-		virtual INT64	Seek(INT64 secNum, int whence = 0);
+		virtual int_fast64_t	Seek(int_fast64_t secNum, int_fast32_t whence = 0);
 };
 
 #endif	//_FAT_PHYSICAL_DISK_WINDOWS_H__

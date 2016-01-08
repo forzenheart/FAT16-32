@@ -8,11 +8,11 @@
 class CPhysicalDiskListImpl {
 	public:
 		//Get the physical disk information on different platform 
-		virtual int	EnumPhysicalDisk() = 0;
+		virtual int_fast32_t	EnumPhysicalDisk() = 0;
 
-		int	GetPhysicalDiskCount() const;
-		CPhysicalDisk*	GetPhysicalDiskByID(const int which) const;
-		const std::string*	GetPhysicalDiskNameByID(const int which) const;
+		int_fast32_t	GetPhysicalDiskCount() const;
+		CPhysicalDisk*	GetPhysicalDiskByID(const int_fast32_t which) const;
+		const std::string*	GetPhysicalDiskNameByID(const int_fast32_t which) const;
 	protected:
 		std::vector<CPhysicalDisk*>	m_physicalDiskList;
 };
